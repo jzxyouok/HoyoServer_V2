@@ -712,11 +712,10 @@
 		8D2681E21CA8DB37009E7BAC /* HoyoServicer */ = {
 			isa = PBXGroup;
 			children = (
-				8901C5091CEDA4F2003D8543 /* GuideCell.swift */,
-				8901C50A1CEDA4F2003D8543 /* RNGuideViewController.swift */,
 				8D2681E31CA8DB37009E7BAC /* AppDelegate.swift */,
 				8D340CD81CA8FCCD00407F30 /* MainViewController.swift */,
 				E041953E1CCF2B3B005D08DC /* Common */,
+				8DD74E191CF3411F008EF6F4 /* Guiding */,
 				E04195431CCF2B84005D08DC /* LoginAndRegister */,
 				E041955C1CCF2BE1005D08DC /* Home */,
 				E041957B1CCF2CBB005D08DC /* Manage */,
@@ -759,6 +758,15 @@
 				8D2681EA1CA8DB37009E7BAC /* HoyoServicer.xcdatamodeld */,
 			);
 			name = ConfigFile;
+			sourceTree = "<group>";
+		};
+		8DD74E191CF3411F008EF6F4 /* Guiding */ = {
+			isa = PBXGroup;
+			children = (
+				8901C5091CEDA4F2003D8543 /* GuideCell.swift */,
+				8901C50A1CEDA4F2003D8543 /* RNGuideViewController.swift */,
+			);
+			name = Guiding;
 			sourceTree = "<group>";
 		};
 		E04195251CCF27D7005D08DC /* Images */ = {
