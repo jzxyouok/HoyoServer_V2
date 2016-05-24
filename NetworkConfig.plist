@@ -5,7 +5,7 @@
 	<key>Website</key>
 	<string>http://wechat.hoyofuwu.com</string>
 	<key>TokenFailCode</key>
-	<string>-10006</string>
+	<string>-10015</string>
 	<key>SuccessCode</key>
 	<string>0</string>
 	<key>Path</key>

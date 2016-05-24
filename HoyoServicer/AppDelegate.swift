@@ -130,7 +130,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         //清理用户文件
         appDelegate.clearCaches()
-        appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
+        if appDelegate.mainViewController != nil{
+            appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     //接收到网络变化后处理事件
     func reachabilityChanged(notification:NSNotification){
