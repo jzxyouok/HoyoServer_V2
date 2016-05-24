@@ -1,9 +1,9 @@
 //
 //  Test+CoreDataProperties.swift
-//  HoyoServicer
+//  
 //
-//  Created by SH15BG0110 on 16/5/24.
-//  Copyright © 2016年 com.ozner.net. All rights reserved.
+//  Created by 赵兵 on 16/5/24.
+//
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -14,5 +14,6 @@ import CoreData
 
 extension Test {
 
+    @NSManaged var attribute12: NSNumber?
 
 }
