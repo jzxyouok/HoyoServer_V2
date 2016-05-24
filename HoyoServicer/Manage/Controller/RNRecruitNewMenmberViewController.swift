@@ -55,6 +55,8 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "memberbg"), forBarPosition: UIBarPosition.Any,barMetrics: UIBarMetrics.Default)
        // navigationController?.navigationBar.setBackgroundImage(imageFromColor(COLORRGBA(60, g: 165, b: 210, a: 1)), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        navigationController?.navigationBar.translucent = false
     }
     
     
@@ -71,6 +73,7 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         navigationController?.navigationBar.shadowImage =  UIImage(named: "blackImgOfNavBg")
         navigationController?.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
         
+        navigationController?.navigationBar.translucent = true
     }
     
     override func viewWillLayoutSubviews() {
@@ -85,13 +88,13 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         rightImageView.snp_updateConstraints { (make) in
              make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
         }
-//
-//        //试图让scrollView稍微可以滑动
-//        let tempHeight = HEIGHT_SCREEN - HEIGHT_NavBar - logoImageView.frame.origin.y - logoImageView.frame.size.height
-//        scrollView.snp_updateConstraints { (make) in
-//            make.bottom.equalTo(logoImageView.snp_bottom).offset(tempHeight+10)
-//        }
-//        
+
+        //试图让scrollView稍微可以滑动
+        let tempHeight = HEIGHT_SCREEN - HEIGHT_NavBar - logoImageView.frame.origin.y - logoImageView.frame.size.height
+        scrollView.snp_updateConstraints { (make) in
+            make.bottom.equalTo(logoImageView.snp_bottom).offset(tempHeight+10)
+        }
+        
         contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
         
     }
@@ -136,9 +139,10 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         contactTextView.backgroundColor = UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 0.2)
         contactTextView.tintColor = COLORRGBA(60, g: 165, b: 210, a: 1)
         contactTextView.text = "请输入招募文字"
+        contactTextView.scrollEnabled = false
         scrollView.addSubview(contactTextView)
         contactTextView.snp_makeConstraints { (make) in
-            make.top.equalTo(needLabel.snp_bottom).offset(80)
+            make.top.equalTo(needLabel.snp_bottom).offset(60)
             make.leading.equalTo(view.snp_leading).offset(30)
             make.trailing.equalTo(view.snp_trailing).offset(-30)
             make.height.equalTo(contactTextView.snp_width).multipliedBy(12/18.0)
@@ -236,10 +240,16 @@ extension RNRecruitNewMenmberViewController{
         //跳转的url
         let shareURL = NSURL(string: "http://www.jianshu.com/users/274775e3d56d/latest_articles")
         
+        var desc: String = "浩优服务家期待您的加入"
+        
+        if !contactTextView.text.isEmpty && !(contactTextView.text as NSString).isEqualToString("请输入招募文字"){
+            desc = contactTextView.text
+        }
+        
         let info = MonkeyKing.Info(
             title: "浩泽服务家",
-            description: "我的appKey还木有拿到辣",
-            thumbnail: UIImage(named: "auth_wait"),
+            description: desc,
+            thumbnail: UIImage(named: "AppIcon"),
             media: MonkeyKing.Media.URL(shareURL!)
         )
         

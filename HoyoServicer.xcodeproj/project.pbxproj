@@ -152,15 +152,11 @@
 		E04195591CCF2BA3005D08DC /* RegistFooterView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041954D1CCF2BA3005D08DC /* RegistFooterView2.xib */; };
 		E041955A1CCF2BA3005D08DC /* RegistFooterView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041954E1CCF2BA3005D08DC /* RegistFooterView3.swift */; };
 		E041955B1CCF2BA3005D08DC /* RegistFooterView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041954F1CCF2BA3005D08DC /* RegistFooterView3.xib */; };
-		E041959E1CCF2D77005D08DC /* AchievementControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041957E1CCF2D77005D08DC /* AchievementControllerViewController.swift */; };
-		E041959F1CCF2D77005D08DC /* AchievementControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041957F1CCF2D77005D08DC /* AchievementControllerViewController.xib */; };
 		E04195A61CCF2D77005D08DC /* DetailFinancialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195881CCF2D77005D08DC /* DetailFinancialTableViewController.swift */; };
 		E04195A71CCF2D77005D08DC /* DetailFinancialTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195891CCF2D77005D08DC /* DetailFinancialTableViewController.xib */; };
 		E04195A81CCF2D77005D08DC /* FinancialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041958A1CCF2D77005D08DC /* FinancialViewController.swift */; };
 		E04195A91CCF2D77005D08DC /* FinancialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041958B1CCF2D77005D08DC /* FinancialViewController.xib */; };
 		E04195AA1CCF2D77005D08DC /* GetMoneyDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041958C1CCF2D77005D08DC /* GetMoneyDetailTableViewController.swift */; };
-		E04195AC1CCF2D77005D08DC /* RecruitNewMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041958E1CCF2D77005D08DC /* RecruitNewMemberViewController.swift */; };
-		E04195AD1CCF2D77005D08DC /* RecruitNewMemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041958F1CCF2D77005D08DC /* RecruitNewMemberViewController.xib */; };
 		E04195AE1CCF2D77005D08DC /* ManageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195901CCF2D77005D08DC /* ManageTableViewController.swift */; };
 		E04195AF1CCF2D77005D08DC /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195921CCF2D77005D08DC /* AchievementCell.swift */; };
 		E04195B01CCF2D77005D08DC /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195931CCF2D77005D08DC /* AchievementCell.xib */; };
@@ -450,15 +446,11 @@
 		E041954D1CCF2BA3005D08DC /* RegistFooterView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistFooterView2.xib; sourceTree = "<group>"; };
 		E041954E1CCF2BA3005D08DC /* RegistFooterView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistFooterView3.swift; sourceTree = "<group>"; };
 		E041954F1CCF2BA3005D08DC /* RegistFooterView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistFooterView3.xib; sourceTree = "<group>"; };
-		E041957E1CCF2D77005D08DC /* AchievementControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementControllerViewController.swift; sourceTree = "<group>"; };
-		E041957F1CCF2D77005D08DC /* AchievementControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AchievementControllerViewController.xib; sourceTree = "<group>"; };
 		E04195881CCF2D77005D08DC /* DetailFinancialTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFinancialTableViewController.swift; sourceTree = "<group>"; };
 		E04195891CCF2D77005D08DC /* DetailFinancialTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFinancialTableViewController.xib; sourceTree = "<group>"; };
 		E041958A1CCF2D77005D08DC /* FinancialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialViewController.swift; sourceTree = "<group>"; };
 		E041958B1CCF2D77005D08DC /* FinancialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinancialViewController.xib; sourceTree = "<group>"; };
 		E041958C1CCF2D77005D08DC /* GetMoneyDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMoneyDetailTableViewController.swift; sourceTree = "<group>"; };
-		E041958E1CCF2D77005D08DC /* RecruitNewMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitNewMemberViewController.swift; sourceTree = "<group>"; };
-		E041958F1CCF2D77005D08DC /* RecruitNewMemberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecruitNewMemberViewController.xib; sourceTree = "<group>"; };
 		E04195901CCF2D77005D08DC /* ManageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageTableViewController.swift; sourceTree = "<group>"; };
 		E04195921CCF2D77005D08DC /* AchievementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		E04195931CCF2D77005D08DC /* AchievementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
@@ -903,9 +895,7 @@
 				E04195D81CCF2F41005D08DC /* TeamListTableViewController.swift */,
 				E041958C1CCF2D77005D08DC /* GetMoneyDetailTableViewController.swift */,
 				E05610471CE9CD5100979919 /* GetMoneyViewController.swift */,
-				E041958E1CCF2D77005D08DC /* RecruitNewMemberViewController.swift */,
 				E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */,
-				E041958F1CCF2D77005D08DC /* RecruitNewMemberViewController.xib */,
 				E041957D1CCF2D77005D08DC /* Achievement */,
 				E04195801CCF2D77005D08DC /* BoundCard */,
 				E04195871CCF2D77005D08DC /* FinancialManager */,
@@ -916,8 +906,6 @@
 		E041957D1CCF2D77005D08DC /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
-				E041957E1CCF2D77005D08DC /* AchievementControllerViewController.swift */,
-				E041957F1CCF2D77005D08DC /* AchievementControllerViewController.xib */,
 				E06ABE7B1CF3FB9500B704EE /* RNAchievementViewController.swift */,
 				E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */,
 				E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */,
@@ -1390,7 +1378,6 @@
 				E05610541CE9CD8500979919 /* FillBankCardMessageController.xib in Resources */,
 				3BD5B9691CF2C1150097BC60 /* NetworkConfig.plist in Resources */,
 				3BD5B9ED1CF2C2270097BC60 /* ScanResultController.xib in Resources */,
-				E041959F1CCF2D77005D08DC /* AchievementControllerViewController.xib in Resources */,
 				E04195FC1CCF2F41005D08DC /* SettingViewController.xib in Resources */,
 				E04196021CCF2F41005D08DC /* AuthDetailView.xib in Resources */,
 				E03682791CD33D68006C03D4 /* BoundCarViewCell.xib in Resources */,
@@ -1425,7 +1412,6 @@
 				E04196111CCF2F41005D08DC /* TeamListTableViewCell.xib in Resources */,
 				3BD5B9A11CF2C1A00097BC60 /* HomeTableViewCell.xib in Resources */,
 				8D50DCA71CE5B9350063839F /* GYTeamListCell.xib in Resources */,
-				E04195AD1CCF2D77005D08DC /* RecruitNewMemberViewController.xib in Resources */,
 				3BD5B9771CF2C1690097BC60 /* SelectProductViewController.xib in Resources */,
 				E04195FF1CCF2F41005D08DC /* UserInfoViewController.xib in Resources */,
 				E04195F51CCF2F41005D08DC /* MyExamViewController.xib in Resources */,
@@ -1655,7 +1641,6 @@
 				E04196011CCF2F41005D08DC /* AuthDetailView.swift in Sources */,
 				E04196511CCF37D5005D08DC /* CALayer+Expand.swift in Sources */,
 				E04195AE1CCF2D77005D08DC /* ManageTableViewController.swift in Sources */,
-				E041959E1CCF2D77005D08DC /* AchievementControllerViewController.swift in Sources */,
 				3BD5B9DB1CF2C2270097BC60 /* MSSBrowseBaseViewController.m in Sources */,
 				E05610591CE9CDCB00979919 /* RNUIView+Expand.swift in Sources */,
 				E04196031CCF2F41005D08DC /* MyCenterTableViewCell.swift in Sources */,
@@ -1699,7 +1684,6 @@
 				3BD5B9EC1CF2C2270097BC60 /* ScanResultController.swift in Sources */,
 				E04195C51CCF2EA5005D08DC /* NewsTableViewController.swift in Sources */,
 				E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */,
-				E04195AC1CCF2D77005D08DC /* RecruitNewMemberViewController.swift in Sources */,
 				E041964C1CCF37D5005D08DC /* User+CoreDataProperties.swift in Sources */,
 				E041960B1CCF2F41005D08DC /* ChiefOfSelectIDCell.swift in Sources */,
 				3BD5B99A1CF2C1A00097BC60 /* DetailTableViewCell3.swift in Sources */,
