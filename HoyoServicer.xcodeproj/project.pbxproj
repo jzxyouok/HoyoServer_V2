@@ -248,6 +248,14 @@
 		E056106D1CE9D21200979919 /* getMoneyDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056106B1CE9D21200979919 /* getMoneyDetailCell.swift */; };
 		E056106E1CE9D21200979919 /* getMoneyDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E056106C1CE9D21200979919 /* getMoneyDetailCell.xib */; };
 		E059853E1CF2F3A5006C83F6 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = E059853D1CF2F3A5006C83F6 /* PopoverView.m */; };
+		E06ABE771CF3FAF300B704EE /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE6F1CF3FAF300B704EE /* UIView+Frame.m */; };
+		E06ABE781CF3FAF300B704EE /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE711CF3FAF300B704EE /* YZDisplayTitleLabel.m */; };
+		E06ABE791CF3FAF300B704EE /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE731CF3FAF300B704EE /* YZDisplayViewController.m */; };
+		E06ABE7A1CF3FAF300B704EE /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE761CF3FAF300B704EE /* YZFlowLayout.m */; };
+		E06ABE7C1CF3FB9500B704EE /* RNAchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE7B1CF3FB9500B704EE /* RNAchievementViewController.swift */; };
+		E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */; };
+		E06ABE801CF3FC1D00B704EE /* RNWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */; };
+		E06ABE821CF3FC2B00B704EE /* RNMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE811CF3FC2B00B704EE /* RNMonthViewController.swift */; };
 		E07497E11CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */; };
 		E07497E31CEC6A1600C7DEFB /* RNBaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */; };
 		EFB5D29623F5D3CFF740819D /* Pods_HoyoServicerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */; };
@@ -550,6 +558,19 @@
 		E056106C1CE9D21200979919 /* getMoneyDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = getMoneyDetailCell.xib; sourceTree = "<group>"; };
 		E059853C1CF2F3A5006C83F6 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		E059853D1CF2F3A5006C83F6 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		E06ABE6E1CF3FAF300B704EE /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		E06ABE6F1CF3FAF300B704EE /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		E06ABE701CF3FAF300B704EE /* YZDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayTitleLabel.h; sourceTree = "<group>"; };
+		E06ABE711CF3FAF300B704EE /* YZDisplayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayTitleLabel.m; sourceTree = "<group>"; };
+		E06ABE721CF3FAF300B704EE /* YZDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewController.h; sourceTree = "<group>"; };
+		E06ABE731CF3FAF300B704EE /* YZDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayViewController.m; sourceTree = "<group>"; };
+		E06ABE741CF3FAF300B704EE /* YZDisplayViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewHeader.h; sourceTree = "<group>"; };
+		E06ABE751CF3FAF300B704EE /* YZFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZFlowLayout.h; sourceTree = "<group>"; };
+		E06ABE761CF3FAF300B704EE /* YZFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZFlowLayout.m; sourceTree = "<group>"; };
+		E06ABE7B1CF3FB9500B704EE /* RNAchievementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNAchievementViewController.swift; sourceTree = "<group>"; };
+		E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNTodayViewController.swift; sourceTree = "<group>"; };
+		E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNWeekViewController.swift; sourceTree = "<group>"; };
+		E06ABE811CF3FC2B00B704EE /* RNMonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNMonthViewController.swift; sourceTree = "<group>"; };
 		E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRecruitNewMenmberViewController.swift; sourceTree = "<group>"; };
 		E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseUI.swift; sourceTree = "<group>"; };
 		F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoyoServicerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -897,6 +918,10 @@
 			children = (
 				E041957E1CCF2D77005D08DC /* AchievementControllerViewController.swift */,
 				E041957F1CCF2D77005D08DC /* AchievementControllerViewController.xib */,
+				E06ABE7B1CF3FB9500B704EE /* RNAchievementViewController.swift */,
+				E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */,
+				E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */,
+				E06ABE811CF3FC2B00B704EE /* RNMonthViewController.swift */,
 			);
 			path = Achievement;
 			sourceTree = "<group>";
@@ -1050,6 +1075,7 @@
 		E04196131CCF37D5005D08DC /* ExtralLibary */ = {
 			isa = PBXGroup;
 			children = (
+				E06ABE6D1CF3FAF300B704EE /* YZDisplayViewController */,
 				E059853B1CF2F376006C83F6 /* PopoverView */,
 				3BD5B9B11CF2C2270097BC60 /* MSSBrowse */,
 				3BD5B9CD1CF2C2270097BC60 /* SwiftScan */,
@@ -1190,6 +1216,22 @@
 			path = PopoverView;
 			sourceTree = "<group>";
 		};
+		E06ABE6D1CF3FAF300B704EE /* YZDisplayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E06ABE6E1CF3FAF300B704EE /* UIView+Frame.h */,
+				E06ABE6F1CF3FAF300B704EE /* UIView+Frame.m */,
+				E06ABE701CF3FAF300B704EE /* YZDisplayTitleLabel.h */,
+				E06ABE711CF3FAF300B704EE /* YZDisplayTitleLabel.m */,
+				E06ABE721CF3FAF300B704EE /* YZDisplayViewController.h */,
+				E06ABE731CF3FAF300B704EE /* YZDisplayViewController.m */,
+				E06ABE741CF3FAF300B704EE /* YZDisplayViewHeader.h */,
+				E06ABE751CF3FAF300B704EE /* YZFlowLayout.h */,
+				E06ABE761CF3FAF300B704EE /* YZFlowLayout.m */,
+			);
+			path = YZDisplayViewController;
+			sourceTree = "<group>";
+		};
 		E266CB30D571A370AF9EDEF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1289,6 +1331,7 @@
 				TargetAttributes = {
 					8D2681DF1CA8DB37009E7BAC = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = BQE6636VJ7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1440,7 +1483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		33AAB875EA4B2400143EB38A /* 📦 Embed Pods Frameworks */ = {
@@ -1500,7 +1543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D783B8E21E4126C0A0F03B66 /* 📦 Copy Pods Resources */ = {
@@ -1545,7 +1588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\ncat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\nexit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1590,12 +1633,14 @@
 				3BD5B97D1CF2C1690097BC60 /* RobListOneController.swift in Sources */,
 				3BD5B9FB1CF2C86D0097BC60 /* Settlementinfo.swift in Sources */,
 				8901C5081CEC54BA003D8543 /* GYDetailNewCell.swift in Sources */,
+				E06ABE821CF3FC2B00B704EE /* RNMonthViewController.swift in Sources */,
 				8901C5181CEEB56C003D8543 /* ScoreMessageCell.swift in Sources */,
 				E04195B91CCF2D77005D08DC /* ManageTableViewCell.swift in Sources */,
 				E04196521CCF37D5005D08DC /* GlobalDefinit.swift in Sources */,
 				3BD5B9F91CF2C7FB0097BC60 /* FinishOrderModel.swift in Sources */,
 				8D6269821CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift in Sources */,
 				E04196581CCF37D5005D08DC /* UIViewController+Expand.swift in Sources */,
+				E06ABE791CF3FAF300B704EE /* YZDisplayViewController.m in Sources */,
 				8D7F02991CD216030060681F /* NetworkManager.swift in Sources */,
 				E04195FD1CCF2F41005D08DC /* TeamListTableViewController.swift in Sources */,
 				E056105D1CE9CE5E00979919 /* MyAccount+CoreDataProperties.swift in Sources */,
@@ -1622,11 +1667,14 @@
 				E04196561CCF37D5005D08DC /* String+Expand.swift in Sources */,
 				8D7F029B1CD2160E0060681F /* User.swift in Sources */,
 				E03682781CD33D68006C03D4 /* BoundCarViewCell.swift in Sources */,
+				E06ABE781CF3FAF300B704EE /* YZDisplayTitleLabel.m in Sources */,
 				E056105A1CE9CDCB00979919 /* ShareIDAndKey.swift in Sources */,
 				E04195411CCF2B4F005D08DC /* WeiXinURLViewController.swift in Sources */,
+				E06ABE801CF3FC1D00B704EE /* RNWeekViewController.swift in Sources */,
 				E04196541CCF37D5005D08DC /* Other+Expand.swift in Sources */,
 				8901C5161CEEA472003D8543 /* ScoreMessageModel.swift in Sources */,
 				E05610531CE9CD8500979919 /* FillBankCardMessageController.swift in Sources */,
+				E06ABE7A1CF3FAF300B704EE /* YZFlowLayout.m in Sources */,
 				3BD5B9E31CF2C2270097BC60 /* UIImage+MSSScale.m in Sources */,
 				89816ECD1CF3E70C001788E0 /* Test.swift in Sources */,
 				3BD5B9781CF2C1690097BC60 /* OznerScanViewController.swift in Sources */,
@@ -1650,6 +1698,7 @@
 				E04196431CCF37D5005D08DC /* AFSecurityPolicy.m in Sources */,
 				3BD5B9EC1CF2C2270097BC60 /* ScanResultController.swift in Sources */,
 				E04195C51CCF2EA5005D08DC /* NewsTableViewController.swift in Sources */,
+				E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */,
 				E04195AC1CCF2D77005D08DC /* RecruitNewMemberViewController.swift in Sources */,
 				E041964C1CCF37D5005D08DC /* User+CoreDataProperties.swift in Sources */,
 				E041960B1CCF2F41005D08DC /* ChiefOfSelectIDCell.swift in Sources */,
@@ -1699,6 +1748,7 @@
 				3BD5B9A01CF2C1A00097BC60 /* HomeTableViewCell.swift in Sources */,
 				E04196401CCF37D5005D08DC /* AFHTTPRequestOperationManager.m in Sources */,
 				8D6269811CE437D1007849E0 /* AccountDetailModel.swift in Sources */,
+				E06ABE7C1CF3FB9500B704EE /* RNAchievementViewController.swift in Sources */,
 				E04195AF1CCF2D77005D08DC /* AchievementCell.swift in Sources */,
 				3BD5B9EA1CF2C2270097BC60 /* LBXScanViewStyle.swift in Sources */,
 				E04196491CCF37D5005D08DC /* DataObject.swift in Sources */,
@@ -1708,6 +1758,7 @@
 				E04195B31CCF2D77005D08DC /* DetailfFinancialViewCell.swift in Sources */,
 				E04195F91CCF2F41005D08DC /* SetSexViewController.swift in Sources */,
 				3BD5B9DD1CF2C2270097BC60 /* MSSBrowseLoadingImageView.m in Sources */,
+				E06ABE771CF3FAF300B704EE /* UIView+Frame.m in Sources */,
 				3BD5B97B1CF2C1690097BC60 /* RobListMianViewController.swift in Sources */,
 				8901C5061CEC4FF6003D8543 /* GYDetailNewsVC.swift in Sources */,
 				3BD5B9A61CF2C1A00097BC60 /* SubmitCell.swift in Sources */,

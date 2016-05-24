@@ -84,7 +84,8 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
             break
         case 4:
             
-            let achievement = AchievementControllerViewController()
+            //let achievement = AchievementControllerViewController()
+            let achievement = RNAchievementViewController()
             achievement.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(achievement, animated: true)
             break
