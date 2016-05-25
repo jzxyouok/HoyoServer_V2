@@ -132,12 +132,12 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         contactTextView = RNBaseUI.creatTextView(UIKeyboardType.Default, returnKeyType: UIReturnKeyType.Done)
         contactTextView.delegate = self
        // print("hhhhhhh:\(UIFont.familyNames())")
-        contactTextView.font = UIFont(name: "Blackoak Std", size: 18)
+        contactTextView.font = UIFont(name: "Blackoak Std", size: 14)
         contactTextView.font = UIFont.systemFontOfSize(18)
         contactTextView.textColor = UIColor.whiteColor()
         contactTextView.backgroundColor = UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 0.2)
         contactTextView.tintColor = COLORRGBA(60, g: 165, b: 210, a: 1)
-        contactTextView.text = "请输入招募文字"
+        contactTextView.text = "请输入招募文字(88字以内)"
         contactTextView.scrollEnabled = false
         scrollView.addSubview(contactTextView)
         contactTextView.snp_makeConstraints { (make) in
@@ -257,9 +257,9 @@ extension RNRecruitNewMenmberViewController{
         //跳转的url
         let shareURL = NSURL(string: "http://www.jianshu.com/users/274775e3d56d/latest_articles")
         
-        var desc: String = "浩优服务家期待您的加入"
+        var desc: String = "浩优期待您的加入"
         
-        if !contactTextView.text.isEmpty && !(contactTextView.text as NSString).isEqualToString("请输入招募文字"){
+        if !contactTextView.text.isEmpty && !(contactTextView.text as NSString).isEqualToString("请输入招募文字(88字以内)"){
             desc = contactTextView.text
         }
         
@@ -326,8 +326,19 @@ extension RNRecruitNewMenmberViewController{
     
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
-            contactTextView.text = "请输入招募文字"
+            contactTextView.text = "请输入招募文字(88字以内)"
             isFirstInput = true
+        }
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        if (textView.text as NSString).length > 88 {
+            textView.text = (textView.text as NSString).substringToIndex(88)
+            textView.resignFirstResponder()
+            let alertView=SCLAlertView()
+            alertView.addButton("ok", action: {})
+            alertView.showError("错误提示", subTitle: "输入不能超过88个字")
         }
     }
 }
