@@ -14,7 +14,7 @@ pod 'Appirater', '~> 2.0.5'
 pod 'Reachability', '~> 3.2'
 pod 'BaiduMapKit'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-pod 'IQKeyboardManagerSwift', '~> 4.0.1'
+pod 'IQKeyboardManager', '4.0.1'
 pod 'MonkeyKing', '~> 0.9.2'
 pod 'MJRefresh', '~> 3.1.0'
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
 class FillBankCardMessageController: UIViewController {
     
@@ -128,6 +129,30 @@ class FillBankCardMessageController: UIViewController {
         
        
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        // IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
+    }
+
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+        
+    
+    
+    }
+
    
     
     // MARK - Init

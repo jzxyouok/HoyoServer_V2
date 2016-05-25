@@ -15,11 +15,15 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        User.BingJgNotifyId(JPUSHService.registrationID(), success: {
-            print("绑定极光通知成功")
-        }) { (error:NSError) in
-            print(error)
+        if JPUSHService.registrationID() != nil{
+            User.BingJgNotifyId(JPUSHService.registrationID(), success: {
+                print("绑定极光通知成功")
+            }) { (error:NSError) in
+                print(error)
+            }
+
         }
+        
         let c1=HomeTableViewController()
         c1.tabBarItem.title="首页"
         c1.tabBarItem.image=UIImage(named: "HomeIcon")

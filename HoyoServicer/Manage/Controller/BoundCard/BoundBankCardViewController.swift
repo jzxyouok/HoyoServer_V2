@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
 class BoundBankCardViewController: UIViewController {
     var tableView: UITableView!
@@ -39,7 +40,24 @@ class BoundBankCardViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+
+        
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+        
+    }
+
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

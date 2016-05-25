@@ -57,7 +57,7 @@ SOFTWARE.
 
 
 
-## IQKeyboardManagerSwift
+## IQKeyboardManager
 
 IQKeyboardManager license
 =========================

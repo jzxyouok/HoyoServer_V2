@@ -10,7 +10,7 @@
 
 import UIKit
 import MonkeyKing
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 
 class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
     
@@ -78,16 +78,16 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
     
     override func viewWillLayoutSubviews() {
         
-         let height = HEIGHT_SCREEN - HEIGHT_NavBar - contactTextView.frame.origin.y - contactTextView.frame.size.height
-         leftImageView.snp_updateConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
-        }
-        noteLabel.snp_updateConstraints { (make) in
-             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+10)
-        }
-        rightImageView.snp_updateConstraints { (make) in
-             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
-        }
+//         let height = HEIGHT_SCREEN - HEIGHT_NavBar - contactTextView.frame.origin.y - contactTextView.frame.size.height
+//         leftImageView.snp_updateConstraints { (make) in
+//            make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
+//        }
+//        noteLabel.snp_updateConstraints { (make) in
+//             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+10)
+//        }
+//        rightImageView.snp_updateConstraints { (make) in
+//             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
+//        }
 
         //试图让scrollView稍微可以滑动
         let tempHeight = HEIGHT_SCREEN - HEIGHT_NavBar - logoImageView.frame.origin.y - logoImageView.frame.size.height
@@ -95,8 +95,8 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
             make.bottom.equalTo(logoImageView.snp_bottom).offset(tempHeight+10)
         }
         
-        contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
-        
+//        contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
+//        
     }
 
     
@@ -106,10 +106,7 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor(patternImage: UIImage(named: "memberbg")!)
         view.addSubview(scrollView)
-        scrollView.snp_makeConstraints { (make) in
-            make.edges.equalTo(0)
-          //  make.bottom.equalTo(logoImageView.snp_bottom).offset(10)
-        }
+        
         
         myTeamLabel = RNBaseUI.createLabel("我的团队", titleColor: UIColor.whiteColor(), font: 24, alignment: NSTextAlignment.Center)
         scrollView.addSubview(myTeamLabel)
@@ -145,24 +142,39 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
             make.top.equalTo(needLabel.snp_bottom).offset(60)
             make.leading.equalTo(view.snp_leading).offset(30)
             make.trailing.equalTo(view.snp_trailing).offset(-30)
-            make.height.equalTo(contactTextView.snp_width).multipliedBy(12/18.0)
+            make.height.equalTo((MainScreenBounds.size.width-60)*10/18.0)
         }
         
-         //contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
+        contactTextView.layer.masksToBounds = true
+        contactTextView.layer.cornerRadius = 10
+
+        
+        var vSpace = MainScreenBounds.size.height - 64 - 140 - 60 - (MainScreenBounds.size.width-60)*10/18.0 - 90 - 10
+        
+        if vSpace < 30 {
+            vSpace = 30
+            
+            contactTextView.snp_updateConstraints { (make) in
+                make.top.equalTo(needLabel.snp_bottom).offset(30)
+            }
+            
+        }
+
         
         leftImageView = RNBaseUI.createImageView(nil, backgroundColor: UIColor.whiteColor())
         scrollView.addSubview(leftImageView)
         leftImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(36)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace+6)
             make.leading.equalTo(view.snp_leading).offset(0)
             make.width.equalTo(70)
             make.height.equalTo(1)
         }
         
         noteLabel = RNBaseUI.createLabel("服务家售后团队火热招募中", titleColor: UIColor.whiteColor(), font: 15, alignment: NSTextAlignment.Center)
+        noteLabel.adjustsFontSizeToFitWidth = true
         scrollView.addSubview(noteLabel)
         noteLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(30)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace)
             make.leading.equalTo(leftImageView.snp_trailing).offset(5)
             make.height.equalTo(15)
         }
@@ -170,7 +182,7 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         rightImageView = RNBaseUI.createImageView(nil, backgroundColor: UIColor.whiteColor())
         scrollView.addSubview(rightImageView)
         rightImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(36)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace+6)
             make.leading.equalTo(noteLabel.snp_trailing).offset(5)
             make.trailing.equalTo(view.snp_trailing).offset(0)
             make.width.equalTo(70)
@@ -187,7 +199,10 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
             
         }
         
-       
+        scrollView.snp_makeConstraints { (make) in
+            make.edges.equalTo(0)
+            make.bottom.equalTo(logoImageView.snp_bottom).offset(10)
+        }
 
     }
     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 import ALCameraViewController
 import SwiftyJSON
 class SubmitController: UITableViewController,SubmitCellDelegate ,UseTimeConDelegate,OznerScanViewControllerDelegate,SelectProductViewControllerDelegate,SubmitBtnDelegate{

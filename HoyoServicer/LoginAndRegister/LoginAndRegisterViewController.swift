@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 
 enum LoginStateEnum:Int {
     case Login=0
@@ -151,10 +151,9 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        returnKeyHandler =  IQKeyboardReturnKeyHandler(controller: self)
+        returnKeyHandler =  IQKeyboardReturnKeyHandler(viewController: self)
         returnKeyHandler!.lastTextFieldReturnKeyType = UIReturnKeyType.Done
-        
-        
+
     }
     
     

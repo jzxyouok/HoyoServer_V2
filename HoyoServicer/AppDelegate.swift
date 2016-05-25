@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Reachability
 import SwiftyJSON
+
 var appDelegate: AppDelegate {
     return UIApplication.sharedApplication().delegate as! AppDelegate
 }
@@ -119,6 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //收到自定义消息
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.JPushDidReceiveMessage(_:)), name: kJPFNetworkDidReceiveMessageNotification, object: nil)
+        
         
         return true
     }
