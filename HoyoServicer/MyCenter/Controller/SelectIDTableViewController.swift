@@ -61,17 +61,20 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
                 //创建团队
                 chiefOfSelectIDCell?.webSiteNameTextField.resignFirstResponder()
                 chiefOfSelectIDCell?.detailAdressTextField.resignFirstResponder()
+                view.resignFirstResponder()
                 createTeam()
                 break
             case "n-partner":
                 //加入团队 一般合伙人
                 //PartnerCommand
                 generalOfSelectIDCell?.inputNumberTextField.resignFirstResponder()
+                view.resignFirstResponder()
                 joinEngineerTeam()
                 break
             case "engineer":
                 //联席工程师
                 generalOfSelectIDCell?.inputNumberTextField.resignFirstResponder()
+                view.resignFirstResponder()
                 joinHoldTeam()
                 break
             default:
@@ -178,15 +181,15 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
         let city = strNer.last
         print("\(province)" + "\(city)")
         let dict = ["scope":"partner","name":(chiefOfSelectIDCell?.webSiteNameTextField.text)!,"province":province!,"city":city!,"country":"  ","address":(chiefOfSelectIDCell?.detailAdressTextField.text)!]
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.UpgradeAuthority(dict, success: {
-            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
             let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
             alert.show()
             
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
-                MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                 let alert = UIAlertView(title: "温馨提示", message: "提交申请失败请重试", delegate: nil, cancelButtonTitle: "确定")
                 alert.show()
         })
@@ -201,14 +204,14 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
             return
         }
         let params: NSDictionary = ["groupnumber":Int((generalOfSelectIDCell?.inputNumberTextField.text)!)!,"commandaction":"join","scope":"n-partner"]
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.PartnerCommand(params, success: {
-            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
             let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
             alert.show()
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
-                MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                 if error.code == -10033 {
                     let alert = UIAlertView(title: "温馨提示", message: "当前组不存在请重试", delegate: nil, cancelButtonTitle: "确定")
                     alert.show()
@@ -229,14 +232,14 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
             return
         }
         let params: NSDictionary = ["groupnumber":Int((generalOfSelectIDCell?.inputNumberTextField.text)!)!,"commandaction":"join","scope":"l-engineer"]
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.PartnerCommand(params, success: {
-            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
             let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
             alert.show()
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
-                MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                 if error.code == -10033 {
                     let alert = UIAlertView(title: "温馨提示", message: "当前组不存在请重试", delegate: nil, cancelButtonTitle: "确定")
                     alert.show()

@@ -14,7 +14,28 @@ class FinancialManagerVC: UIViewController ,UITableViewDataSource,UITableViewDel
     
     var index: Int = 1
     let pageSize = 5
-    
+    var  expenditure: String?
+        {
+        didSet{
+            
+            if expenditure != "" {
+                payNumLabel.text = expenditure
+            } else {
+                payNumLabel.text = "0.0"
+            }
+        }
+    }
+    var  income: String?
+        {
+        didSet{
+            if income != "" {
+                incomeNumLabel.text = income
+            } else {
+                print(income)
+                incomeNumLabel.text = "0.0"
+            }
+        }
+    }
     
     var dataArr: [AccountDetailModel] = []
         {
@@ -29,6 +50,8 @@ class FinancialManagerVC: UIViewController ,UITableViewDataSource,UITableViewDel
         navigationController?.navigationBarHidden = false
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(FinancialManagerVC.backAction))
         title = "财务管理"
+        dataArr.removeAll()
+        tableView.triggerPullToRefresh()
     }
     
     
@@ -87,7 +110,7 @@ class FinancialManagerVC: UIViewController ,UITableViewDataSource,UITableViewDel
         segement.selectedSegmentIndex = 0
         view.addSubview(segement)
         tableView.frame = CGRect(x: 0, y: CGRectGetMaxY(segement.frame) + 12, width: WIDTH_SCREEN, height: HEIGHT_SCREEN - CGRectGetMaxY(segement.frame) - 76)
-        tableView.backgroundColor = UIColor.lightGrayColor()
+        tableView.backgroundColor =  UIColor(red: 246/255.0, green: 247/255.0, blue: 248/255.0, alpha: 1.0)
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)

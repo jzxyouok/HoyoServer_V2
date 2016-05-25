@@ -27,7 +27,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-N8-qEo">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
                                     <subviews>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="login_user" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-Wq-Owg">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="login_user" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-Wq-Owg">
                                             <rect key="frame" x="12" y="13" width="16" height="18"/>
                                         </imageView>
                                     </subviews>
@@ -42,7 +42,7 @@
                                     <rect key="frame" x="40" y="0.0" width="275" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

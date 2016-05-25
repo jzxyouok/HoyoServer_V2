@@ -74,7 +74,7 @@ class MyTeamTableViewController: UITableViewController {
             weakSelf?.myTeamData = teamArr
             weakSelf?.teamMembers = memberArr
             // ---
-            weakSelf!.addUI()
+            weakSelf?.addUI()
         }) { (error:NSError) in
             weakSelf?.navigationItem.rightBarButtonItem?.enabled = false
         }

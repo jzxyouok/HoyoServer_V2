@@ -15,6 +15,7 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.resignFirstResponder()
         self.automaticallyAdjustsScrollViewInsets=false
         tableView.registerNib(UINib(nibName: "ManageTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "ManageTableViewCell")
         
@@ -30,6 +31,7 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=true
+        
     }
     // MARK: - Table view data source
     
@@ -68,6 +70,8 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
         switch Tag {
         case 1:
             let  financialManager = FinancialManagerVC()
+            financialManager.expenditure = accountModel?.totalAssets ?? "0"
+            financialManager.income = accountModel?.income ?? "0"
             financialManager.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(financialManager, animated: true)
             break
@@ -90,6 +94,8 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
             break
         case 5:
             let financialManager = FinancialManagerVC()
+            financialManager.expenditure = accountModel?.totalAssets ?? "0"
+            financialManager.income = accountModel?.income ?? "0"
             financialManager.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(financialManager, animated: true)
             

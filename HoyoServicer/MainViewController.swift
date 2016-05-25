@@ -15,11 +15,14 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        User.BingJgNotifyId(JPUSHService.registrationID(), success: {
-            print("绑定极光通知成功")
-        }) { (error:NSError) in
-            print(error)
+        if JPUSHService.registrationID() != nil {
+            User.BingJgNotifyId(JPUSHService.registrationID(), success: {
+                print("绑定极光通知成功")
+            }) { (error:NSError) in
+                print(error)
+            }
         }
+        
         let c1=HomeTableViewController()
         c1.tabBarItem.title="首页"
         c1.tabBarItem.image=UIImage(named: "HomeIcon")
@@ -38,12 +41,12 @@ class MainViewController: UITabBarController {
         c3.tabBarItem.title="消息"
         c3.tabBarItem.image=UIImage(named: "NewsIcon")
         c3.tabBarItem.selectedImage=UIImage(named: "NewsIcon_on")
-        let num1:String = (NSUserDefaults.standardUserDefaults().valueForKey("messageNum")  ?? "0") as! String
-        let num2:String = (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum")  ?? "0") as! String
-        let num = String(Int(num1)! + Int(num2)!) ?? "0"
-        if num != "0" {
-            c3.tabBarItem.badgeValue = num
-        }
+        //        let num1:String = (NSUserDefaults.standardUserDefaults().valueForKey("messageNum")  ?? "0") as! String
+        //        let num2:String = (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum")  ?? "0") as! String
+        //        let num = String(Int(num1)! + Int(num2)!) ?? "0"
+        //        if num != "0" {
+        //            c3.tabBarItem.badgeValue = num
+        //        }
         let nav3=UINavigationController(rootViewController: c3)
         nav3.navigationBar.loadBlackBgBar()
         let c4=MyCenterTableViewController()
@@ -60,14 +63,14 @@ class MainViewController: UITabBarController {
     }
     
     func notice(sender: AnyObject) {
-        let num1:String = (NSUserDefaults.standardUserDefaults().valueForKey("messageNum")  ?? "0") as! String
-        let num2:String = (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum")  ?? "0") as! String
-        let num = String(Int(num1)! + Int(num2)!) ?? "0"
-        if num != "0" {
-            c3.tabBarItem.badgeValue = num
-        } else {
-            c3.tabBarItem.badgeValue = nil
-        }
+        //        let num1:String = (NSUserDefaults.standardUserDefaults().valueForKey("messageNum")  ?? "0") as! String
+        //        let num2:String = (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum")  ?? "0") as! String
+        //        let num = String(Int(num1)! + Int(num2)!) ?? "0"
+        //        if num != "0" {
+        //            c3.tabBarItem.badgeValue = num
+        //        } else {
+        //            c3.tabBarItem.badgeValue = nil
+        //        }
     }
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(messageNotification)
