@@ -53,8 +53,8 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
         cardNumber.clearButtonMode = UITextFieldViewMode.WhileEditing
         
         cardNumber.keyboardType = UIKeyboardType.NumberPad
-        cardOwner.text = "郑文祥"
-        cardNumber.text = "6217001210048102717"
+        //cardOwner.text = "郑文祥"
+        //cardNumber.text = "6217001210048102717"
     }
 
     
