@@ -34,7 +34,7 @@ class RNGuideViewController: UIViewController {
 
         setupCollectionView()
         setupPageControl()
-        //你在台上唱着我的创作
+        //你在台上唱着我的创作我在台下已经开始感动
         
     }
     
