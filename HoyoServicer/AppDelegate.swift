@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        Bugly.startWithAppId("900029559")
         //检查网络状况，无网络，wifi，普通网络三种情况实时变化通知
         reachOfNetwork = Reachability(hostName: "www.baidu.com")
         reachOfNetwork!.startNotifier()

@@ -193,12 +193,18 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
             
         }
         do{
-            let tmpOrderDic = try? NSJSONSerialization.JSONObjectWithData((User.currentUser?.orderabout)!, options: NSJSONReadingOptions.MutableContainers)
-            let finshOfOrder:String = ((tmpOrderDic?.objectForKey("finsh") ?? 0) as! NSNumber).stringValue
-            let waitOfOrder:String = ((tmpOrderDic?.objectForKey("wait") ?? "0") as! NSNumber).stringValue
-            cell.orderAboutLabel.text = "已完成\(finshOfOrder)单     待处理\(waitOfOrder)单"
+            if User.currentUser?.orderabout != nil {
+                let tmpOrderDic = try? NSJSONSerialization.JSONObjectWithData((User.currentUser?.orderabout)!, options: NSJSONReadingOptions.MutableContainers)
+                let finshOfOrder:String = ((tmpOrderDic?.objectForKey("finsh") ?? 0) as! NSNumber).stringValue
+                let waitOfOrder:String = ((tmpOrderDic?.objectForKey("wait") ?? 0) as! NSNumber).stringValue
+                cell.orderAboutLabel.text = "已完成\(finshOfOrder)单     待处理\(waitOfOrder)单"
+            }
+            
         }
-        cell.scoreOfStar = (User.currentUser?.score)!=="" ? 0:Int((User.currentUser?.score)!)!
+        if User.currentUser?.score != nil {
+            cell.scoreOfStar = (User.currentUser?.score)!=="" ? 0:Int((User.currentUser?.score)!)!
+        }
+        
         
         cell.nameLabel.text = User.currentUser!.name
         if User.currentUser?.headimageurl != nil

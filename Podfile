@@ -16,7 +16,7 @@ pod 'BaiduMapKit'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'IQKeyboardManagerSwift', '~> 4.0.1'
 pod 'MonkeyKing', '~> 0.9.2'
-
+pod 'Bugly'
 end
 
 target 'HoyoServicerTests' do
