@@ -58,6 +58,12 @@ SOFTWARE.
 
 
 ## IQKeyboardManager
+## Bugly
+
+Copyright 2016 tencent.com. All rights reserved.
+
+
+## IQKeyboardManagerSwift
 
 IQKeyboardManager license
 =========================

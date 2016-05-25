@@ -17,6 +17,11 @@ import UIKit
 class HomeTableViewCell: UITableViewCell,UIScrollViewDelegate {
 
     var buttonClickCallBack:((whichButton:Int)->Void)?
+    @IBOutlet weak var starImg1: UIImageView!
+    @IBOutlet weak var starImg2: UIImageView!
+    @IBOutlet weak var starImg3: UIImageView!
+    @IBOutlet weak var starImg4: UIImageView!
+    @IBOutlet weak var starImg5: UIImageView!
     @IBAction func buttonClick(sender: UIButton) {
         if buttonClickCallBack==nil{
             return
@@ -26,11 +31,25 @@ class HomeTableViewCell: UITableViewCell,UIScrollViewDelegate {
     @IBOutlet weak var personImg: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var scoreOfStar = 0{
+        didSet{
+            if scoreOfStar==oldValue {
+                return
+            }
+            starImg1.image=UIImage(named: scoreOfStar>0 ? "starsedOfHome":"starsOfHome")
+            starImg2.image=UIImage(named: scoreOfStar>1 ? "starsedOfHome":"starsOfHome")
+            starImg3.image=UIImage(named: scoreOfStar>2 ? "starsedOfHome":"starsOfHome")
+            starImg4.image=UIImage(named: scoreOfStar>3 ? "starsedOfHome":"starsOfHome")
+            starImg5.image=UIImage(named: scoreOfStar>4 ? "starsedOfHome":"starsOfHome")
+            
+        }
+    }
     
     //banner
     @IBOutlet weak var footerScrollView: UIScrollView!
     @IBOutlet weak var pageControll: UIPageControl!
     
+    @IBOutlet weak var orderAboutLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         personImg.layer.cornerRadius=personImg.frame.width/2

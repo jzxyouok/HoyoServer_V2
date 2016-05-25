@@ -99,7 +99,6 @@
 		8915CBBA1CD345C100D564D1 /* WareHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915CBB91CD345C100D564D1 /* WareHouseViewController.swift */; };
 		8915CBBC1CD345D900D564D1 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915CBBB1CD345D900D564D1 /* UIBarButtonItem+Category.swift */; };
 		8915CBC21CD3541A00D564D1 /* TeamMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915CBC11CD3541A00D564D1 /* TeamMembers.swift */; };
-		89816ECC1CF3E70C001788E0 /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89816ECA1CF3E70C001788E0 /* Test+CoreDataProperties.swift */; };
 		89816ECD1CF3E70C001788E0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89816ECB1CF3E70C001788E0 /* Test.swift */; };
 		89A1DD491CD886AD00F298B0 /* TeamMemberInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1DD471CD886AD00F298B0 /* TeamMemberInfoVC.swift */; };
 		89A1DD4A1CD886AD00F298B0 /* TeamMemberInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */; };
@@ -126,6 +125,7 @@
 		8D2681F11CA8DB37009E7BAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2681EF1CA8DB37009E7BAC /* LaunchScreen.storyboard */; };
 		8D2681FC1CA8DB37009E7BAC /* HoyoServicerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2681FB1CA8DB37009E7BAC /* HoyoServicerTests.swift */; };
 		8D2682071CA8DB37009E7BAC /* HoyoServicerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2682061CA8DB37009E7BAC /* HoyoServicerUITests.swift */; };
+		8D2B8BAB1CF3EA2E005047F2 /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B8BAA1CF3EA2E005047F2 /* Test+CoreDataProperties.swift */; };
 		8D340CD91CA8FCCD00407F30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D340CD81CA8FCCD00407F30 /* MainViewController.swift */; };
 		8D50DCA61CE5B9350063839F /* GYTeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D50DCA41CE5B9350063839F /* GYTeamListCell.swift */; };
 		8D50DCA71CE5B9350063839F /* GYTeamListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D50DCA51CE5B9350063839F /* GYTeamListCell.xib */; };
@@ -383,7 +383,6 @@
 		8915CBB91CD345C100D564D1 /* WareHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WareHouseViewController.swift; sourceTree = "<group>"; };
 		8915CBBB1CD345D900D564D1 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		8915CBC11CD3541A00D564D1 /* TeamMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMembers.swift; sourceTree = "<group>"; };
-		89816ECA1CF3E70C001788E0 /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		89816ECB1CF3E70C001788E0 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		89A1DD471CD886AD00F298B0 /* TeamMemberInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberInfoVC.swift; sourceTree = "<group>"; };
 		89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberInfoVC.xib; sourceTree = "<group>"; };
@@ -417,6 +416,7 @@
 		8D2682021CA8DB37009E7BAC /* HoyoServicerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoyoServicerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2682061CA8DB37009E7BAC /* HoyoServicerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoyoServicerUITests.swift; sourceTree = "<group>"; };
 		8D2682081CA8DB37009E7BAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D2B8BAA1CF3EA2E005047F2 /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8D340CD81CA8FCCD00407F30 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8D50DCA41CE5B9350063839F /* GYTeamListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYTeamListCell.swift; sourceTree = "<group>"; };
 		8D50DCA51CE5B9350063839F /* GYTeamListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GYTeamListCell.xib; sourceTree = "<group>"; };
@@ -767,9 +767,9 @@
 		8D340CAC1CA8E1BF00407F30 /* ConfigFile */ = {
 			isa = PBXGroup;
 			children = (
+				E04196121CCF301E005D08DC /* HoyoServicer-Bridging-Header.h */,
 				3BD5B9681CF2C1150097BC60 /* NetworkConfig.plist */,
 				3BD5B9661CF2C10F0097BC60 /* trouble.json */,
-				E04196121CCF301E005D08DC /* HoyoServicer-Bridging-Header.h */,
 				8D2681EF1CA8DB37009E7BAC /* LaunchScreen.storyboard */,
 				8D2681F21CA8DB37009E7BAC /* Info.plist */,
 				8D2681EA1CA8DB37009E7BAC /* HoyoServicer.xcdatamodeld */,
@@ -1121,6 +1121,7 @@
 		E041962A1CCF37D5005D08DC /* DataObject */ = {
 			isa = PBXGroup;
 			children = (
+				8D2B8BAA1CF3EA2E005047F2 /* Test+CoreDataProperties.swift */,
 				3BD5B9FC1CF2C9B70097BC60 /* OrderDetail+CoreDataProperties.swift */,
 				3BD5B9FA1CF2C86D0097BC60 /* Settlementinfo.swift */,
 				3BD5B9F81CF2C7FB0097BC60 /* FinishOrderModel.swift */,
@@ -1149,7 +1150,6 @@
 				890E26341CEB198C00C6ED98 /* MessageModel.swift */,
 				8901C5131CEEA472003D8543 /* ScoreMessageModel+CoreDataProperties.swift */,
 				8901C5141CEEA472003D8543 /* ScoreMessageModel.swift */,
-				89816ECA1CF3E70C001788E0 /* Test+CoreDataProperties.swift */,
 				89816ECB1CF3E70C001788E0 /* Test.swift */,
 			);
 			path = DataObject;
@@ -1633,6 +1633,7 @@
 				8915CBC21CD3541A00D564D1 /* TeamMembers.swift in Sources */,
 				E05610511CE9CD8500979919 /* BoundBankCardViewController.swift in Sources */,
 				E04196501CCF37D5005D08DC /* SettingsManager.swift in Sources */,
+				8D2B8BAB1CF3EA2E005047F2 /* Test+CoreDataProperties.swift in Sources */,
 				3BD5B9E11CF2C2270097BC60 /* MSSBrowseRemindView.m in Sources */,
 				3BD5B9DF1CF2C2270097BC60 /* MSSBrowseModel.m in Sources */,
 				E03682751CD33D43006C03D4 /* BankModel.swift in Sources */,
@@ -1706,7 +1707,6 @@
 				3BD5B9AA1CF2C1A00097BC60 /* SubmitBtn.swift in Sources */,
 				89A1DFC41CDC7BDB00F298B0 /* FinacialManagerCell.swift in Sources */,
 				E04196531CCF37D5005D08DC /* NSDate+Expand.swift in Sources */,
-				89816ECC1CF3E70C001788E0 /* Test+CoreDataProperties.swift in Sources */,
 				3BD5B9791CF2C1690097BC60 /* ListsDetailViewController.swift in Sources */,
 				E04195F31CCF2F41005D08DC /* MyEvaluatTableViewController.swift in Sources */,
 				8915CBBA1CD345C100D564D1 /* WareHouseViewController.swift in Sources */,
@@ -1819,9 +1819,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1841,7 +1843,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1865,9 +1867,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1880,7 +1884,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1895,6 +1899,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HoyoServicer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1919,6 +1924,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HoyoServicer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

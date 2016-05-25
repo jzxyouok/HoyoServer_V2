@@ -11,7 +11,7 @@ import UIKit
 import SVPullToRefresh
 import MBProgressHUD
 
-class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
+class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource {
     var  manager :CLLocationManager?
     var nextTitle:String!
     var action :String!
@@ -19,11 +19,28 @@ class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
     var  counttime:NSTimer!
  //  var orders=[Order]()
 //    var addressDicBlock:((CLLocationCoordinate2D,CLPlacemark)->Void)? 
+    var tableView:UITableView!
+    var headImgView:UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //头部图片
+        self.view.backgroundColor=UIColor.whiteColor()
+        headImgView=UIImageView(frame: CGRect(x: 0, y: 0, width: WIDTH_SCREEN, height: 228*HEIGHT_SCREEN/667))
+        headImgView.image=UIImage(named: "home_top_1")
+        self.view.addSubview(headImgView)
+        let logoImg = UIImageView(image: UIImage(named: "HoyoLogoOfHead"))
+        logoImg.frame=CGRectMake((WIDTH_SCREEN/2-75*HEIGHT_SCREEN/667), 25*HEIGHT_SCREEN/667,150*HEIGHT_SCREEN/667, 60*HEIGHT_SCREEN/667)
+        logoImg.contentMode=UIViewContentMode.ScaleToFill
+        self.view.addSubview(logoImg)
+        
+        //表视图
         self.automaticallyAdjustsScrollViewInsets=false
+        tableView=UITableView(frame: CGRect(x: 0, y: 228*HEIGHT_SCREEN/667, width: WIDTH_SCREEN, height: HEIGHT_SCREEN-HEIGHT_TabBar-228*HEIGHT_SCREEN/667))
+        self.view.addSubview(tableView)
         tableView.registerNib(UINib(nibName: "HomeTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "HomeTableViewCell")
         tableView.separatorStyle=UITableViewCellSeparatorStyle.None
+        tableView.delegate=self
+        tableView.dataSource=self
         //添加下拉加载数据事件
         tableView.addPullToRefreshWithActionHandler {
             [weak self] in
@@ -120,6 +137,9 @@ class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
     func CurrentUserDidChange() {
         self.tableView.reloadData()
     }
+    var tmpWhitchImg = true
+    
+    
      func refresh() {
         let success: (User) -> Void = {
             [weak self] user in
@@ -127,6 +147,8 @@ class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
                 User.currentUser=user
                 self_.tableView.reloadData()
                 self_.tableView.pullToRefreshView.stopAnimating()
+                self_.headImgView.image=UIImage(named: self_.tmpWhitchImg ? "home_top_2":"home_top_1")
+                self_.tmpWhitchImg = !self_.tmpWhitchImg
             }
         }
         let failure: (NSError) -> Void = {
@@ -148,20 +170,20 @@ class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
     }
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return HEIGHT_SCREEN-HEIGHT_TabBar
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return HEIGHT_SCREEN-HEIGHT_TabBar-228*HEIGHT_SCREEN/667
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell", forIndexPath: indexPath) as! HomeTableViewCell
         cell.selectionStyle=UITableViewCellSelectionStyle.None
         cell.buttonClickCallBack={ [weak self] buttonTag in
@@ -170,6 +192,20 @@ class HomeTableViewController: UITableViewController,CLLocationManagerDelegate {
             }
             
         }
+        do{
+            if User.currentUser?.orderabout != nil {
+                let tmpOrderDic = try? NSJSONSerialization.JSONObjectWithData((User.currentUser?.orderabout)!, options: NSJSONReadingOptions.MutableContainers)
+                let finshOfOrder:String = ((tmpOrderDic?.objectForKey("finsh") ?? 0) as! NSNumber).stringValue
+                let waitOfOrder:String = ((tmpOrderDic?.objectForKey("wait") ?? 0) as! NSNumber).stringValue
+                cell.orderAboutLabel.text = "已完成\(finshOfOrder)单     待处理\(waitOfOrder)单"
+            }
+            
+        }
+        if User.currentUser?.score != nil {
+            cell.scoreOfStar = (User.currentUser?.score)!=="" ? 0:Int((User.currentUser?.score)!)!
+        }
+        
+        
         cell.nameLabel.text = User.currentUser!.name
         if User.currentUser?.headimageurl != nil
         {

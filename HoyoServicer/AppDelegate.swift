@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        Bugly.startWithAppId("900029559")
         //检查网络状况，无网络，wifi，普通网络三种情况实时变化通知
         reachOfNetwork = Reachability(hostName: "www.baidu.com")
         reachOfNetwork!.startNotifier()
@@ -132,7 +132,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         //清理用户文件
         appDelegate.clearCaches()
-        appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
+        if appDelegate.mainViewController != nil{
+            appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     //接收到网络变化后处理事件
     func reachabilityChanged(notification:NSNotification){
