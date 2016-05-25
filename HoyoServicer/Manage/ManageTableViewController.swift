@@ -8,8 +8,11 @@
 
 import UIKit
 import MBProgressHUD
+import MJRefresh
 
 class ManageTableViewController: UITableViewController,ManageTableViewCellDelegate {
+    
+    let header = MJRefreshNormalHeader() // 下拉刷新
     
     var  accountModel: MyAccount?
     
@@ -18,8 +21,11 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
         self.automaticallyAdjustsScrollViewInsets=false
         tableView.registerNib(UINib(nibName: "ManageTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "ManageTableViewCell")
         
-        //获取资产详情
+        // 获取资产详情
         downloadGetMoneyDetail()
+        
+        // 创建刷新
+        setUpRefresh()
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,6 +37,18 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=true
     }
+    
+    func setUpRefresh() {
+        
+        //下拉刷新
+        
+        header.setRefreshingTarget(self, refreshingAction: #selector(headRefresh))
+        tableView.mj_header = header
+
+        
+    }
+
+    
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -165,6 +183,8 @@ extension ManageTableViewController{
             
             weakSelf?.tableView.reloadData()
             
+            weakSelf?.header.endRefreshing()
+            
             
         }) { (error) in
             print(error.localizedDescription)
@@ -172,4 +192,20 @@ extension ManageTableViewController{
     }
     
 }
+
+// MARK: - event response
+
+extension ManageTableViewController{
+    
+    // 下拉刷新事件
+    
+    func headRefresh() {
+        
+        downloadGetMoneyDetail()
+    }
+    
+}
+
+
+// MARK: - UI
 
