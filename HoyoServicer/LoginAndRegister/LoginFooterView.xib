@@ -27,7 +27,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKw-N8-qEo">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
                                     <subviews>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="login_user" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-Wq-Owg">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="login_user" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-Wq-Owg">
                                             <rect key="frame" x="12" y="13" width="16" height="18"/>
                                         </imageView>
                                     </subviews>
@@ -38,7 +38,7 @@
                                         <constraint firstItem="Jbb-Wq-Owg" firstAttribute="centerY" secondItem="KKw-N8-qEo" secondAttribute="centerY" id="SFk-TQ-guh"/>
                                     </constraints>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="15026981614" placeholder="请输入手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gGp-da-soZ">
+                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gGp-da-soZ">
                                     <rect key="frame" x="40" y="0.0" width="275" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -95,7 +95,7 @@
                                         <constraint firstItem="jsk-LL-OpT" firstAttribute="centerY" secondItem="4u3-2N-7tC" secondAttribute="centerY" id="xYY-u3-Rnf"/>
                                     </constraints>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-aM-FBg">
+                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-aM-FBg">
                                     <rect key="frame" x="40" y="0.0" width="185" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

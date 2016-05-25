@@ -13,7 +13,7 @@ typealias GuideCellClosure = () -> Void
 class GuideCell: UICollectionViewCell {
     
     private let newImageView = UIImageView(frame: MainScreenBounds)
-    private let nextButton = UIButton(frame: CGRectMake((WIDTH_SCREEN - 100) * 0.5, HEIGHT_SCREEN - 110, 100, 33))
+    private let nextButton = UIButton(frame: CGRectMake((WIDTH_SCREEN - 100) * 0.5, HEIGHT_SCREEN - 90, 100, 30))
     
     internal var cellClosure: GuideCellClosure?
     

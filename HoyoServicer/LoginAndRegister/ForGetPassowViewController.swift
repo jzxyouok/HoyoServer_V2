@@ -8,14 +8,13 @@
 
 import UIKit
 import MBProgressHUD
+import IQKeyboardManager
 
 class ForGetPassowViewController: UIViewController {
     
-    //倒计时时间
-    var shuttime=60
-    var counttime:NSTimer!
     
-//手机号
+    
+    //手机号
     @IBOutlet weak var iphoneNumber: UITextField!
     
     //验证码
@@ -27,28 +26,92 @@ class ForGetPassowViewController: UIViewController {
     @IBOutlet weak var newPassword: UITextField!
     //确认新密码
     @IBOutlet weak var confirmNewPassword: UITextField!
-
+    
     //获取验证码Label
-
+    
     @IBOutlet weak var getCodeBtn: UIButton!
     @IBOutlet weak var navgaBackView: UIView!
     @IBAction func back() {
+        
+        iphoneNumber.resignFirstResponder()
+        newPassword.resignFirstResponder()
+        confirmNewPassword.resignFirstResponder()
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
-
+    //倒计时剩余的时间
+    var remainingSeconds = 0{
+        
+        willSet{
+            
+            getCodeBtn.setTitle("(\(newValue)s)", forState: .Normal)
+            
+            if newValue <= 0 {
+                getCodeBtn.setTitle("重新获取", forState: .Normal)
+                isCounting = false
+            }
+        }
+    }
+    
+    //计时器
+    var countDownTimer:NSTimer?
+    
+    //用于开启和关闭定时器
+    var isCounting:Bool = false{
+        
+        willSet{
+            if  newValue {
+                countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats:true)
+                
+                getCodeBtn.backgroundColor = UIColor.grayColor()
+            }else
+            {
+                countDownTimer?.invalidate()
+                countDownTimer = nil
+                
+                getCodeBtn.backgroundColor = UIColor.brownColor()
+            }
+            
+            getCodeBtn.enabled = !newValue
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Do any additional setup after loading the view.
+        
+        iphoneNumber.delegate = self
+        code.delegate = self
+        newPassword.delegate = self
+        confirmNewPassword.delegate = self
+        
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //UIApplication.sharedApplication().statusBarHidden = true
+        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
     }
+    
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        UIApplication.sharedApplication().statusBarHidden = false
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,94 +119,164 @@ class ForGetPassowViewController: UIViewController {
     }
     
     
-//获取验证码
+    //获取验证码
     @IBAction func getCode(sender:UIButton) {
         
-//       sender.enabled = false
-    
-    print("点击啦")
+        //       sender.enabled = false
+        
+        print("点击啦")
         let istrue = checkTel(iphoneNumber.text!)
         
         if istrue
         {
-           
-            sender.enabled=false
-        
-            shuttime=60
-            counttime=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ForGetPassowViewController.rushtime), userInfo: nil, repeats: true)
             yanzhengfunc()
         }
         else
         {
-            let alert = UIAlertView()
-            alert.title = "请输入正确的手机号"
+            let alertView = SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle:  "手机号码格式不正确")
             
-            alert.addButtonWithTitle("确定")
-            alert.show()
-        
         }
-      
+        
     }
     func yanzhengfunc(){
-    
-        User.SendPhoneCode(iphoneNumber.text!, order: "ResetPassword", success: {
+        
+        
+        User.SendPhoneCode(iphoneNumber.text!, order: "ResetPassword", success: { [weak self] in
             
-            print("获取成功")
+            //启动计时器
+            self!.remainingSeconds = 60
+            self!.isCounting = true
+            
         }) { (error) in
             
-            let alert = UIAlertView(title: "", message:error.localizedDescription, delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-            alert.show()
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle:  error.localizedDescription)
+            
             
         }
     }
     
-    func  rushtime()
-    {
-        if shuttime==0
-        {
-            
-            self.getCodeLab.text = "获取验证码"
-            self.getCodeBtn.enabled = true
-            counttime.invalidate()
-        }else
-        {
-            
-            self.getCodeLab.text = "倒计时\(shuttime)秒"
-        }
-        
-        shuttime -= 1
-        
-    }
- 
+    
     //提交新密码
     @IBAction func submitBtn() {
-        print("进去了")
-
-       
         
-      MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-      
-
-        User.ResetPassword(iphoneNumber.text!, code: self.code.text!, password: self.newPassword.text!, success: { 
-            [weak self] in
-            let strongSelf = self
+        
+        if checkFormat() {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             
             
-                        strongSelf!.dismissViewControllerAnimated(true) {
-            }
-            })
+            User.ResetPassword(iphoneNumber.text!, code: self.code.text!, password: self.newPassword.text!, success: {
+                [weak self] in
+                let strongSelf = self
+                
+                
+                strongSelf!.dismissViewControllerAnimated(true) {
+                }
+                })
             {[weak self] (error) in
                 let strongSelf = self
-                 MBProgressHUD.hideHUDForView(strongSelf!.view, animated: true)
+                MBProgressHUD.hideHUDForView(strongSelf!.view, animated: true)
                 let alertView=SCLAlertView()
                 alertView.addButton("ok", action: {})
                 alertView.showError("错误提示", subTitle: error.localizedDescription)
                 
-                
+            }
+            
         }
         
     }
     
-   
-
 }
+
+// MARK: - 点击按钮获取验证码
+
+extension ForGetPassowViewController{
+    
+    //计时器事件
+    func updateTime() -> Void {
+        
+        remainingSeconds -= 1
+    }
+    
+    // 校验输入框格式
+    
+    func checkFormat() -> Bool{
+        
+        if iphoneNumber.text == nil || code.text == nil || newPassword.text == nil || confirmNewPassword.text == nil {
+            return false
+        }
+        
+        if (iphoneNumber.text! as NSString).length != 11 {
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "手机号码格式错误")
+            
+            return false
+        }else if code.text!.isEmpty{
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "验证码不能为空")
+            
+            return false
+        }else if newPassword.text!.isEmpty{
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "密码不能为空")
+            
+            return false
+            
+        }else if confirmNewPassword.text!.isEmpty{
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "请再次输入密码")
+            
+            return false
+        }else if !(newPassword.text! as NSString).isEqualToString(confirmNewPassword.text!){
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "两次输入密码不同")
+            
+            return false
+        }
+        
+        return true
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension ForGetPassowViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField != confirmNewPassword {
+            
+            if textField == iphoneNumber {
+                code.becomeFirstResponder()
+            }
+            
+            if textField == code {
+                newPassword.becomeFirstResponder()
+            }
+            
+            if textField == newPassword {
+                confirmNewPassword.becomeFirstResponder()
+            }
+        }else{
+            confirmNewPassword.resignFirstResponder()
+            
+            submitBtn()
+        }
+        
+        return true
+    }
+    
+}
+
+
