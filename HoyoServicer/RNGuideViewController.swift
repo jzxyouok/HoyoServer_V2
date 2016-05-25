@@ -16,7 +16,7 @@ class RNGuideViewController: UIViewController {
     private var imageNames = ["guide_00","guide_01","guide_02","guide_03"]
     private let cellIdentifier = "collectionCell"
     private var isHiddenNextButton = true
-    private var pageControl = UIPageControl(frame: CGRectMake(0,HEIGHT_SCREEN-50,WIDTH_SCREEN,20))
+    private var pageControl = UIPageControl(frame: CGRectMake(0,HEIGHT_SCREEN-40,WIDTH_SCREEN,20))
     
     internal var skipClosure: GuideClosure?
     
@@ -29,7 +29,8 @@ class RNGuideViewController: UIViewController {
 
         view.backgroundColor = COLORRGBA(239, g: 239, b: 239, a: 1)
         
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+      //  UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+        self.prefersStatusBarHidden()
 
         setupCollectionView()
         setupPageControl()

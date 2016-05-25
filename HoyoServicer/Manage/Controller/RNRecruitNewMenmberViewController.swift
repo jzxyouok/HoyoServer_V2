@@ -266,7 +266,7 @@ extension RNRecruitNewMenmberViewController{
         let info = MonkeyKing.Info(
             title: "浩泽服务家",
             description: desc,
-            thumbnail: UIImage(named: "AppIcon"),
+            thumbnail: UIImage(named: "manage_member"),
             media: MonkeyKing.Media.URL(shareURL!)
         )
         
