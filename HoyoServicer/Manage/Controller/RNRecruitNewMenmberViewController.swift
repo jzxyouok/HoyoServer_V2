@@ -255,7 +255,7 @@ extension RNRecruitNewMenmberViewController{
         MonkeyKing.registerAccount(.WeChat(appID:ShareIDAndKey.Wechat.appID, appKey: ShareIDAndKey.Wechat.appKey))
         
         //跳转的url
-        let shareURL = NSURL(string: "http://www.jianshu.com/users/274775e3d56d/latest_articles")
+        let shareURL = NSURL(string: "http://www.ozner.net")
         
         var desc: String = "浩优期待您的加入"
         
