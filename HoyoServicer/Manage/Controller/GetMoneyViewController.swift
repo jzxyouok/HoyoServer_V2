@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 
 class GetMoneyViewController: UIViewController, UITextFieldDelegate{
     
@@ -66,7 +66,7 @@ class GetMoneyViewController: UIViewController, UITextFieldDelegate{
         IQKeyboardManager.sharedManager().enableAutoToolbar = true
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-       // IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
+        IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
         
     }
 

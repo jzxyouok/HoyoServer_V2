@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RegistFooterView1: UIView {
 
     @IBOutlet weak var phoneTextField: UITextField!
