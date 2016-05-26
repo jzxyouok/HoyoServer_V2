@@ -1349,7 +1349,7 @@
 				TargetAttributes = {
 					8D2681DF1CA8DB37009E7BAC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = UZZG6NM74T;
+						DevelopmentTeam = BQE6636VJ7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1947,7 +1947,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1976,7 +1976,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 			};
 			name = Release;

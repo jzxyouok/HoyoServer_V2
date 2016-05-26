@@ -41,8 +41,6 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         
         setupUI()
         
-        //没修改
-        
     }
 
     override func viewWillAppear(animated: Bool) {
