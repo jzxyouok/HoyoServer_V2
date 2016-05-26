@@ -113,7 +113,7 @@ class NetworkManager: NSObject {
             failure?(error)
             return
         }
-        //let data1 = object
+        print(object)
         let state=object?.objectForKey("state") as! Int
         if state > successCode {
             success?(JSON(data: (data as NSData)))
