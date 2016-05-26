@@ -133,7 +133,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //清理用户文件
         appDelegate.clearCaches()
         
-        //
         //退出删除消息存储
         DataManager().deleteAllObjectsWithEntityName("MessageModel")
         DataManager().deleteAllObjectsWithEntityName("ScoreMessageModel")
