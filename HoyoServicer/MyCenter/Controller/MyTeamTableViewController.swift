@@ -92,7 +92,7 @@ class MyTeamTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         self.title="我的团队"
         UITableViewStyle.Grouped
-        let imageHeadView = UIImageView(frame: CGRectMake(0, 0, WIDTH_SCREEN, 185))
+        let imageHeadView = UIImageView(frame: CGRectMake(0, 64, WIDTH_SCREEN, 185))
         imageHeadView.image = UIImage(named: "banner3")
         tableView.tableHeaderView = imageHeadView
         self.automaticallyAdjustsScrollViewInsets=false
