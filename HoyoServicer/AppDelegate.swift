@@ -138,8 +138,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataManager().deleteAllObjectsWithEntityName("ScoreMessageModel")
         
         //退出登录删除本地用户名和密码
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
+//        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
+//        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
         
         if appDelegate.mainViewController != nil{
             appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)

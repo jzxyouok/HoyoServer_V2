@@ -410,7 +410,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkt-8e-fK7">
                                                                 <rect key="frame" x="19.5" y="0.0" width="86" height="93"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的团队" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-td-KoM">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仓库管理" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-td-KoM">
                                                                         <rect key="frame" x="31" y="36.5" width="55" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="55" id="4OD-1M-Zsm"/>
@@ -420,7 +420,7 @@
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="manage_team" translatesAutoresizingMaskIntoConstraints="NO" id="R3p-X0-PW9">
+                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="manage_storage" translatesAutoresizingMaskIntoConstraints="NO" id="R3p-X0-PW9">
                                                                         <rect key="frame" x="0.0" y="33" width="27" height="27"/>
                                                                     </imageView>
                                                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSe-Da-7lJ">
@@ -464,7 +464,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1a-Gq-VlH">
                                                                 <rect key="frame" x="19" y="0.0" width="86" height="93"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仓储管理" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-yb-iyQ">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的团队" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-yb-iyQ">
                                                                         <rect key="frame" x="31" y="36.5" width="55" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="WLU-lc-N1L"/>
@@ -474,7 +474,7 @@
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="manage_storage" translatesAutoresizingMaskIntoConstraints="NO" id="AeR-uV-Q21">
+                                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="manage_team" translatesAutoresizingMaskIntoConstraints="NO" id="AeR-uV-Q21">
                                                                         <rect key="frame" x="0.0" y="33" width="27" height="27"/>
                                                                     </imageView>
                                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFn-1Y-DQk">

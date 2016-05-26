@@ -96,7 +96,7 @@ class MyTeamTableViewController: UITableViewController {
         if bootomViewState {
             let booview = UIView()
             booview.frame = CGRect(x: 0, y: 0, width: WIDTH_SCREEN, height: 60)
-            booview.backgroundColor = UIColor.lightGrayColor()
+            booview.backgroundColor = UIColor.groupTableViewBackgroundColor()
             booview.addSubview(bootomBtn)
             bootomBtn.addTarget(self, action: #selector(MyTeamTableViewController.teamAction), forControlEvents: UIControlEvents.TouchUpInside)
             tableView.tableFooterView = booview

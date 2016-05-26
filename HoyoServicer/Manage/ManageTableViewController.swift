@@ -124,13 +124,13 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
             self.navigationController?.pushViewController(newMember, animated: true)
             break
             
-        case 7://我的仓库
+        case 8://我的仓库
             let wareHouse = WareHouseViewController()
             wareHouse.hidesBottomBarWhenPushed  = true
             self.navigationController?.pushViewController(wareHouse, animated: true)
             break
             
-        case 8://我的团队
+        case 7://我的团队
             chooseTeam()
             break
         default:
