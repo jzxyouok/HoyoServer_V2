@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Reachability
 import SwiftyJSON
+
 var appDelegate: AppDelegate {
     return UIApplication.sharedApplication().delegate as! AppDelegate
 }
@@ -32,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        Bugly.startWithAppId("900029559")
         //检查网络状况，无网络，wifi，普通网络三种情况实时变化通知
         reachOfNetwork = Reachability(hostName: "www.baidu.com")
         reachOfNetwork!.startNotifier()
@@ -120,6 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //收到自定义消息
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.JPushDidReceiveMessage(_:)), name: kJPFNetworkDidReceiveMessageNotification, object: nil)
         
+        
         return true
     }
     
@@ -130,6 +132,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         //清理用户文件
         appDelegate.clearCaches()
+        
+        //退出删除消息存储
+        DataManager().deleteAllObjectsWithEntityName("MessageModel")
+        DataManager().deleteAllObjectsWithEntityName("ScoreMessageModel")
+        
+        //退出登录删除本地用户名和密码
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
+        
         if appDelegate.mainViewController != nil{
             appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
         }

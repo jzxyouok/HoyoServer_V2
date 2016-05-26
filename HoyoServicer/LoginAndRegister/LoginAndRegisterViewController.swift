@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 
 enum LoginStateEnum:Int {
     case Login=0
@@ -21,7 +21,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
     
     var  returnKeyHandler: IQKeyboardReturnKeyHandler? = nil //键盘管理
     
-
+    
     //视图类
     var loginFooterView:LoginFooterView?
     var registFooterView1:RegistFooterView1?
@@ -97,7 +97,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
             
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //初始化视图
@@ -112,11 +112,11 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         registFooterView3?.nameTextField.delegate=self
         registFooterView3?.nameTextField.returnKeyType = UIReturnKeyType.Next
         registFooterView3?.IDCardTextField.delegate=self
-         registFooterView3?.IDCardTextField.returnKeyType = UIReturnKeyType.Next
+        registFooterView3?.IDCardTextField.returnKeyType = UIReturnKeyType.Next
         registFooterView3?.passWordTextField.delegate=self
-         registFooterView3?.passWordTextField.returnKeyType = UIReturnKeyType.Next
+        registFooterView3?.passWordTextField.returnKeyType = UIReturnKeyType.Next
         registFooterView3?.invitationCodeTextField.delegate=self
-         registFooterView3?.invitationCodeTextField.returnKeyType = UIReturnKeyType.Done
+        registFooterView3?.invitationCodeTextField.returnKeyType = UIReturnKeyType.Done
         loginFooterView?.foregetPassWordButton.addTarget(self, action: #selector(buttonClick), forControlEvents: .TouchUpInside)
         loginFooterView?.loginButton.addTarget(self, action: #selector(buttonClick), forControlEvents: .TouchUpInside)
         registFooterView1?.nextButton.addTarget(self, action: #selector(buttonClick), forControlEvents: .TouchUpInside)
@@ -142,6 +142,13 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         })
         currentLoginState = .Login
         
+        //本地保存账号密码时显示
+        if  let username = NSUserDefaults.standardUserDefaults().valueForKey("UserName") as? String {
+            loginFooterView?.phoneTextField.text = username
+        }
+        if  let passwd = NSUserDefaults.standardUserDefaults().valueForKey("PassWord") as? String {
+             loginFooterView?.passWordTextField.text = passwd
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -151,9 +158,8 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-        returnKeyHandler =  IQKeyboardReturnKeyHandler(controller: self)
+        returnKeyHandler =  IQKeyboardReturnKeyHandler(viewController: self)
         returnKeyHandler!.lastTextFieldReturnKeyType = UIReturnKeyType.Done
-        
         
     }
     
@@ -167,7 +173,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
         returnKeyHandler = nil
     }
-
+    
     
     private var TmpToken:String?//注册时会用到
     func buttonClick(button:UIButton){
@@ -179,22 +185,35 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
             forGetPasswordNav.setNavigationBarHidden(true, animated: false)
             self.presentViewController(forGetPasswordNav, animated: true, completion: nil);
         case 2://登录页面：登录
-            if checkTel((registFooterView1?.phoneTextField.text!)!) {
-                MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-                User.loginWithPhone((loginFooterView?.phoneTextField.text)!, password: (loginFooterView?.passWordTextField.text)!, success: {
-                    [weak self](user) in
-                    User.currentUser = user
-                    if let strongSelf=self{
-                        MBProgressHUD.hideHUDForView(strongSelf.view, animated: true)
-                        strongSelf.presentMainViewController()
-                    }
+            if checkTel(( loginFooterView?.phoneTextField.text)!) {
+                if ((loginFooterView?.passWordTextField.text!)!  as NSString).length == 0  {
+                    let alertView=SCLAlertView()
+                    alertView.addButton("ok", action: {})
+                    alertView.showError("错误提示", subTitle: "密码不能为空")
                     
-                    }, failure: { [weak self](error) in
-                        MBProgressHUD.hideHUDForView(self!.view, animated: true)
-                        let alertView=SCLAlertView()
-                        alertView.addButton("ok", action: {})
-                        alertView.showError("错误提示", subTitle: error.localizedDescription)
-                })
+                }
+                else{
+                    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                    User.loginWithPhone((loginFooterView?.phoneTextField.text)!, password: (loginFooterView?.passWordTextField.text)!, success: {
+                        [weak self](user) in
+                        User.currentUser = user
+                        if let strongSelf=self{
+                            MBProgressHUD.hideHUDForView(strongSelf.view, animated: true)
+                            //保存账号密码
+                            NSUserDefaults.standardUserDefaults().setValue(strongSelf.loginFooterView?.phoneTextField.text, forKey: "UserName")
+                            NSUserDefaults.standardUserDefaults().setValue(strongSelf.loginFooterView?.passWordTextField.text, forKey: "PassWord")
+                            strongSelf.presentMainViewController()
+                        }
+                        
+                        }, failure: { [weak self](error) in
+                            print(error)
+                            MBProgressHUD.hideHUDForView(self!.view, animated: true)
+                            let alertView=SCLAlertView()
+                            alertView.addButton("ok", action: {})
+                            alertView.showError("错误提示", subTitle: error.localizedDescription)
+                        })
+                    
+                }
             }else
             {
                 let alertView=SCLAlertView()
@@ -205,7 +224,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         case 3://注册页面一：下一步
             if checkTel((registFooterView1?.phoneTextField.text!)!) {
                 MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-               
+                
                 User.SendPhoneCode((registFooterView1?.phoneTextField.text!)!,order:"register",success: { [weak self] in
                     if let strongSelf=self{
                         MBProgressHUD.hideHUDForView(strongSelf.view, animated: true)
@@ -222,7 +241,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
                         let alertView=SCLAlertView()
                         alertView.addButton("ok", action: {})
                         alertView.showError("错误提示", subTitle: error.localizedDescription)
-                })
+                    })
             }else
             {
                 let alertView=SCLAlertView()
@@ -252,7 +271,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
                     let alertView=SCLAlertView()
                     alertView.addButton("ok", action: {})
                     alertView.showError("错误提示", subTitle: error.localizedDescription)
-            })
+                })
             
         case 7://注册页面三：下一步
             
@@ -265,7 +284,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
                 User.currentUser = user
                 let authController = AuthenticationController(dissCall: {
                     [weak self] in
-                        self!.presentMainViewController()
+                    self!.presentMainViewController()
                     })
                 self!.presentViewController(authController, animated: true, completion: nil)
                 }, failure: { [weak self](error) in
@@ -273,7 +292,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
                     let alertView=SCLAlertView()
                     alertView.addButton("ok", action: {})
                     alertView.showError("错误提示", subTitle: error.localizedDescription)
-            })
+                })
             
         default:
             break
@@ -285,7 +304,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         
         remainingSeconds -= 1
     }
-
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -316,7 +335,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
             alertView.showError("错误提示", subTitle: error.localizedDescription)
         }
     }
-
+    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if [1,3,4,7].contains(textField.tag) && !string.isAllNumber {
             return false
@@ -342,7 +361,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
                     registFooterView3?.invitationCodeTextField.becomeFirstResponder()
                 }
             }
-           
+            
         }else {
             textField.resignFirstResponder()
         }
@@ -368,15 +387,15 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

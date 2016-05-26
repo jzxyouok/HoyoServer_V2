@@ -10,7 +10,7 @@
 
 import UIKit
 import MonkeyKing
-import IQKeyboardManagerSwift
+import IQKeyboardManager
 
 class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
     
@@ -41,6 +41,8 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         
         setupUI()
         
+        //没修改
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -55,6 +57,8 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "memberbg"), forBarPosition: UIBarPosition.Any,barMetrics: UIBarMetrics.Default)
        // navigationController?.navigationBar.setBackgroundImage(imageFromColor(COLORRGBA(60, g: 165, b: 210, a: 1)), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        navigationController?.navigationBar.translucent = false
     }
     
     
@@ -71,29 +75,30 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         navigationController?.navigationBar.shadowImage =  UIImage(named: "blackImgOfNavBg")
         navigationController?.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
         
+        navigationController?.navigationBar.translucent = true
     }
     
     override func viewWillLayoutSubviews() {
         
-         let height = HEIGHT_SCREEN - HEIGHT_NavBar - contactTextView.frame.origin.y - contactTextView.frame.size.height
-         leftImageView.snp_updateConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
-        }
-        noteLabel.snp_updateConstraints { (make) in
-             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+10)
-        }
-        rightImageView.snp_updateConstraints { (make) in
-             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
-        }
-//
-//        //试图让scrollView稍微可以滑动
-//        let tempHeight = HEIGHT_SCREEN - HEIGHT_NavBar - logoImageView.frame.origin.y - logoImageView.frame.size.height
-//        scrollView.snp_updateConstraints { (make) in
-//            make.bottom.equalTo(logoImageView.snp_bottom).offset(tempHeight+10)
+//         let height = HEIGHT_SCREEN - HEIGHT_NavBar - contactTextView.frame.origin.y - contactTextView.frame.size.height
+//         leftImageView.snp_updateConstraints { (make) in
+//            make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
 //        }
-//        
-        contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
+//        noteLabel.snp_updateConstraints { (make) in
+//             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+10)
+//        }
+//        rightImageView.snp_updateConstraints { (make) in
+//             make.top.equalTo(contactTextView.snp_bottom).offset(height-30-14-15-30+7+10)
+//        }
+
+        //试图让scrollView稍微可以滑动
+        let tempHeight = HEIGHT_SCREEN - HEIGHT_NavBar - logoImageView.frame.origin.y - logoImageView.frame.size.height
+        scrollView.snp_updateConstraints { (make) in
+            make.bottom.equalTo(logoImageView.snp_bottom).offset(tempHeight+10)
+        }
         
+//        contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
+//        
     }
 
     
@@ -103,10 +108,7 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor(patternImage: UIImage(named: "memberbg")!)
         view.addSubview(scrollView)
-        scrollView.snp_makeConstraints { (make) in
-            make.edges.equalTo(0)
-          //  make.bottom.equalTo(logoImageView.snp_bottom).offset(10)
-        }
+        
         
         myTeamLabel = RNBaseUI.createLabel("我的团队", titleColor: UIColor.whiteColor(), font: 24, alignment: NSTextAlignment.Center)
         scrollView.addSubview(myTeamLabel)
@@ -130,35 +132,51 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         contactTextView = RNBaseUI.creatTextView(UIKeyboardType.Default, returnKeyType: UIReturnKeyType.Done)
         contactTextView.delegate = self
        // print("hhhhhhh:\(UIFont.familyNames())")
-        contactTextView.font = UIFont(name: "Blackoak Std", size: 18)
+        contactTextView.font = UIFont(name: "Blackoak Std", size: 14)
         contactTextView.font = UIFont.systemFontOfSize(18)
         contactTextView.textColor = UIColor.whiteColor()
         contactTextView.backgroundColor = UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 0.2)
         contactTextView.tintColor = COLORRGBA(60, g: 165, b: 210, a: 1)
-        contactTextView.text = "请输入招募文字"
+        contactTextView.text = "请输入招募文字(88字以内)"
+        contactTextView.scrollEnabled = false
         scrollView.addSubview(contactTextView)
         contactTextView.snp_makeConstraints { (make) in
-            make.top.equalTo(needLabel.snp_bottom).offset(80)
+            make.top.equalTo(needLabel.snp_bottom).offset(60)
             make.leading.equalTo(view.snp_leading).offset(30)
             make.trailing.equalTo(view.snp_trailing).offset(-30)
-            make.height.equalTo(contactTextView.snp_width).multipliedBy(12/18.0)
+            make.height.equalTo((MainScreenBounds.size.width-60)*10/18.0)
         }
         
-         //contactTextView.clipCornerRadiusForView(contactTextView, RoundingCorners: [UIRectCorner.TopLeft,UIRectCorner.TopRight,UIRectCorner.BottomLeft,UIRectCorner.BottomRight], Radii: CGSizeMake(10, 10))
+        contactTextView.layer.masksToBounds = true
+        contactTextView.layer.cornerRadius = 10
+
+        
+        var vSpace = MainScreenBounds.size.height - 64 - 140 - 60 - (MainScreenBounds.size.width-60)*10/18.0 - 90 - 10
+        
+        if vSpace < 30 {
+            vSpace = 30
+            
+            contactTextView.snp_updateConstraints { (make) in
+                make.top.equalTo(needLabel.snp_bottom).offset(30)
+            }
+            
+        }
+
         
         leftImageView = RNBaseUI.createImageView(nil, backgroundColor: UIColor.whiteColor())
         scrollView.addSubview(leftImageView)
         leftImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(36)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace+6)
             make.leading.equalTo(view.snp_leading).offset(0)
             make.width.equalTo(70)
             make.height.equalTo(1)
         }
         
         noteLabel = RNBaseUI.createLabel("服务家售后团队火热招募中", titleColor: UIColor.whiteColor(), font: 15, alignment: NSTextAlignment.Center)
+        noteLabel.adjustsFontSizeToFitWidth = true
         scrollView.addSubview(noteLabel)
         noteLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(30)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace)
             make.leading.equalTo(leftImageView.snp_trailing).offset(5)
             make.height.equalTo(15)
         }
@@ -166,7 +184,7 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         rightImageView = RNBaseUI.createImageView(nil, backgroundColor: UIColor.whiteColor())
         scrollView.addSubview(rightImageView)
         rightImageView.snp_makeConstraints { (make) in
-            make.top.equalTo(contactTextView.snp_bottom).offset(36)
+            make.top.equalTo(contactTextView.snp_bottom).offset(vSpace+6)
             make.leading.equalTo(noteLabel.snp_trailing).offset(5)
             make.trailing.equalTo(view.snp_trailing).offset(0)
             make.width.equalTo(70)
@@ -183,7 +201,10 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
             
         }
         
-       
+        scrollView.snp_makeConstraints { (make) in
+            make.edges.equalTo(0)
+            make.bottom.equalTo(logoImageView.snp_bottom).offset(10)
+        }
 
     }
     
@@ -234,12 +255,18 @@ extension RNRecruitNewMenmberViewController{
         MonkeyKing.registerAccount(.WeChat(appID:ShareIDAndKey.Wechat.appID, appKey: ShareIDAndKey.Wechat.appKey))
         
         //跳转的url
-        let shareURL = NSURL(string: "http://www.jianshu.com/users/274775e3d56d/latest_articles")
+        let shareURL = NSURL(string: "http://www.ozner.net")
+        
+        var desc: String = "浩优期待您的加入"
+        
+        if !contactTextView.text.isEmpty && !(contactTextView.text as NSString).isEqualToString("请输入招募文字(88字以内)"){
+            desc = contactTextView.text
+        }
         
         let info = MonkeyKing.Info(
             title: "浩泽服务家",
-            description: "我的appKey还木有拿到辣",
-            thumbnail: UIImage(named: "auth_wait"),
+            description: desc,
+            thumbnail: UIImage(named: "manage_member"),
             media: MonkeyKing.Media.URL(shareURL!)
         )
         
@@ -299,8 +326,19 @@ extension RNRecruitNewMenmberViewController{
     
     func textViewDidEndEditing(textView: UITextView) {
         if textView.text.isEmpty {
-            contactTextView.text = "请输入招募文字"
+            contactTextView.text = "请输入招募文字(88字以内)"
             isFirstInput = true
+        }
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        if (textView.text as NSString).length > 88 {
+            textView.text = (textView.text as NSString).substringToIndex(88)
+            textView.resignFirstResponder()
+            let alertView=SCLAlertView()
+            alertView.addButton("ok", action: {})
+            alertView.showError("错误提示", subTitle: "输入不能超过88个字")
         }
     }
 }
