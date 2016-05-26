@@ -136,6 +136,7 @@
 		8D6269821CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6269801CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift */; };
 		8D7F02991CD216030060681F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F02981CD216030060681F /* NetworkManager.swift */; };
 		8D7F029B1CD2160E0060681F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F029A1CD2160E0060681F /* User.swift */; };
+		8DB1AFCD1CF6A81000E36403 /* SelectIDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */; };
 		A107DEA530D55CF20D61F2DA /* Pods_HoyoServicerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5A6AC4BEF90CCC04E4B972 /* Pods_HoyoServicerUITests.framework */; };
 		E03682751CD33D43006C03D4 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03682731CD33D43006C03D4 /* BankModel.swift */; };
 		E03682781CD33D68006C03D4 /* BoundCarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03682761CD33D68006C03D4 /* BoundCarViewCell.swift */; };
@@ -180,7 +181,6 @@
 		E04195F51CCF2F41005D08DC /* MyExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195D01CCF2F41005D08DC /* MyExamViewController.xib */; };
 		E04195F61CCF2F41005D08DC /* MyTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */; };
 		E04195F71CCF2F41005D08DC /* SelectAdressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */; };
-		E04195F81CCF2F41005D08DC /* SelectIDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */; };
 		E04195F91CCF2F41005D08DC /* SetSexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D41CCF2F41005D08DC /* SetSexViewController.swift */; };
 		E04195FA1CCF2F41005D08DC /* SetSexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195D51CCF2F41005D08DC /* SetSexViewController.xib */; };
 		E04195FB1CCF2F41005D08DC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D61CCF2F41005D08DC /* SettingViewController.swift */; };
@@ -257,6 +257,8 @@
 		E07497E11CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */; };
 		E07497E31CEC6A1600C7DEFB /* RNBaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */; };
 		E093D5051CF583CD00854AFA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093D5041CF583CD00854AFA /* SDWebImage.framework */; };
+		E093D5481CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */; };
+		E093D5491CF6897700854AFA /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */; };
 		EFB5D29623F5D3CFF740819D /* Pods_HoyoServicerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -430,6 +432,7 @@
 		8D6269801CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountDetailModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8D7F02981CD216030060681F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8D7F029A1CD2160E0060681F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIDTableViewController.swift; sourceTree = "<group>"; };
 		CC5A6AC4BEF90CCC04E4B972 /* Pods_HoyoServicerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoyoServicerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCB0B445A702E41F265DF44 /* Pods-HoyoServicer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoyoServicer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HoyoServicer/Pods-HoyoServicer.debug.xcconfig"; sourceTree = "<group>"; };
 		D23269485F77D6CDE0E9438D /* Pods-HoyoServicer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoyoServicer.release.xcconfig"; path = "Pods/Target Support Files/Pods-HoyoServicer/Pods-HoyoServicer.release.xcconfig"; sourceTree = "<group>"; };
@@ -477,7 +480,6 @@
 		E04195D01CCF2F41005D08DC /* MyExamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyExamViewController.xib; sourceTree = "<group>"; };
 		E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTeamTableViewController.swift; sourceTree = "<group>"; };
 		E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAdressTableViewController.swift; sourceTree = "<group>"; };
-		E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIDTableViewController.swift; sourceTree = "<group>"; };
 		E04195D41CCF2F41005D08DC /* SetSexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSexViewController.swift; sourceTree = "<group>"; };
 		E04195D51CCF2F41005D08DC /* SetSexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetSexViewController.xib; sourceTree = "<group>"; };
 		E04195D61CCF2F41005D08DC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -571,6 +573,11 @@
 		E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRecruitNewMenmberViewController.swift; sourceTree = "<group>"; };
 		E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseUI.swift; sourceTree = "<group>"; };
 		E093D5041CF583CD00854AFA /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		E093D5431CF6897700854AFA /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		E093D5441CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		E093D5461CF6897700854AFA /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoyoServicerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1019,6 +1026,7 @@
 		E04195C91CCF2F41005D08DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */,
 				E04195CA1CCF2F41005D08DC /* AuthenticationController.swift */,
 				E04195CB1CCF2F41005D08DC /* AuthenticationController.xib */,
 				E04195CC1CCF2F41005D08DC /* EditNameViewController.swift */,
@@ -1028,7 +1036,6 @@
 				E04195D01CCF2F41005D08DC /* MyExamViewController.xib */,
 				E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */,
 				E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */,
-				E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */,
 				E04195D41CCF2F41005D08DC /* SetSexViewController.swift */,
 				E04195D51CCF2F41005D08DC /* SetSexViewController.xib */,
 				E04195D61CCF2F41005D08DC /* SettingViewController.swift */,
@@ -1072,6 +1079,7 @@
 		E04196131CCF37D5005D08DC /* ExtralLibary */ = {
 			isa = PBXGroup;
 			children = (
+				E093D5421CF6897700854AFA /* SVPullToRefresh */,
 				E06ABE6D1CF3FAF300B704EE /* YZDisplayViewController */,
 				E059853B1CF2F376006C83F6 /* PopoverView */,
 				3BD5B9B11CF2C2270097BC60 /* MSSBrowse */,
@@ -1229,6 +1237,18 @@
 			path = YZDisplayViewController;
 			sourceTree = "<group>";
 		};
+		E093D5421CF6897700854AFA /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E093D5431CF6897700854AFA /* SVPullToRefresh.h */,
+				E093D5441CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.h */,
+				E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */,
+				E093D5461CF6897700854AFA /* UIScrollView+SVPullToRefresh.h */,
+				E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		E266CB30D571A370AF9EDEF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1329,7 +1349,7 @@
 				TargetAttributes = {
 					8D2681DF1CA8DB37009E7BAC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BQE6636VJ7;
+						DevelopmentTeam = UZZG6NM74T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1608,6 +1628,7 @@
 				E04195F61CCF2F41005D08DC /* MyTeamTableViewController.swift in Sources */,
 				E04196481CCF37D5005D08DC /* DataObject+CoreDataProperties.swift in Sources */,
 				E04196101CCF2F41005D08DC /* TeamListTableViewCell.swift in Sources */,
+				E093D5491CF6897700854AFA /* UIScrollView+SVPullToRefresh.m in Sources */,
 				8901C5121CEE9DC1003D8543 /* GYScoreVC.swift in Sources */,
 				3BD5B9811CF2C1690097BC60 /* SubmitController.swift in Sources */,
 				E04195581CCF2BA3005D08DC /* RegistFooterView2.swift in Sources */,
@@ -1652,6 +1673,7 @@
 				3BD5B9A31CF2C1A00097BC60 /* RobListViewCelll.swift in Sources */,
 				3BD5B9801CF2C1690097BC60 /* UseTimeCon.swift in Sources */,
 				E04196011CCF2F41005D08DC /* AuthDetailView.swift in Sources */,
+				E093D5481CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				E04196511CCF37D5005D08DC /* CALayer+Expand.swift in Sources */,
 				E04195AE1CCF2D77005D08DC /* ManageTableViewController.swift in Sources */,
 				3BD5B9DB1CF2C2270097BC60 /* MSSBrowseBaseViewController.m in Sources */,
@@ -1695,7 +1717,6 @@
 				3BD5B9F21CF2C5720097BC60 /* ProductInfo+CoreDataProperties.swift in Sources */,
 				E04196431CCF37D5005D08DC /* AFSecurityPolicy.m in Sources */,
 				3BD5B9EC1CF2C2270097BC60 /* ScanResultController.swift in Sources */,
-				E04195C51CCF2EA5005D08DC /* NewsTableViewController.swift in Sources */,
 				E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */,
 				E041964C1CCF37D5005D08DC /* User+CoreDataProperties.swift in Sources */,
 				E041960B1CCF2F41005D08DC /* ChiefOfSelectIDCell.swift in Sources */,
@@ -1704,7 +1725,6 @@
 				3BBD50551CD272B2000237F0 /* Evaluation.swift in Sources */,
 				3BD5B9FF1CF2C9DB0097BC60 /* SubmitControllerExtensions.swift in Sources */,
 				E04195F41CCF2F41005D08DC /* MyExamViewController.swift in Sources */,
-				E04195F81CCF2F41005D08DC /* SelectIDTableViewController.swift in Sources */,
 				3BD5B9E41CF2C2270097BC60 /* UIView+MSSLayout.m in Sources */,
 				89A1DFC21CDC6B0F00F298B0 /* FinancialManagerVC.swift in Sources */,
 				E04195C61CCF2EA5005D08DC /* NewsTableViewCell.swift in Sources */,
@@ -1744,6 +1764,7 @@
 				3BD5B9A01CF2C1A00097BC60 /* HomeTableViewCell.swift in Sources */,
 				E04196401CCF37D5005D08DC /* AFHTTPRequestOperationManager.m in Sources */,
 				8D6269811CE437D1007849E0 /* AccountDetailModel.swift in Sources */,
+				8DB1AFCD1CF6A81000E36403 /* SelectIDTableViewController.swift in Sources */,
 				E06ABE7C1CF3FB9500B704EE /* RNAchievementViewController.swift in Sources */,
 				E04195AF1CCF2D77005D08DC /* AchievementCell.swift in Sources */,
 				3BD5B9EA1CF2C2270097BC60 /* LBXScanViewStyle.swift in Sources */,
@@ -1856,7 +1877,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1897,7 +1918,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1910,8 +1931,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = luanched;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
+>>>>>>> bc1f8a9f661ae1f34ddd7736474c5eb99aaebf47
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1926,7 +1952,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
+>>>>>>> bc1f8a9f661ae1f34ddd7736474c5eb99aaebf47
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1939,8 +1969,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = luanched;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongzhi Cui (ZSZ9J57XLQ)";
+>>>>>>> bc1f8a9f661ae1f34ddd7736474c5eb99aaebf47
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1955,7 +1990,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE = "";
+=======
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
+>>>>>>> bc1f8a9f661ae1f34ddd7736474c5eb99aaebf47
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 			};
 			name = Release;

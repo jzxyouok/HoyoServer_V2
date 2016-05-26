@@ -7,9 +7,8 @@
 //
 
 import UIKit
-
 import MBProgressHUD
-import SVPullToRefresh
+
 protocol SelectProductViewControllerDelegate {
     func selectedInfos(productInfo:[Int:[String]])
 }

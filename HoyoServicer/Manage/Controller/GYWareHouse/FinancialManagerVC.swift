@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVPullToRefresh
 
 
 class FinancialManagerVC: UIViewController ,UITableViewDataSource,UITableViewDelegate{

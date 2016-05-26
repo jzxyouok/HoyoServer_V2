@@ -92,7 +92,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-HoyoServicer/MonkeyKing.framework"
   install_framework "Pods-HoyoServicer/Reachability.framework"
   install_framework "Pods-HoyoServicer/SDWebImage.framework"
-  install_framework "Pods-HoyoServicer/SVPullToRefresh.framework"
   install_framework "Pods-HoyoServicer/SnapKit.framework"
   install_framework "Pods-HoyoServicer/SwiftyJSON.framework"
 fi
@@ -105,7 +104,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-HoyoServicer/MonkeyKing.framework"
   install_framework "Pods-HoyoServicer/Reachability.framework"
   install_framework "Pods-HoyoServicer/SDWebImage.framework"
-  install_framework "Pods-HoyoServicer/SVPullToRefresh.framework"
   install_framework "Pods-HoyoServicer/SnapKit.framework"
   install_framework "Pods-HoyoServicer/SwiftyJSON.framework"
 fi
