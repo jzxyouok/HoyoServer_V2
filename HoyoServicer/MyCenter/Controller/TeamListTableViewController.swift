@@ -30,6 +30,7 @@ class TeamListTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        memberList.removeAll()
         tableView.triggerPullToRefresh()
     }
     

@@ -49,7 +49,7 @@
                         <constraint firstAttribute="height" constant="21" id="XAl-oV-8EE"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdE-bV-yBu">
@@ -101,7 +101,7 @@
                         <constraint firstAttribute="height" constant="21" id="9Fk-dj-iGP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFe-wL-dgG">
@@ -127,7 +127,7 @@
                         <constraint firstAttribute="height" constant="21" id="AYD-BA-V2p"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgb-gY-E9F">
@@ -153,20 +153,27 @@
                     <state key="normal" title="拒绝">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="refuseBtn:" destination="-1" eventType="touchUpInside" id="dFX-2b-qYR"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvQ-e2-mnE">
-                    <rect key="frame" x="120" y="245" width="80" height="30"/>
+                    <rect key="frame" x="27" y="245" width="266" height="30"/>
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="ZBJ-zn-ZIl"/>
                         <constraint firstAttribute="height" constant="30" id="b7R-XE-K1o"/>
                     </constraints>
                     <state key="normal" title="移除">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="removeBtn:" destination="-1" eventType="touchUpInside" id="oe7-M2-leQ"/>
                     </connections>
@@ -181,6 +188,10 @@
                     <state key="normal" title="同意">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="agreeGetMem:" destination="-1" eventType="touchUpInside" id="z58-GS-456"/>
                     </connections>
@@ -197,12 +208,14 @@
                 <constraint firstAttribute="trailing" secondItem="jgb-gY-E9F" secondAttribute="trailing" id="Ad8-Qt-elI"/>
                 <constraint firstItem="4bb-KL-aPT" firstAttribute="top" secondItem="gFe-wL-dgG" secondAttribute="bottom" constant="17" id="COs-sv-gl5"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cy7-Hb-41A" secondAttribute="trailing" constant="10" id="DOH-Wv-9jP"/>
+                <constraint firstAttribute="trailing" secondItem="zvQ-e2-mnE" secondAttribute="trailing" constant="27" id="INj-07-XjD"/>
                 <constraint firstItem="EQ6-yP-cb1" firstAttribute="top" secondItem="jgb-gY-E9F" secondAttribute="bottom" constant="27" id="JyQ-x5-Zaf"/>
                 <constraint firstItem="01j-BS-0QN" firstAttribute="top" secondItem="mxc-2d-Gdn" secondAttribute="bottom" constant="17" id="KM1-Zh-5Nd"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6uK-c2-OE5" secondAttribute="trailing" constant="120" id="KeM-1b-tqx"/>
                 <constraint firstAttribute="trailing" secondItem="lAk-DI-gly" secondAttribute="trailing" constant="46" id="LRW-yL-CAJ"/>
                 <constraint firstItem="8mq-AL-1gM" firstAttribute="top" secondItem="gFe-wL-dgG" secondAttribute="bottom" constant="17" id="Nbj-2x-1eq"/>
                 <constraint firstItem="WTz-g3-v5q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="PxQ-XU-kXh"/>
+                <constraint firstItem="zvQ-e2-mnE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="RlK-FH-GmK"/>
                 <constraint firstItem="mxc-2d-Gdn" firstAttribute="top" secondItem="WTz-g3-v5q" secondAttribute="bottom" constant="17" id="S0N-od-61l"/>
                 <constraint firstItem="Q6x-iT-15f" firstAttribute="top" secondItem="01j-BS-0QN" secondAttribute="bottom" constant="17" id="TlM-pJ-y8l"/>
                 <constraint firstItem="ahZ-YZ-H16" firstAttribute="top" secondItem="01j-BS-0QN" secondAttribute="bottom" constant="17" id="Wfx-uk-pCq"/>

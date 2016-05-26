@@ -11,10 +11,6 @@ import UIKit
 class NewsTableViewController: UITableViewController {
     
     var dataArr: [MessageModel] = []
-    var scoreArr: [ScoreMessageModel] = []
-    var modelLast: MessageModel?
-    var isBool: Bool = false
-    
     var messageList: Int = 0
         {
         didSet{
@@ -46,19 +42,17 @@ class NewsTableViewController: UITableViewController {
     
     func getDatas() {
         dataArr.removeAll()
-        scoreArr.removeAll()
-        let modelArr: [MessageModel] = (MessageModel.allCachedObjects() as? [MessageModel])!
-        dataArr = modelArr
-        let scoreArrT:[ScoreMessageModel] = (ScoreMessageModel.allCachedObjects() as? [ScoreMessageModel])!
-        scoreArr = scoreArrT
-        
-        let dataInt = dataArr.count == 0 ? 0 : 1
-        let scoreInt = scoreArr.count == 0 ? 0 : 1
-        messageList = dataInt + scoreInt
-        if let boolis = NSUserDefaults.standardUserDefaults().valueForKey("StateMessage") as? Bool {
-            isBool = boolis
+        var modelArr: [MessageModel] = (MessageModel.allCachedObjects() as? [MessageModel])!
+        modelArr.sortInPlace { (s1:MessageModel, s2: MessageModel) -> Bool in
+            return Int(s1.msgId!)! > Int(s2.msgId!)!
         }
-        
+        dataArr = modelArr
+        messageList = dataArr.count
+    }
+    
+    //数组对象排序
+    func onSort(s1: MessageModel,s2: MessageModel) -> Bool {
+        return Int(s1.msgId!)! > Int(s2.msgId!)!
     }
     
     func notice(sender: AnyObject) {
@@ -74,12 +68,12 @@ class NewsTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return messageList
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return messageList ?? 0
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -87,26 +81,10 @@ class NewsTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsTableViewCell", forIndexPath: indexPath) as! NewsTableViewCell
-        cell.selectionStyle=UITableViewCellSelectionStyle.Blue
-        if indexPath.section == 0 {
-            
-            if isBool {
-                let model: ScoreMessageModel = scoreArr.last!
-                cell.reloadScoreUI(model)
-            } else {
-                let mode: MessageModel = dataArr.last!
-                cell.reloadUI(mode)
-            }
-            
-        } else {
-            if isBool {
-                let mode: MessageModel = dataArr.last!
-                cell.reloadUI(mode)
-                
-            } else {
-                let model: ScoreMessageModel = scoreArr.last!
-                cell.reloadScoreUI(model)
-            }
+        if dataArr.count != 0 {
+            let model:MessageModel = dataArr[indexPath.row]
+            cell.selectionStyle=UITableViewCellSelectionStyle.Blue
+            cell.reloadUI(model)
         }
         return cell
     }
@@ -114,72 +92,26 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.section == 0 {
-            if isBool {
-                let detailController = GYScoreVC()
-                detailController.dataArr = scoreArr
-                self.navigationController?.pushViewController(detailController, animated: true)
-            } else {
-                let detailController = GYDetailNewsVC()
-                detailController.dataArr = dataArr
-                self.navigationController?.pushViewController(detailController, animated: true)
-            }
-            
-        } else {
-            if isBool {
-                let detailController = GYDetailNewsVC()
-                detailController.dataArr = dataArr
-                self.navigationController?.pushViewController(detailController, animated: true)
-            } else {
-                let detailController = GYScoreVC()
-                detailController.dataArr = scoreArr
-                self.navigationController?.pushViewController(detailController, animated: true)
-            }
-        }
+        let detail = GYDetailNewsVC()
+        let model = dataArr[indexPath.row]
+        detail.dataArr =  ScoreMessageModel.GetSourceArr(model.sendUserid!, entityName: "")
+        detail.sendUserID = model.sendUserid
+        detail.titleStr = model.sendNickName
+        navigationController?.pushViewController(detail, animated: true)
         
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            if indexPath.section == 0 {
-                if isBool {
-                    scoreArr.removeAll()
-                    DataManager.defaultManager.deleteAllObjectsWithEntityName("ScoreMessageModel")
-                    NSUserDefaults.standardUserDefaults().setValue(!isBool, forKey: "StateMessage")
-                    NSUserDefaults.standardUserDefaults().setValue("0", forKey: "scoreNum")
-                    NSNotificationCenter.defaultCenter().postNotificationName(messageNotification, object: nil, userInfo: ["messageNum": "1"])
-                    getDatas()
-                } else {
-                    dataArr.removeAll()
-                    DataManager.defaultManager.deleteAllObjectsWithEntityName("MessageModel")
-                    NSUserDefaults.standardUserDefaults().setValue(!isBool, forKey: "StateMessage")
-                    NSUserDefaults.standardUserDefaults().setValue("0", forKey: "messageNum")
-                    NSNotificationCenter.defaultCenter().postNotificationName(messageNotification, object: nil, userInfo: ["messageNum": "1"])
-                    getDatas()
-                }
-            } else {
-                if isBool {
-                    dataArr.removeAll()
-                    DataManager.defaultManager.deleteAllObjectsWithEntityName("MessageModel")
-                    NSUserDefaults.standardUserDefaults().setValue("0", forKey: "messageNum")
-                    NSNotificationCenter.defaultCenter().postNotificationName(messageNotification, object: nil, userInfo: ["messageNum": "1"])
-                    getDatas()
-                } else {
-                    scoreArr.removeAll()
-                    DataManager.defaultManager.deleteAllObjectsWithEntityName("ScoreMessageModel")
-                    NSUserDefaults.standardUserDefaults().setValue("0", forKey: "scoreNum")
-                    NSNotificationCenter.defaultCenter().postNotificationName(messageNotification, object: nil, userInfo: ["messageNum": "1"])
-                    getDatas()
-                }
-            }
-            tableView.reloadData()
-        } else if editingStyle == .Insert {
-            
-        }    
+            let model = dataArr[indexPath.row]
+            ScoreMessageModel.deleteSource(model.sendUserid!, entityName: "")
+            MessageModel.deleteSource(model.sendUserid!, entityName: "")
+            getDatas()
+        }
     }
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         return  "删除"
     }
     
-    
 }
+

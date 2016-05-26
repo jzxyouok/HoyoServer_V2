@@ -132,6 +132,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         //清理用户文件
         appDelegate.clearCaches()
+        
+        //
+        //退出删除消息存储
+        DataManager().deleteAllObjectsWithEntityName("MessageModel")
+        DataManager().deleteAllObjectsWithEntityName("ScoreMessageModel")
+        
+        //退出登录删除本地用户名和密码
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
+        
         if appDelegate.mainViewController != nil{
             appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -331,53 +341,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(tmp)
         if  let data = tmp.dataUsingEncoding(NSUTF8StringEncoding) {
             let dic = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? [String: AnyObject]
-            let typeStr = dic!!["MessageType"] as! String
+            let userId = dic!!["SendUserid"]?.stringValue ?? ""
+            MessageModel.updateSource(userId, entityName: "")
             
-            switch  typeStr {
-            case "score":
-                let model = ScoreMessageModel.cachedObjectWithID(dic!!["MsgId"] as! String)
-                model.msgId = dic!!["MsgId"] as? String ?? ""
-                model.sendUserid = dic!!["SendUserid"] as? String ?? ""
-                model.recvUserid = dic!!["RecvUserid"] as? String ?? ""
-                model.sendNickName = dic!!["SendNickName"] as? String ?? ""
-                model.sendImageUrl = dic!!["SendImageUrl"] as? String ?? ""
-                if model.sendImageUrl != "" {
-                    model.sendImageUrl = "http://wechat.hoyofuwu.com" +  model.sendImageUrl!
-                }
-                model.messageCon = dic!!["MessageCon"] as? String ?? ""
-                model.messageType = dic!!["MessageType"] as? String ?? ""
-                model.createTime = dic!!["CreateTime"] as? String ?? ""
-                print("zhu\(model.createTime)")
-                let  numStr:String =  (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum") ?? "0") as! String
-                let str = String(Int(numStr)! + 1)
-                NSUserDefaults.standardUserDefaults().setValue(str, forKey: "scoreNum")
-                NSUserDefaults.standardUserDefaults().setValue(true, forKey: "StateMessage")
-                DataManager.defaultManager!.saveChanges()
-                break
-            case "string","ordernotify":
-                let model = MessageModel.cachedObjectWithID(dic!!["MsgId"] as! String)
-                model.msgId = dic!!["MsgId"] as? String ?? ""
-                model.sendUserid = dic!!["SendUserid"] as? String ?? ""
-                model.recvUserid = dic!!["RecvUserid"] as? String ?? ""
-                model.sendNickName = dic!!["SendNickName"] as? String ?? ""
-                model.sendImageUrl = dic!!["SendImageUrl"] as? String ?? ""
-                if model.sendImageUrl != "" {
-                    model.sendImageUrl = "http://wechat.hoyofuwu.com" +  model.sendImageUrl!
-                }
-                model.messageCon = dic!!["MessageCon"] as? String ?? ""
-                model.messageType = dic!!["MessageType"] as? String ?? ""
-                model.createTime = dic!!["CreateTime"] as? String ?? ""
-                print("zhu\(model.createTime)")
-                let  numStr:String =  (NSUserDefaults.standardUserDefaults().valueForKey("messageNum") ?? "0") as! String
-                let str = String(Int(numStr)! + 1)
-                NSUserDefaults.standardUserDefaults().setValue(str, forKey: "messageNum")
-                NSUserDefaults.standardUserDefaults().setValue(false, forKey: "StateMessage")
-                 DataManager.defaultManager!.saveChanges()
-                break
-            default:
-                break
+            let model = MessageModel.cachedObjectWithID(dic!!["MsgId"] as! String)
+            model.sendUserid = dic!!["SendUserid"]?.stringValue ?? ""
+            model.msgId = dic!!["MsgId"] as? String ?? ""
+            
+            print(model.sendUserid)
+            model.recvUserid = dic!!["RecvUserid"]?.stringValue ?? ""
+            model.sendNickName = dic!!["SendNickName"] as? String ?? ""
+            model.sendImageUrl = dic!!["SendImageUrl"] as? String ?? ""
+            if model.sendImageUrl != "" {
+                model.sendImageUrl = "http://wechat.hoyofuwu.com" +  model.sendImageUrl!
             }
-           
+            model.messageCon = dic!!["MessageCon"] as? String ?? ""
+            model.messageType = dic!!["MessageType"] as? String ?? ""
+            model.createTime = dic!!["CreateTime"] as? String ?? ""
+            //            let  numStr:String =  (NSUserDefaults.standardUserDefaults().valueForKey("messageNum") ?? "0") as! String
+            //            let str = String(Int(numStr)! + 1)
+            print(model)
+            //            NSUserDefaults.standardUserDefaults().setValue(str, forKey: "messageNum")
+            //            NSUserDefaults.standardUserDefaults().setValue(false, forKey: "StateMessage")
+            
+            let scoreModel = ScoreMessageModel.cachedObjectWithID(dic!!["MsgId"] as! String)
+            scoreModel.msgId = dic!!["MsgId"] as? String ?? ""
+            scoreModel.sendUserid = dic!!["SendUserid"]?.stringValue ?? ""
+            scoreModel.recvUserid = dic!!["RecvUserid"]?.stringValue ?? ""
+            scoreModel.sendNickName = dic!!["SendNickName"] as? String ?? ""
+            scoreModel.sendImageUrl = dic!!["SendImageUrl"] as? String ?? ""
+            if scoreModel.sendImageUrl != "" {
+                scoreModel.sendImageUrl = "http://wechat.hoyofuwu.com" +  scoreModel.sendImageUrl!
+            }
+            scoreModel.messageCon = dic!!["MessageCon"] as? String ?? ""
+            scoreModel.messageType = dic!!["MessageType"] as? String ?? ""
+            scoreModel.createTime = dic!!["CreateTime"] as? String ?? ""
+            //                let  numStr:String =  (NSUserDefaults.standardUserDefaults().valueForKey("scoreNum") ?? "0") as! String
+            //                let str = String(Int(numStr)! + 1)
+            //                NSUserDefaults.standardUserDefaults().setValue(str, forKey: "scoreNum")
+            //                NSUserDefaults.standardUserDefaults().setValue(true, forKey: "StateMessage")
+            DataManager.defaultManager!.saveChanges()
             print("进入了")
             AudioServicesPlaySystemSound(1007)
             

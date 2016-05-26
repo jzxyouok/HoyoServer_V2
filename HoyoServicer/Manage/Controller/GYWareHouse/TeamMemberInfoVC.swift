@@ -51,7 +51,7 @@ class TeamMemberInfoVC: UIViewController {
                 agreeBtn.hidden = false
                 refuseBtn.hidden = false
             } else if memberInfo!.MemberState == "70002" || memberInfo!.MemberState == "70003"{
-                // removeBtn.hidden = false
+                removeBtn.hidden = false
             } else {
                 removeBtn.hidden = false
             }

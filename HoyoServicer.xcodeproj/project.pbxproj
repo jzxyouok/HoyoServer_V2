@@ -100,6 +100,7 @@
 		8915CBBC1CD345D900D564D1 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915CBBB1CD345D900D564D1 /* UIBarButtonItem+Category.swift */; };
 		8915CBC21CD3541A00D564D1 /* TeamMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8915CBC11CD3541A00D564D1 /* TeamMembers.swift */; };
 		89816ECD1CF3E70C001788E0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89816ECB1CF3E70C001788E0 /* Test.swift */; };
+		89816ED11CF53769001788E0 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89816ED01CF53769001788E0 /* NewsTableViewController.swift */; };
 		89A1DD491CD886AD00F298B0 /* TeamMemberInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1DD471CD886AD00F298B0 /* TeamMemberInfoVC.swift */; };
 		89A1DD4A1CD886AD00F298B0 /* TeamMemberInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */; };
 		89A1DFC21CDC6B0F00F298B0 /* FinancialManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1DFC11CDC6B0F00F298B0 /* FinancialManagerVC.swift */; };
@@ -115,6 +116,8 @@
 		89B90ABE1CEAFEE20035D94D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90ABD1CEAFEE20035D94D /* Security.framework */; };
 		89B90AC01CEAFEEE0035D94D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90ABF1CEAFEEE0035D94D /* libz.tbd */; };
 		89B90AC21CEB02140035D94D /* ALCameraViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90AC11CEB02140035D94D /* ALCameraViewController.framework */; };
+		89F1EFEA1CF5538D00AC89A3 /* OrderMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F1EFE81CF5538D00AC89A3 /* OrderMessageCell.swift */; };
+		89F1EFEB1CF5538D00AC89A3 /* OrderMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89F1EFE91CF5538D00AC89A3 /* OrderMessageCell.xib */; };
 		89FAAA801CE446EC00325891 /* MyTeamModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FAAA7E1CE446EC00325891 /* MyTeamModel+CoreDataProperties.swift */; };
 		89FAAA811CE446EC00325891 /* MyTeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FAAA7F1CE446EC00325891 /* MyTeamModel.swift */; };
 		89FAAA831CE44B3000325891 /* PersonInfoStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FAAA821CE44B3000325891 /* PersonInfoStateView.swift */; };
@@ -166,7 +169,6 @@
 		E04195BA1CCF2D77005D08DC /* ManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E041959D1CCF2D77005D08DC /* ManageTableViewCell.xib */; };
 		E04195C31CCF2EA5005D08DC /* DetailOfNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195BD1CCF2EA5005D08DC /* DetailOfNewsViewController.swift */; };
 		E04195C41CCF2EA5005D08DC /* DetailOfNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195BE1CCF2EA5005D08DC /* DetailOfNewsViewController.xib */; };
-		E04195C51CCF2EA5005D08DC /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195BF1CCF2EA5005D08DC /* NewsTableViewController.swift */; };
 		E04195C61CCF2EA5005D08DC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195C11CCF2EA5005D08DC /* NewsTableViewCell.swift */; };
 		E04195C71CCF2EA5005D08DC /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195C21CCF2EA5005D08DC /* NewsTableViewCell.xib */; };
 		E04195EF1CCF2F41005D08DC /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195CA1CCF2F41005D08DC /* AuthenticationController.swift */; };
@@ -387,6 +389,7 @@
 		8915CBBB1CD345D900D564D1 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		8915CBC11CD3541A00D564D1 /* TeamMembers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMembers.swift; sourceTree = "<group>"; };
 		89816ECB1CF3E70C001788E0 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		89816ED01CF53769001788E0 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		89A1DD471CD886AD00F298B0 /* TeamMemberInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberInfoVC.swift; sourceTree = "<group>"; };
 		89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberInfoVC.xib; sourceTree = "<group>"; };
 		89A1DFC11CDC6B0F00F298B0 /* FinancialManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialManagerVC.swift; sourceTree = "<group>"; };
@@ -403,6 +406,8 @@
 		89B90ABD1CEAFEE20035D94D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		89B90ABF1CEAFEEE0035D94D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		89B90AC11CEB02140035D94D /* ALCameraViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ALCameraViewController.framework; path = "../../../../Library/Developer/Xcode/DerivedData/HoyoServicer-etisgljtesaeyscsbvcjnemjsuum/Build/Products/Debug-iphoneos/ALCameraViewController.framework"; sourceTree = "<group>"; };
+		89F1EFE81CF5538D00AC89A3 /* OrderMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMessageCell.swift; sourceTree = "<group>"; };
+		89F1EFE91CF5538D00AC89A3 /* OrderMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderMessageCell.xib; sourceTree = "<group>"; };
 		89FAAA7E1CE446EC00325891 /* MyTeamModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MyTeamModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		89FAAA7F1CE446EC00325891 /* MyTeamModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTeamModel.swift; sourceTree = "<group>"; };
 		89FAAA821CE44B3000325891 /* PersonInfoStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoStateView.swift; sourceTree = "<group>"; };
@@ -463,7 +468,6 @@
 		E041959D1CCF2D77005D08DC /* ManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageTableViewCell.xib; sourceTree = "<group>"; };
 		E04195BD1CCF2EA5005D08DC /* DetailOfNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailOfNewsViewController.swift; sourceTree = "<group>"; };
 		E04195BE1CCF2EA5005D08DC /* DetailOfNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailOfNewsViewController.xib; sourceTree = "<group>"; };
-		E04195BF1CCF2EA5005D08DC /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		E04195C11CCF2EA5005D08DC /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		E04195C21CCF2EA5005D08DC /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		E04195CA1CCF2F41005D08DC /* AuthenticationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
@@ -975,7 +979,7 @@
 		E04195BB1CCF2E5C005D08DC /* News */ = {
 			isa = PBXGroup;
 			children = (
-				E04195BF1CCF2EA5005D08DC /* NewsTableViewController.swift */,
+				89816ED01CF53769001788E0 /* NewsTableViewController.swift */,
 				E04195BC1CCF2EA5005D08DC /* Controller */,
 				E04195C01CCF2EA5005D08DC /* View */,
 			);
@@ -1003,6 +1007,8 @@
 				8901C51B1CEEB63B003D8543 /* ScoreBootomView.swift */,
 				8901C51D1CEEDA1B003D8543 /* GYScoreMessageCell.swift */,
 				8901C51E1CEEDA1B003D8543 /* GYScoreMessageCell.xib */,
+				89F1EFE81CF5538D00AC89A3 /* OrderMessageCell.swift */,
+				89F1EFE91CF5538D00AC89A3 /* OrderMessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1343,7 +1349,7 @@
 				TargetAttributes = {
 					8D2681DF1CA8DB37009E7BAC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BQE6636VJ7;
+						DevelopmentTeam = UZZG6NM74T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1400,6 +1406,7 @@
 				E04195BA1CCF2D77005D08DC /* ManageTableViewCell.xib in Resources */,
 				E04195B01CCF2D77005D08DC /* AchievementCell.xib in Resources */,
 				E05610541CE9CD8500979919 /* FillBankCardMessageController.xib in Resources */,
+				89F1EFEB1CF5538D00AC89A3 /* OrderMessageCell.xib in Resources */,
 				3BD5B9691CF2C1150097BC60 /* NetworkConfig.plist in Resources */,
 				3BD5B9ED1CF2C2270097BC60 /* ScanResultController.xib in Resources */,
 				E04195FC1CCF2F41005D08DC /* SettingViewController.xib in Resources */,
@@ -1612,6 +1619,7 @@
 				89A1DD491CD886AD00F298B0 /* TeamMemberInfoVC.swift in Sources */,
 				3BD5B9F71CF2C7E90097BC60 /* TroubleDetail.swift in Sources */,
 				E05610481CE9CD5100979919 /* GetMoneyViewController.swift in Sources */,
+				89816ED11CF53769001788E0 /* NewsTableViewController.swift in Sources */,
 				3BD5B9A41CF2C1A00097BC60 /* SelectProductCollectionCellCollectionViewCell.swift in Sources */,
 				3BD5B9E61CF2C2270097BC60 /* LBXScanLineAnimation.swift in Sources */,
 				3BD5B99C1CF2C1A00097BC60 /* BrowseCollectionViewCell.swift in Sources */,
@@ -1709,7 +1717,6 @@
 				3BD5B9F21CF2C5720097BC60 /* ProductInfo+CoreDataProperties.swift in Sources */,
 				E04196431CCF37D5005D08DC /* AFSecurityPolicy.m in Sources */,
 				3BD5B9EC1CF2C2270097BC60 /* ScanResultController.swift in Sources */,
-				E04195C51CCF2EA5005D08DC /* NewsTableViewController.swift in Sources */,
 				E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */,
 				E041964C1CCF37D5005D08DC /* User+CoreDataProperties.swift in Sources */,
 				E041960B1CCF2F41005D08DC /* ChiefOfSelectIDCell.swift in Sources */,
@@ -1763,6 +1770,7 @@
 				3BD5B9EA1CF2C2270097BC60 /* LBXScanViewStyle.swift in Sources */,
 				E04196491CCF37D5005D08DC /* DataObject.swift in Sources */,
 				3B990A021CE424C0007F635E /* Order+CoreDataProperties.swift in Sources */,
+				89F1EFEA1CF5538D00AC89A3 /* OrderMessageCell.swift in Sources */,
 				E04195541CCF2BA3005D08DC /* LoginFooterView.swift in Sources */,
 				3BD5B9F51CF2C7C90097BC60 /* FinshDetail+CoreDataProperties.swift in Sources */,
 				E04195B31CCF2D77005D08DC /* DetailfFinancialViewCell.swift in Sources */,
@@ -1939,7 +1947,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1968,7 +1976,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.ozner.hoyoservicer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a78263bb-e74d-4739-aa64-c6f897b64e2b";
 				SWIFT_OBJC_BRIDGING_HEADER = "HoyoServicer-Bridging-Header.h";
 			};
 			name = Release;
