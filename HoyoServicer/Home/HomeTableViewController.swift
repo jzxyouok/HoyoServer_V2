@@ -8,7 +8,6 @@
 
 
 import UIKit
-import SVPullToRefresh
 import MBProgressHUD
 
 class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource {

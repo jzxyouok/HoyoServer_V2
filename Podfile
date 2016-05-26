@@ -8,7 +8,6 @@ target 'HoyoServicer' do
 pod 'SnapKit', '~> 0.20.0'
 pod 'ALCameraViewController','~> 1.1.9'
 pod 'SDWebImage', '~> 3.7.5'
-pod 'SVPullToRefresh', '~> 0.4.1'
 pod 'MBProgressHUD', '~> 0.9.2'
 pod 'Appirater', '~> 2.0.5'
 pod 'Reachability', '~> 3.2'

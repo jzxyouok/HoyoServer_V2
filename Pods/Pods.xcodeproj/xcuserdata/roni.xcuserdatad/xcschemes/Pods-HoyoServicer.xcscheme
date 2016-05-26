@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC55B4B7708C780AB8AECB11B5F371C4"
+               BlueprintIdentifier = "864C496E9388DCB445212C565F5DD95A"
                BuildableName = "Pods_HoyoServicer.framework"
                BlueprintName = "Pods-HoyoServicer"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BC55B4B7708C780AB8AECB11B5F371C4"
+            BlueprintIdentifier = "864C496E9388DCB445212C565F5DD95A"
             BuildableName = "Pods_HoyoServicer.framework"
             BlueprintName = "Pods-HoyoServicer"
             ReferencedContainer = "container:Pods.xcodeproj">

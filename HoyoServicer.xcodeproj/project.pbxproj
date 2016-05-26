@@ -255,6 +255,8 @@
 		E07497E11CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */; };
 		E07497E31CEC6A1600C7DEFB /* RNBaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */; };
 		E093D5051CF583CD00854AFA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093D5041CF583CD00854AFA /* SDWebImage.framework */; };
+		E093D5481CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */; };
+		E093D5491CF6897700854AFA /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */; };
 		EFB5D29623F5D3CFF740819D /* Pods_HoyoServicerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -567,6 +569,11 @@
 		E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRecruitNewMenmberViewController.swift; sourceTree = "<group>"; };
 		E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseUI.swift; sourceTree = "<group>"; };
 		E093D5041CF583CD00854AFA /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		E093D5431CF6897700854AFA /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		E093D5441CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		E093D5461CF6897700854AFA /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		F62B3DEE7EB6272E2D73B907 /* Pods_HoyoServicerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoyoServicerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1066,6 +1073,7 @@
 		E04196131CCF37D5005D08DC /* ExtralLibary */ = {
 			isa = PBXGroup;
 			children = (
+				E093D5421CF6897700854AFA /* SVPullToRefresh */,
 				E06ABE6D1CF3FAF300B704EE /* YZDisplayViewController */,
 				E059853B1CF2F376006C83F6 /* PopoverView */,
 				3BD5B9B11CF2C2270097BC60 /* MSSBrowse */,
@@ -1221,6 +1229,18 @@
 				E06ABE761CF3FAF300B704EE /* YZFlowLayout.m */,
 			);
 			path = YZDisplayViewController;
+			sourceTree = "<group>";
+		};
+		E093D5421CF6897700854AFA /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				E093D5431CF6897700854AFA /* SVPullToRefresh.h */,
+				E093D5441CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.h */,
+				E093D5451CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m */,
+				E093D5461CF6897700854AFA /* UIScrollView+SVPullToRefresh.h */,
+				E093D5471CF6897700854AFA /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		E266CB30D571A370AF9EDEF4 /* Frameworks */ = {
@@ -1600,6 +1620,7 @@
 				E04195F61CCF2F41005D08DC /* MyTeamTableViewController.swift in Sources */,
 				E04196481CCF37D5005D08DC /* DataObject+CoreDataProperties.swift in Sources */,
 				E04196101CCF2F41005D08DC /* TeamListTableViewCell.swift in Sources */,
+				E093D5491CF6897700854AFA /* UIScrollView+SVPullToRefresh.m in Sources */,
 				8901C5121CEE9DC1003D8543 /* GYScoreVC.swift in Sources */,
 				3BD5B9811CF2C1690097BC60 /* SubmitController.swift in Sources */,
 				E04195581CCF2BA3005D08DC /* RegistFooterView2.swift in Sources */,
@@ -1644,6 +1665,7 @@
 				3BD5B9A31CF2C1A00097BC60 /* RobListViewCelll.swift in Sources */,
 				3BD5B9801CF2C1690097BC60 /* UseTimeCon.swift in Sources */,
 				E04196011CCF2F41005D08DC /* AuthDetailView.swift in Sources */,
+				E093D5481CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				E04196511CCF37D5005D08DC /* CALayer+Expand.swift in Sources */,
 				E04195AE1CCF2D77005D08DC /* ManageTableViewController.swift in Sources */,
 				3BD5B9DB1CF2C2270097BC60 /* MSSBrowseBaseViewController.m in Sources */,

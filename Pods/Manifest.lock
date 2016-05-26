@@ -12,7 +12,6 @@ PODS:
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - SnapKit (0.20.0)
-  - SVPullToRefresh (0.4.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -27,7 +26,6 @@ DEPENDENCIES:
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7.5)
   - SnapKit (~> 0.20.0)
-  - SVPullToRefresh (~> 0.4.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -51,9 +49,8 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
-  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 0afbc0e39e83f36a09f2bcae3411f73058da0774
+PODFILE CHECKSUM: 7885f9c4ae6d68553e7c97a3a0c47c9f05a5108a
 
 COCOAPODS: 1.0.0.beta.8
