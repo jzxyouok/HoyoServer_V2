@@ -12,15 +12,19 @@ class MyTeamTableViewController: UITableViewController {
     
     var rightBtnState: Bool  = false
     var bootomViewState: Bool = true
-    var myTeamCell:MyTeamCell?
     var teamMembers:[TeamMembers]?
+    var localArr: [[String]]?
+    var netArr: [[String]]?
     ///保存我的团队相关信息
     var myTeamData :[MyTeamModel]?
         {
         didSet{
             let modelTeam = myTeamData![0]
             if modelTeam.userself != "" {
+                localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["用户名","审请时间","审核状态"],["特权信息"]]
+                netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!],[modelTeam.scopename!,modelTeam.scopevalue!,modelTeam.groupScopeName!,modelTeam.groupScoupValue!]]
                 switch modelTeam.userselfMemberState! {
+                    
                 case "审核失败","被封号了","审核中":
                     rightBtnState = false
                     bootomBtn.setTitle("取消申请", forState: UIControlState.Normal)
@@ -33,6 +37,8 @@ class MyTeamTableViewController: UITableViewController {
                     break
                 }
             } else {
+                localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["特权信息"]]
+                netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.groupName!,modelTeam.memberState!,"￥200,000"],[modelTeam.scopename!,modelTeam.scopevalue!,modelTeam.groupScopeName!,modelTeam.groupScoupValue!]]
                 switch modelTeam.memberState! {
                 case "审核失败","被封号了","审核中":
                     rightBtnState = false
@@ -68,6 +74,7 @@ class MyTeamTableViewController: UITableViewController {
     }
     private func instanceData(){
         
+        
         weak var weakSelf = self
         
         User.GetNowAuthorityDetailInfo({ (memberArr: [TeamMembers], teamArr: [MyTeamModel]) in
@@ -81,22 +88,24 @@ class MyTeamTableViewController: UITableViewController {
     }
     
     private func instanceUI(){
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
         self.title="我的团队"
         UITableViewStyle.Grouped
+        let imageHeadView = UIImageView(frame: CGRectMake(0, 0, WIDTH_SCREEN, 185))
+        imageHeadView.image = UIImage(named: "banner3")
+        tableView.tableHeaderView = imageHeadView
         self.automaticallyAdjustsScrollViewInsets=false
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(WareHouseViewController.disMissBtn))
         tableView.separatorStyle=UITableViewCellSeparatorStyle.None
-        myTeamCell=NSBundle.mainBundle().loadNibNamed("MyTeamCell", owner: self, options: nil).last as? MyTeamCell
-        myTeamCell?.selectionStyle=UITableViewCellSelectionStyle.None
+        tableView.registerClass(GYTeamCell.self, forCellReuseIdentifier: "GYTeamCell")
     }
     
     func  addUI() {
         if bootomViewState {
             let booview = UIView()
             booview.frame = CGRect(x: 0, y: 0, width: WIDTH_SCREEN, height: 60)
-            booview.backgroundColor = UIColor.lightGrayColor()
+            booview.backgroundColor = UIColor.groupTableViewBackgroundColor()
             booview.addSubview(bootomBtn)
             bootomBtn.addTarget(self, action: #selector(MyTeamTableViewController.teamAction), forControlEvents: UIControlEvents.TouchUpInside)
             tableView.tableFooterView = booview
@@ -156,6 +165,9 @@ class MyTeamTableViewController: UITableViewController {
         let lb = UIButton()
         lb.backgroundColor = UIColor.orangeColor()
         lb.frame = CGRect(x: 5, y: 10, width: WIDTH_SCREEN - 10, height: 40)
+        lb.layer.masksToBounds = true
+        lb.layer.cornerRadius = 5
+        
         return lb
     }()
     override func didReceiveMemoryWarning() {
@@ -172,23 +184,49 @@ class MyTeamTableViewController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return localArr?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myTeamData?.count ?? 0
+        let arr = localArr![section]
+        
+        return arr.count ?? 0
     }
     
     //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return max(HEIGHT_SCREEN-64, 780)
     //    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let arr = localArr![indexPath.section]
+        let arr2 = netArr![indexPath.section]
         
-        myTeamCell?.instanceUI(myTeamData![indexPath.row])
-        return myTeamCell!
+        if arr[indexPath.row] == "特权信息" {
+            let lastCell = NSBundle.mainBundle().loadNibNamed("GYTeamSecondCell", owner: self, options: nil).last as! GYTeamSecondCell
+            lastCell.reloadUI(arr2)
+            lastCell.selectionStyle = UITableViewCellSelectionStyle.None
+            return lastCell
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("GYTeamCell") as! GYTeamCell
+        cell.reloadUI(arr[indexPath.row],str2: arr2[indexPath.row])
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
     }
     
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UITableViewHeaderFooterView()
+        view.frame = CGRectMake(0, 0, WIDTH_SCREEN, 20)
+        return view
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return 20
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -232,28 +270,26 @@ extension MyTeamTableViewController: UIAlertViewDelegate {
                 switch modelTeam.userselfMemberState! {
                 case "审核失败","被封号了","审核中":
                     //取消进入当前团队，已成功
-                    MBProgressHUD.showHUDAddedTo(view, animated: true)
+                    MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
                     User.RemoveTeamMember(Int(modelTeam.groupNumber!)!, success: {
                         print("取消成功")
-                        MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                        MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                         weakSelf?.navigationController?.popViewControllerAnimated(true)
                         }, failure: { (NSError) in
-                            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                             let alert = UIAlertView(title: "温馨提示", message: "取消失败请重试", delegate: nil, cancelButtonTitle: "确定")
                             alert.show()
                     })
                     break
                 case "审核成功":
                     //退出当前团队，已成功
-                    //                    let alert = UIAlertView(title: "温馨提示", message: "确认退出团队?", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
-                    //                    alert.show()
-                    MBProgressHUD.showHUDAddedTo(view, animated: true)
+                    MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
                     User.RemoveTeamMember(Int(modelTeam.groupNumber!)!, success: {
                         print("退出成功")
-                        MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                        MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                         weakSelf?.navigationController?.popViewControllerAnimated(true)
                         }, failure: { (NSError) in
-                            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                             let alert = UIAlertView(title: "温馨提示", message: "退出失败请重试", delegate: nil, cancelButtonTitle: "确定")
                             alert.show()
                     })
@@ -264,24 +300,24 @@ extension MyTeamTableViewController: UIAlertViewDelegate {
                 switch modelTeam.memberState! {
                 case "审核失败","被封号了","审核中":
                     //取消创建团队申请.已成功
-                    MBProgressHUD.showHUDAddedTo(view, animated: true)
+                    MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
                     User.DeleteTeamAll((Int(modelTeam.groupNumber!))!, success: {
-                        MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                        MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                         weakSelf?.navigationController?.popViewControllerAnimated(true)
                         }, failure: { (NSError) in
-                            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                             let alert = UIAlertView(title: "温馨提示", message: "取消申请失败请重试", delegate: nil, cancelButtonTitle: "确定")
                             alert.show()
                     })
                     break
                 case "审核成功":
                     //解散团队.已成功
-                    MBProgressHUD.showHUDAddedTo(view, animated: true)
+                    MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
                     User.DeleteTeamAll(Int(modelTeam.groupNumber!)!, success: {
-                        MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                        MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                         weakSelf?.navigationController?.popViewControllerAnimated(true)
                         }, failure: { (NSError) in
-                            MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
+                            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
                             let alert = UIAlertView(title: "温馨提示", message: "解散失败请重试", delegate: nil, cancelButtonTitle: "确定")
                             alert.show()
                     })

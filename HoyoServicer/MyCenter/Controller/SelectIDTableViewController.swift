@@ -60,22 +60,15 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
             switch (str) {
             case "partner":
                 //创建团队
-                chiefOfSelectIDCell?.webSiteNameTextField.resignFirstResponder()
-                chiefOfSelectIDCell?.detailAdressTextField.resignFirstResponder()
-                view.resignFirstResponder()
                 createTeam()
                 break
             case "n-partner":
                 //加入团队 一般合伙人
                 //PartnerCommand
-                generalOfSelectIDCell?.inputNumberTextField.resignFirstResponder()
-                view.resignFirstResponder()
                 joinEngineerTeam()
                 break
             case "engineer":
                 //联席工程师
-                generalOfSelectIDCell?.inputNumberTextField.resignFirstResponder()
-                view.resignFirstResponder()
                 joinHoldTeam()
                 break
             default:

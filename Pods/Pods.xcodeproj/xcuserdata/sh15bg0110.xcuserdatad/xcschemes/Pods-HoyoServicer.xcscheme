@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '93818098A4ED5FD62B7E0BEB'
+               BlueprintIdentifier = 'B00B655B810436D8B9727902'
                BlueprintName = 'Pods-HoyoServicer'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_HoyoServicer.framework'>
