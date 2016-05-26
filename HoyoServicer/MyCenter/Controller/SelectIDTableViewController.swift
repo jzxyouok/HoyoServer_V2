@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import IQKeyboardManager
 
 protocol SelectIDTableViewControllerDelegate {
     func selectButtonChange(index:Int)
@@ -123,6 +124,19 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
         self.tabBarController?.tabBar.hidden=true
         //重写返回按钮
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self , action:#selector(SelectIDTableViewController.backBtnAction) )
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = true
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
     }
     func backBtnAction(){
         navigationController?.popViewControllerAnimated(true)
@@ -184,9 +198,9 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
         MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.UpgradeAuthority(dict, success: {
             MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
-            let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
-            alert.show()
-            
+            let alertView=SCLAlertView()
+            alertView.addButton("ok", action: {})
+            alertView.showError("温馨提示", subTitle: "申请成功!")
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
                 MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
@@ -206,9 +220,9 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
         let params: NSDictionary = ["groupnumber":Int((generalOfSelectIDCell?.inputNumberTextField.text)!)!,"commandaction":"join","scope":"n-partner"]
         MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.PartnerCommand(params, success: {
-            MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
-            let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
-            alert.show()
+            let alertView=SCLAlertView()
+            alertView.addButton("ok", action: {})
+            alertView.showError("温馨提示", subTitle: "申请成功!")
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
                 MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
@@ -231,12 +245,14 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
             alert.show()
             return
         }
+        
         let params: NSDictionary = ["groupnumber":Int((generalOfSelectIDCell?.inputNumberTextField.text)!)!,"commandaction":"join","scope":"l-engineer"]
         MBProgressHUD.showHUDAddedTo(view.superview, animated: true)
         User.PartnerCommand(params, success: {
             MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
-            let alert = UIAlertView(title: "温馨提示", message: "提交申请成功", delegate: nil, cancelButtonTitle: "确定")
-            alert.show()
+            let alertView=SCLAlertView()
+            alertView.addButton("ok", action: {})
+            alertView.showError("温馨提示", subTitle: "申请成功!")
             weakSelf?.navigationController?.popViewControllerAnimated(true)
             }, failure: { (error:NSError) in
                 MBProgressHUD.hideHUDForView(weakSelf!.view.superview, animated: true)
