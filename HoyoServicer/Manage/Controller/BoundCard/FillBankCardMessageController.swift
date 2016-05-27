@@ -249,9 +249,10 @@ extension FillBankCardMessageController{
 //            }
             
             }, failure: { (error) in
-                let alert = UIAlertView(title: "", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-                alert.show()
-                
+                                
+                let alertView=SCLAlertView()
+                alertView.addButton("确定", action: {})
+                alertView.showError("错误提示", subTitle: error.localizedDescription)
 
             })
 

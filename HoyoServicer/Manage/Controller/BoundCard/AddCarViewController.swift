@@ -23,8 +23,12 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
     @IBAction func next(sender: AnyObject) {
         
         if (cardOwner.text! as NSString).length == 0{
-            let alert=UIAlertView(title: "", message: "持卡人姓名不能空", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-            alert.show()
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "持卡人姓名不能空")
+
+            
         }else if cardNumber.text!.isAllNumber && ((cardNumber.text! as NSString).length == 19 || (cardNumber.text! as NSString).length == 16 || (cardNumber.text! as NSString).length == 17){
             
             let fillBankCardCV = FillBankCardMessageController()
@@ -33,12 +37,10 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
             navigationController?.pushViewController(fillBankCardCV, animated: true)
             
         }else{
-//            let alertView=UNAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入")
-//            alertView.addButton("确定", action: {
-//            })
-//            alertView.show()
-            let alert=UIAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-            alert.show()
+            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "您输入的银行卡号数字个数不正确，请重新输入")
             
         }
     }
@@ -116,10 +118,9 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         if !( (textField.text! as NSString).length == 19 ){
-          //  let alertView=UNAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入")
-            let alert=UIAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定")
-            alert.show()
-            
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "您输入的银行卡号数字个数不正确，请重新输入")
         }
         textField.resignFirstResponder()
         return true
@@ -129,9 +130,9 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
             
         
         if (  (cardNumber.text! as NSString).length != 19 ){
-//            let alertView=UNAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入")
-            let alert=UIAlertView(title: "", message: "您输入的银行卡号数字个数不正确，请重新输入", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定")
-            alert.show()
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("错误提示", subTitle: "您输入的银行卡号数字个数不正确，请重新输入")
             
         }
         cardNumber.resignFirstResponder()

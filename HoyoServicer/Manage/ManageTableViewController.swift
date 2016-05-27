@@ -160,15 +160,21 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
             
             if error.code == -10015 {
                 MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
-                let alert = UIAlertView(title: "温馨提示", message: "账号已在其它地方登陆，请重新登录!", delegate: nil, cancelButtonTitle: "确定")
-                alert.show()
+               
+                
+                let alertView=SCLAlertView()
+                alertView.addButton("确定", action: {})
+                alertView.showError("温馨提示", subTitle: "账号已在其它地方登陆，请重新登录!")
+                
                 return
             }
             
             MBProgressHUD.hideHUDForView(weakSelf!.view, animated: true)
-            let alert = UIAlertView(title: "温馨提示", message: "请检查网络", delegate: nil, cancelButtonTitle: "确定")
-            alert.show()
             
+            let alertView=SCLAlertView()
+            alertView.addButton("确定", action: {})
+            alertView.showError("温馨提示", subTitle: "请检查网络")
+
         }
         
     }

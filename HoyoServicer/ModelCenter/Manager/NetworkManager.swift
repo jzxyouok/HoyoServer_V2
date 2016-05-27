@@ -222,7 +222,7 @@ class NetworkManager: NSObject {
     func getTroubleHandle(state:String)->NSArray
     {
         let stateLong=(state as NSString).longLongValue
-        var troubleHandle=NSMutableArray()
+        let troubleHandle=NSMutableArray()
         if (self.troubleHandle.allKeys as! [String]).contains("\(stateLong)")
         {
             if let arr = self.troubleHandle["\(stateLong)"]!["New item"] as? NSArray
