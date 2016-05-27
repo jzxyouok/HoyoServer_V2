@@ -46,10 +46,10 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
         
         header.setRefreshingTarget(self, refreshingAction: #selector(headRefresh))
         tableView.mj_header = header
-
+        
         
     }
-
+    
     
     // MARK: - Table view data source
     
@@ -135,7 +135,6 @@ class ManageTableViewController: UITableViewController,ManageTableViewCellDelega
             break
         default:
             break
-            
             
         }
         
