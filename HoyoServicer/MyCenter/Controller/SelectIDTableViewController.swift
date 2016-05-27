@@ -114,6 +114,7 @@ class SelectIDTableViewController: UITableViewController,SelectIDTableViewContro
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
+        navigationController?.navigationBar.translucent = false
         self.tabBarController?.tabBar.hidden=true
         //重写返回按钮
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self , action:#selector(SelectIDTableViewController.backBtnAction) )
