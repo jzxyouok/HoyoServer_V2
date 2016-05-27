@@ -294,7 +294,7 @@ class User: DataObject {
         constructingBlock={
             data in
             var _ = data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
-            data!.appendPartWithFileData((backImg), name: (fileName as String), fileName: "backImg", mimeType: "image/png")
+           data!.appendPartWithFileData((backImg), name: (fileName as String)+"1", fileName: "backImg", mimeType: "image/png")
         }
         
         NetworkManager.defaultManager!.request("UploadImages", GETParameters: nil, POSTParameters: ["order":"cardvf"], constructingBodyWithBlock: constructingBlock, success: {
@@ -621,7 +621,7 @@ class User: DataObject {
                                             failure: failure)
     }
     
-    //GetPost/AppInterface/GetNowAuthorityDetail获取当前权限的信息或者审核进度，获取团队成员信息
+    //GetPost/AppInterface/GetNowAuthorityDetail获取当前权限的信息或者审核进度，获取团队成员信息---弃用
     class func GetNowAuthorityDetail
         (success: (() -> Void)?, failure: ((NSError) -> Void)?) {
         NetworkManager.defaultManager!.POST("GetNowAuthorityDetail",
@@ -1052,6 +1052,16 @@ class User: DataObject {
             }, failure: failure)
     }
     
+    //GetPost/AppInterface/GetCurrentRealNameInfo获取当前的实名认证信息
 
+    class func GetCurrentRealNameInfo(success:((String) -> Void)?,failure: ((NSError) -> Void)?) {
+        NetworkManager.defaultManager?.POST("GetCurrentRealNameInfo", parameters: nil, success: { (data) in
+            print(data["data"]["checkstate"].stringValue)
+            success!(data["data"]["checkstate"].stringValue)
+            }, failure: { (error) in
+                print(error)
+                failure!(error)
+        })
+    }
     
 }

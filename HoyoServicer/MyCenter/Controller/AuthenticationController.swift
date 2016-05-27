@@ -30,7 +30,6 @@ class AuthenticationController: UIViewController {
                 [weak self] in
                 MBProgressHUD.hideHUDForView(self!.view, animated: true)
                 self!.verifierStateLabel.text="正在审核中。。。"
-                //self!.firstViewContainer?.hidden = false
                 self!.secondViewContainer?.hidden=true
                 self!.verifyButton.setTitle("身份验证", forState: .Normal)
                 self!.verifyButton.backgroundColor=UIColor.grayColor()
@@ -38,9 +37,13 @@ class AuthenticationController: UIViewController {
                 if self!.dissCallBack != nil {
                     self!.leftButton.hidden = true
                 }
-                }, failure: { (error) in
-                    print("hhhhhhhhhhhh\(error.localizedDescription)")
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                }, failure: { [weak self](error) in
+                    MBProgressHUD.hideHUDForView(self!.view, animated: true)
+                    let alert=SCLAlertView()
+                    alert.addButton("确定", action: { })
+                    alert.showNotice("", subTitle: "上传失败，请检查网络后重试")
+                    self!.verifyButton.backgroundColor=UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
+                    self!.verifyButton.enabled=false
             })
         }else//第一个页面的点击事件处理
         {
@@ -73,18 +76,36 @@ class AuthenticationController: UIViewController {
         initFrontData=UIImageJPEGRepresentation((secondViewContainer?.imageButton1.imageView?.image)!, 0.001)! as NSData
         initBackData=UIImageJPEGRepresentation((secondViewContainer?.imageButton2.imageView?.image)!, 0.001)! as NSData
         //获取认证信息
-        verifyButton.enabled=true
+        verifyButton.enabled=false
         verifyButton.backgroundColor=UIColor.grayColor()
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        User.GetNowAuthorityDetail({
-            [weak self] in
+        User.GetCurrentRealNameInfo({
+            
+            [weak self] checkState in
             MBProgressHUD.hideHUDForView(self!.view, animated: true)
-            self!.verifierStateLabel.text="您的信息正在审核中。。。"//"您的信息已通过审核"，"您尚未通过身份认证"
-            self!.verifyButton.enabled=true//false
-            self!.verifyButton.backgroundColor=UIColor.grayColor()//UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
-        }) { (error) in
+            switch checkState
+            {
+            case "0" :
+                self!.verifierStateLabel.text="请上传身份证进行审核。。。"
+                self!.verifyButton.enabled=true
+                self!.verifyButton.backgroundColor=UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
+                break
+            case "1" :
+                self!.verifierStateLabel.text="您的信息正在等待审核。。。"
+            case "2" :
+                self!.verifierStateLabel.text="您的信息已经审核通过。"
+            case "3" :
+                self!.verifierStateLabel.text="您的身份信息已被拒绝。"
+                self!.verifyButton.enabled=true
+                self!.verifyButton.backgroundColor=UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
+            default :
+                self!.verifierStateLabel.text="获取数据失败，请检查网络后重试！"
+                break
+            }
+        }) { [weak self](error) in
             print(error)
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self!.verifierStateLabel.text="获取数据失败，请检查网络后重试！"
+            MBProgressHUD.hideHUDForView(self!.view, animated: true)
         }
         // Do any additional setup after loading the view.
     }

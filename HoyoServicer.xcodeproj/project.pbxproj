@@ -105,6 +105,9 @@
 		89A1DD4A1CD886AD00F298B0 /* TeamMemberInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */; };
 		89A1DFC21CDC6B0F00F298B0 /* FinancialManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1DFC11CDC6B0F00F298B0 /* FinancialManagerVC.swift */; };
 		89A1DFC41CDC7BDB00F298B0 /* FinacialManagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A1DFC31CDC7BDB00F298B0 /* FinacialManagerCell.swift */; };
+		89A9F89C1CF6E13100ED37C0 /* GYTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A9F89B1CF6E13100ED37C0 /* GYTeamCell.swift */; };
+		89A9F89F1CF6F6A600ED37C0 /* GYTeamSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A9F89D1CF6F6A600ED37C0 /* GYTeamSecondCell.swift */; };
+		89A9F8A01CF6F6A600ED37C0 /* GYTeamSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A9F89E1CF6F6A600ED37C0 /* GYTeamSecondCell.xib */; };
 		89B90AAE1CEAFDF10035D94D /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90AAC1CEAFDF10035D94D /* jpush-ios-2.1.6.a */; };
 		89B90AB01CEAFEB00035D94D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90AAF1CEAFEB00035D94D /* CFNetwork.framework */; };
 		89B90AB21CEAFEB90035D94D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B90AB11CEAFEB90035D94D /* CoreFoundation.framework */; };
@@ -136,6 +139,7 @@
 		8D6269821CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6269801CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift */; };
 		8D7F02991CD216030060681F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F02981CD216030060681F /* NetworkManager.swift */; };
 		8D7F029B1CD2160E0060681F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F029A1CD2160E0060681F /* User.swift */; };
+		8DB1AFCD1CF6A81000E36403 /* SelectIDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */; };
 		A107DEA530D55CF20D61F2DA /* Pods_HoyoServicerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5A6AC4BEF90CCC04E4B972 /* Pods_HoyoServicerUITests.framework */; };
 		E03682751CD33D43006C03D4 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03682731CD33D43006C03D4 /* BankModel.swift */; };
 		E03682781CD33D68006C03D4 /* BoundCarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03682761CD33D68006C03D4 /* BoundCarViewCell.swift */; };
@@ -180,7 +184,6 @@
 		E04195F51CCF2F41005D08DC /* MyExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195D01CCF2F41005D08DC /* MyExamViewController.xib */; };
 		E04195F61CCF2F41005D08DC /* MyTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */; };
 		E04195F71CCF2F41005D08DC /* SelectAdressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */; };
-		E04195F81CCF2F41005D08DC /* SelectIDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */; };
 		E04195F91CCF2F41005D08DC /* SetSexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D41CCF2F41005D08DC /* SetSexViewController.swift */; };
 		E04195FA1CCF2F41005D08DC /* SetSexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195D51CCF2F41005D08DC /* SetSexViewController.xib */; };
 		E04195FB1CCF2F41005D08DC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195D61CCF2F41005D08DC /* SettingViewController.swift */; };
@@ -197,8 +200,6 @@
 		E04196061CCF2F41005D08DC /* MyEvaluatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195E21CCF2F41005D08DC /* MyEvaluatCell.xib */; };
 		E04196071CCF2F41005D08DC /* MyEvaluatHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195E31CCF2F41005D08DC /* MyEvaluatHeadCell.swift */; };
 		E04196081CCF2F41005D08DC /* MyEvaluatHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195E41CCF2F41005D08DC /* MyEvaluatHeadCell.xib */; };
-		E04196091CCF2F41005D08DC /* MyTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195E51CCF2F41005D08DC /* MyTeamCell.swift */; };
-		E041960A1CCF2F41005D08DC /* MyTeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195E61CCF2F41005D08DC /* MyTeamCell.xib */; };
 		E041960B1CCF2F41005D08DC /* ChiefOfSelectIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04195E81CCF2F41005D08DC /* ChiefOfSelectIDCell.swift */; };
 		E041960C1CCF2F41005D08DC /* ChiefOfSelectIDCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04195E91CCF2F41005D08DC /* ChiefOfSelectIDCell.xib */; };
 		E041960D1CCF2F41005D08DC /* china_citys.json in Resources */ = {isa = PBXBuildFile; fileRef = E04195EA1CCF2F41005D08DC /* china_citys.json */; };
@@ -394,6 +395,9 @@
 		89A1DD481CD886AD00F298B0 /* TeamMemberInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberInfoVC.xib; sourceTree = "<group>"; };
 		89A1DFC11CDC6B0F00F298B0 /* FinancialManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialManagerVC.swift; sourceTree = "<group>"; };
 		89A1DFC31CDC7BDB00F298B0 /* FinacialManagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinacialManagerCell.swift; sourceTree = "<group>"; };
+		89A9F89B1CF6E13100ED37C0 /* GYTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYTeamCell.swift; sourceTree = "<group>"; };
+		89A9F89D1CF6F6A600ED37C0 /* GYTeamSecondCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYTeamSecondCell.swift; sourceTree = "<group>"; };
+		89A9F89E1CF6F6A600ED37C0 /* GYTeamSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GYTeamSecondCell.xib; sourceTree = "<group>"; };
 		89B90AAC1CEAFDF10035D94D /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
 		89B90AAD1CEAFDF10035D94D /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		89B90AAF1CEAFEB00035D94D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -432,6 +436,7 @@
 		8D6269801CE437D1007849E0 /* AccountDetailModel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountDetailModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8D7F02981CD216030060681F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8D7F029A1CD2160E0060681F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIDTableViewController.swift; sourceTree = "<group>"; };
 		CC5A6AC4BEF90CCC04E4B972 /* Pods_HoyoServicerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoyoServicerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCB0B445A702E41F265DF44 /* Pods-HoyoServicer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoyoServicer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HoyoServicer/Pods-HoyoServicer.debug.xcconfig"; sourceTree = "<group>"; };
 		D23269485F77D6CDE0E9438D /* Pods-HoyoServicer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoyoServicer.release.xcconfig"; path = "Pods/Target Support Files/Pods-HoyoServicer/Pods-HoyoServicer.release.xcconfig"; sourceTree = "<group>"; };
@@ -479,7 +484,6 @@
 		E04195D01CCF2F41005D08DC /* MyExamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyExamViewController.xib; sourceTree = "<group>"; };
 		E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTeamTableViewController.swift; sourceTree = "<group>"; };
 		E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAdressTableViewController.swift; sourceTree = "<group>"; };
-		E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIDTableViewController.swift; sourceTree = "<group>"; };
 		E04195D41CCF2F41005D08DC /* SetSexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSexViewController.swift; sourceTree = "<group>"; };
 		E04195D51CCF2F41005D08DC /* SetSexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetSexViewController.xib; sourceTree = "<group>"; };
 		E04195D61CCF2F41005D08DC /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -496,8 +500,6 @@
 		E04195E21CCF2F41005D08DC /* MyEvaluatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyEvaluatCell.xib; sourceTree = "<group>"; };
 		E04195E31CCF2F41005D08DC /* MyEvaluatHeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEvaluatHeadCell.swift; sourceTree = "<group>"; };
 		E04195E41CCF2F41005D08DC /* MyEvaluatHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyEvaluatHeadCell.xib; sourceTree = "<group>"; };
-		E04195E51CCF2F41005D08DC /* MyTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTeamCell.swift; path = ../../MyCenter/View/MyTeamCell.swift; sourceTree = "<group>"; };
-		E04195E61CCF2F41005D08DC /* MyTeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyTeamCell.xib; path = ../../MyCenter/View/MyTeamCell.xib; sourceTree = "<group>"; };
 		E04195E81CCF2F41005D08DC /* ChiefOfSelectIDCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChiefOfSelectIDCell.swift; sourceTree = "<group>"; };
 		E04195E91CCF2F41005D08DC /* ChiefOfSelectIDCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChiefOfSelectIDCell.xib; sourceTree = "<group>"; };
 		E04195EA1CCF2F41005D08DC /* china_citys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = china_citys.json; sourceTree = "<group>"; };
@@ -957,8 +959,6 @@
 			children = (
 				8D50DCA41CE5B9350063839F /* GYTeamListCell.swift */,
 				8D50DCA51CE5B9350063839F /* GYTeamListCell.xib */,
-				E04195E51CCF2F41005D08DC /* MyTeamCell.swift */,
-				E04195E61CCF2F41005D08DC /* MyTeamCell.xib */,
 				E04195921CCF2D77005D08DC /* AchievementCell.swift */,
 				E04195931CCF2D77005D08DC /* AchievementCell.xib */,
 				E03682761CD33D68006C03D4 /* BoundCarViewCell.swift */,
@@ -972,6 +972,9 @@
 				E041959C1CCF2D77005D08DC /* ManageTableViewCell.swift */,
 				E041959D1CCF2D77005D08DC /* ManageTableViewCell.xib */,
 				89A1DFC31CDC7BDB00F298B0 /* FinacialManagerCell.swift */,
+				89A9F89B1CF6E13100ED37C0 /* GYTeamCell.swift */,
+				89A9F89D1CF6F6A600ED37C0 /* GYTeamSecondCell.swift */,
+				89A9F89E1CF6F6A600ED37C0 /* GYTeamSecondCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1026,6 +1029,7 @@
 		E04195C91CCF2F41005D08DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8DB1AFCC1CF6A81000E36403 /* SelectIDTableViewController.swift */,
 				E04195CA1CCF2F41005D08DC /* AuthenticationController.swift */,
 				E04195CB1CCF2F41005D08DC /* AuthenticationController.xib */,
 				E04195CC1CCF2F41005D08DC /* EditNameViewController.swift */,
@@ -1035,7 +1039,6 @@
 				E04195D01CCF2F41005D08DC /* MyExamViewController.xib */,
 				E04195D11CCF2F41005D08DC /* MyTeamTableViewController.swift */,
 				E04195D21CCF2F41005D08DC /* SelectAdressTableViewController.swift */,
-				E04195D31CCF2F41005D08DC /* SelectIDTableViewController.swift */,
 				E04195D41CCF2F41005D08DC /* SetSexViewController.swift */,
 				E04195D51CCF2F41005D08DC /* SetSexViewController.xib */,
 				E04195D61CCF2F41005D08DC /* SettingViewController.swift */,
@@ -1349,7 +1352,7 @@
 				TargetAttributes = {
 					8D2681DF1CA8DB37009E7BAC = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BQE6636VJ7;
+						DevelopmentTeam = UZZG6NM74T;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1427,11 +1430,11 @@
 				E04195571CCF2BA3005D08DC /* RegistFooterView1.xib in Resources */,
 				E04195511CCF2BA3005D08DC /* ForGetPassowViewController.xib in Resources */,
 				E04196041CCF2F41005D08DC /* MyCenterTableViewCell.xib in Resources */,
-				E041960A1CCF2F41005D08DC /* MyTeamCell.xib in Resources */,
 				3BD5B9671CF2C10F0097BC60 /* trouble.json in Resources */,
 				E05610521CE9CD8500979919 /* BoundBankCardViewController.xib in Resources */,
 				E04196061CCF2F41005D08DC /* MyEvaluatCell.xib in Resources */,
 				E04195C41CCF2EA5005D08DC /* DetailOfNewsViewController.xib in Resources */,
+				89A9F8A01CF6F6A600ED37C0 /* GYTeamSecondCell.xib in Resources */,
 				E05610501CE9CD8500979919 /* AddCarViewController.xib in Resources */,
 				E04196081CCF2F41005D08DC /* MyEvaluatHeadCell.xib in Resources */,
 				E04195271CCF27F3005D08DC /* Assets.xcassets in Resources */,
@@ -1638,6 +1641,7 @@
 				E041955A1CCF2BA3005D08DC /* RegistFooterView3.swift in Sources */,
 				E04195C31CCF2EA5005D08DC /* DetailOfNewsViewController.swift in Sources */,
 				89FAAA811CE446EC00325891 /* MyTeamModel.swift in Sources */,
+				89A9F89C1CF6E13100ED37C0 /* GYTeamCell.swift in Sources */,
 				E056106D1CE9D21200979919 /* getMoneyDetailCell.swift in Sources */,
 				E04196001CCF2F41005D08DC /* MyCenterTableViewController.swift in Sources */,
 				3BD5B9F31CF2C5720097BC60 /* ProductInfo.swift in Sources */,
@@ -1712,7 +1716,6 @@
 				3BD5B9E01CF2C2270097BC60 /* MSSBrowseNetworkViewController.m in Sources */,
 				3BD5B9DA1CF2C2270097BC60 /* MSSBrowseActionSheetCell.m in Sources */,
 				E04196461CCF37D5005D08DC /* AFURLResponseSerialization.m in Sources */,
-				E04196091CCF2F41005D08DC /* MyTeamCell.swift in Sources */,
 				8D2681EC1CA8DB37009E7BAC /* HoyoServicer.xcdatamodeld in Sources */,
 				3BD5B9F21CF2C5720097BC60 /* ProductInfo+CoreDataProperties.swift in Sources */,
 				E04196431CCF37D5005D08DC /* AFSecurityPolicy.m in Sources */,
@@ -1725,7 +1728,6 @@
 				3BBD50551CD272B2000237F0 /* Evaluation.swift in Sources */,
 				3BD5B9FF1CF2C9DB0097BC60 /* SubmitControllerExtensions.swift in Sources */,
 				E04195F41CCF2F41005D08DC /* MyExamViewController.swift in Sources */,
-				E04195F81CCF2F41005D08DC /* SelectIDTableViewController.swift in Sources */,
 				3BD5B9E41CF2C2270097BC60 /* UIView+MSSLayout.m in Sources */,
 				89A1DFC21CDC6B0F00F298B0 /* FinancialManagerVC.swift in Sources */,
 				E04195C61CCF2EA5005D08DC /* NewsTableViewCell.swift in Sources */,
@@ -1752,6 +1754,7 @@
 				3BD5B97E1CF2C1690097BC60 /* ViewController.swift in Sources */,
 				3BD5B9E51CF2C2270097BC60 /* LBXPermissions.swift in Sources */,
 				E04196071CCF2F41005D08DC /* MyEvaluatHeadCell.swift in Sources */,
+				89A9F89F1CF6F6A600ED37C0 /* GYTeamSecondCell.swift in Sources */,
 				8901C50C1CEDA4F2003D8543 /* RNGuideViewController.swift in Sources */,
 				E04195A61CCF2D77005D08DC /* DetailFinancialTableViewController.swift in Sources */,
 				3BD5B9D91CF2C2270097BC60 /* MSSBrowseActionSheet.m in Sources */,
@@ -1765,6 +1768,7 @@
 				3BD5B9A01CF2C1A00097BC60 /* HomeTableViewCell.swift in Sources */,
 				E04196401CCF37D5005D08DC /* AFHTTPRequestOperationManager.m in Sources */,
 				8D6269811CE437D1007849E0 /* AccountDetailModel.swift in Sources */,
+				8DB1AFCD1CF6A81000E36403 /* SelectIDTableViewController.swift in Sources */,
 				E06ABE7C1CF3FB9500B704EE /* RNAchievementViewController.swift in Sources */,
 				E04195AF1CCF2D77005D08DC /* AchievementCell.swift in Sources */,
 				3BD5B9EA1CF2C2270097BC60 /* LBXScanViewStyle.swift in Sources */,
@@ -1874,10 +1878,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1916,9 +1920,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e89a6a9-52ce-45ec-8227-922c66a6d1d7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -308,6 +308,7 @@ class LoginAndRegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
         if firstAppear {
             firstAppear = false
             User.loginWithLocalUserInfo(

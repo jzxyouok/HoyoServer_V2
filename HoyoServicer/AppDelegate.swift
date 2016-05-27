@@ -133,14 +133,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //清理用户文件
         appDelegate.clearCaches()
         
-        //
         //退出删除消息存储
         DataManager().deleteAllObjectsWithEntityName("MessageModel")
         DataManager().deleteAllObjectsWithEntityName("ScoreMessageModel")
         
         //退出登录删除本地用户名和密码
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
+//        NSUserDefaults.standardUserDefaults().removeObjectForKey("UserName")
+//        NSUserDefaults.standardUserDefaults().removeObjectForKey("PassWord")
         
         if appDelegate.mainViewController != nil{
             appDelegate.mainViewController.dismissViewControllerAnimated(true, completion: nil)

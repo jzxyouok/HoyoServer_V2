@@ -12,34 +12,34 @@ import MBProgressHUD
 
 
 class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelegate{
-
     
-   
-//    lazy var setSexController: SetSexViewController = {
-//        
-//        let setSexController = SetSexViewController (nibName: "SetSexViewController", bundle: nil)
-//     
-//        return setSexController
-//    }()
-//    lazy var editNameCon: EditNameViewController = {
-//        
-//        let editNameCon = EditNameViewController (nibName: "EditNameViewController", bundle: nil)
-//        
-//        return editNameCon
-//    }()
-//    lazy var adressControll :SelectAdressTableViewController = {
-//        let jsonPath = NSBundle.mainBundle().pathForResource("china_citys", ofType: "json")
-//        let jsonData = NSData(contentsOfFile: jsonPath!)! as NSData
-//        let tmpObject: AnyObject?
-//        do{
-//            tmpObject = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)
-//        }
-//        let adressDic = tmpObject as! NSMutableArray
-//        let adressControll = SelectAdressTableViewController(adressData: adressDic, firstSelectRow: -1)
-//        adressControll.delegate = self
-//        return adressControll
-//        
-//    }()
+    
+    
+    //    lazy var setSexController: SetSexViewController = {
+    //
+    //        let setSexController = SetSexViewController (nibName: "SetSexViewController", bundle: nil)
+    //
+    //        return setSexController
+    //    }()
+    //    lazy var editNameCon: EditNameViewController = {
+    //
+    //        let editNameCon = EditNameViewController (nibName: "EditNameViewController", bundle: nil)
+    //
+    //        return editNameCon
+    //    }()
+    //    lazy var adressControll :SelectAdressTableViewController = {
+    //        let jsonPath = NSBundle.mainBundle().pathForResource("china_citys", ofType: "json")
+    //        let jsonData = NSData(contentsOfFile: jsonPath!)! as NSData
+    //        let tmpObject: AnyObject?
+    //        do{
+    //            tmpObject = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)
+    //        }
+    //        let adressDic = tmpObject as! NSMutableArray
+    //        let adressControll = SelectAdressTableViewController(adressData: adressDic, firstSelectRow: -1)
+    //        adressControll.delegate = self
+    //        return adressControll
+    //
+    //    }()
     
     
     @IBAction func toDetailController(sender: UIButton) {
@@ -72,8 +72,8 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
             }
             alert.addButton("取消", action: {})
             alert.showInfo("", subTitle: "请选择以下方式更新个人头像")
-           
-        break
+            
+            break
         case 2:
             let editNameController=EditNameViewController(callback: { (nameOfCallBack) in
                 self.name.text=nameOfCallBack
@@ -81,18 +81,18 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
             self.navigationController?.pushViewController(editNameController, animated: true)
             break
         case 3:
-
-//            setSexController.tmpSex = self.sex.text
-             let setSexController = SetSexViewController (callback: { (nameOfCallBack) in
+            
+            //            setSexController.tmpSex = self.sex.text
+            let setSexController = SetSexViewController (callback: { (nameOfCallBack) in
                 self.sex.text = nameOfCallBack
-             })
-             
+            })
+            
             self.navigationController?.pushViewController(setSexController, animated: true)
             
             break
         case 4:
             
-        
+            
             let jsonPath = NSBundle.mainBundle().pathForResource("china_citys", ofType: "json")
             let jsonData = NSData(contentsOfFile: jsonPath!)! as NSData
             let tmpObject: AnyObject?
@@ -104,14 +104,14 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
             adressControll.delegate = self
             adressControll
             self.navigationController?.pushViewController(adressControll, animated: true)
-
+            
             break
         default: break
             
         }
-     
+        
     }
-  
+    
     @IBOutlet weak var headImg: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var phone: UILabel!
@@ -121,12 +121,12 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title="个人信息"
-            setNavigationItem("back.png", selector: #selector(UIViewController.doBack), isRight: false)
+        setNavigationItem("back.png", selector: #selector(UIViewController.doBack), isRight: false)
         // Do any additional setup after loading the view.
         let province = (User.currentUser?.province)! as  String
         let city = (User.currentUser?.city)! as String
         self.address.text = province + " " + city
-
+        
         if User.currentUser?.headimageurl != nil
         {
             headImg.image=UIImage(data: (User.currentUser?.headimageurl)!)
@@ -147,20 +147,20 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
         
         
         
-
+        
     }
     
     //------代理-----
     func SelectAdressFinished(adress:String)
     {
-   
-
+        
+        
         self.address.text = adress
         
     }
-   func selectButtonChange(index:Int)
-   {
-    
+    func selectButtonChange(index:Int)
+    {
+        
     }
     func ToSelectAdressController() {
         
@@ -171,7 +171,7 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
     
     override func doBack() {
         
-          var sexParam = "0"
+        var sexParam = "0"
         if self.sex.text == "女"
         {
             sexParam = "0"
@@ -185,24 +185,20 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
             sexParam = "2"
         }
         
-
-       if User.currentUser?.headimageurl == UIImageJPEGRepresentation(headImg.image!, 0.001)&&name.text == User.currentUser?.name && User.currentUser?.sex == sexParam{
-            self.navigationController?.popViewControllerAnimated(true) 
+        
+        if User.currentUser?.headimageurl == UIImageJPEGRepresentation(headImg.image!, 0.001)&&name.text == User.currentUser?.name && User.currentUser?.sex == sexParam{
+            self.navigationController?.popViewControllerAnimated(true)
         }
         else{
-        
-   
-        let  imageData:NSData = UIImageJPEGRepresentation(headImg.image!, 0.001)!
-        print(sexParam)
-        
-        print(self.sex.text)
-        let  adressDetail
-            =    self.address.text! as String
- let province =  adressDetail.componentsSeparatedByString(" ").first! as String
-       
-        let city =  adressDetail.componentsSeparatedByString(" ").last! as String
+            
+            
+            let  imageData:NSData = UIImageJPEGRepresentation(headImg.image!, 0.001)!
 
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            let  adressDetail = self.address.text! as String
+            let province =  adressDetail.componentsSeparatedByString(" ").first! as String
+            let city = adressDetail.componentsSeparatedByString(" ").last! as String
+            
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             let parames = ["headImage": imageData,"province": province,"city": city,"sex": sexParam]
             User.UpdateUserInfo(parames as NSDictionary, success: {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -219,16 +215,16 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
                 })
                 alertView.showError("错误提示", subTitle: error.localizedDescription)
             }
-        
+            
         }
-
+        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
-          self.tabBarController?.tabBar.hidden=true
+        self.tabBarController?.tabBar.hidden=true
         
         
     }
@@ -259,16 +255,16 @@ class UserInfoViewController: UIViewController,SelectIDTableViewControllerDelega
         fatalError("init(coder:) has not been implemented")
         
     }
-
+    
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

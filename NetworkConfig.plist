@@ -74,6 +74,8 @@
 		<string>/AppInterface/AuditGroupMember</string>
 		<key>DeleteTeamAll</key>
 		<string>/AppInterface/RemoveGroup</string>
+		<key>GetCurrentRealNameInfo</key>
+		<string>/AppInterface/GetCurrentRealNameInfo</string>
 	</dict>
 	<key>ErrorCode</key>
 	<dict>
