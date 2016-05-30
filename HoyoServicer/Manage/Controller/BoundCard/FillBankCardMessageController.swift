@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManager
+import MBProgressHUD
 
 class FillBankCardMessageController: UIViewController {
     
@@ -223,9 +224,12 @@ extension FillBankCardMessageController{
 extension FillBankCardMessageController{
     func bingdingBankCard() -> Void {
         //绑定验证
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         User.BindNewBlankCard(["realname":realName!,"cardType":bankTypeTextField.text!,"cardid":bankNumber!,"cardphone":bankPhoneTextField.text!,"code":confirmCodeTextField.text!], success: { [weak self] in
             //验证成功跳转回navigation第二层(所有绑定的银行卡界面/提现界面)
             
+            MBProgressHUD.hideHUDForView(self!.view, animated: true)
             if self!.navigationController?.viewControllers.count >= 2 {
                 let viewController = self!.navigationController?.viewControllers[1]
                 
@@ -241,25 +245,26 @@ extension FillBankCardMessageController{
                     self!.navigationController?.popToViewController(vc!, animated: true)
                 }
             }
-
-//            for controller in (self!.navigationController?.viewControllers)!{
-//                
-//                if controller.isKindOfClass(BoundBankCardViewController){
-//                    
-//                    let vc = controller as? BoundBankCardViewController
-//                    vc!.downloadDataFromServer()
-//                    self!.navigationController?.popToViewController(vc!, animated: true)
-//                }
-//            }
             
-            }, failure: { (error) in
-                                
+            //            for controller in (self!.navigationController?.viewControllers)!{
+            //
+            //                if controller.isKindOfClass(BoundBankCardViewController){
+            //
+            //                    let vc = controller as? BoundBankCardViewController
+            //                    vc!.downloadDataFromServer()
+            //                    self!.navigationController?.popToViewController(vc!, animated: true)
+            //                }
+            //            }
+            
+            }, failure: { [weak self](error) in
+                
+                MBProgressHUD.hideHUDForView(self!.view, animated: true)
                 let alertView=SCLAlertView()
                 alertView.addButton("确定", action: {})
                 alertView.showError("错误提示", subTitle: error.localizedDescription)
-
+                
             })
-
+        
     }
 }
 

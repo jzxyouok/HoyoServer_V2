@@ -45,6 +45,8 @@ class BoundCarViewCell: UITableViewCell {
         
         backView.layoutIfNeeded()
         
+        bankNumberLabel.adjustsFontSizeToFitWidth = true
+        
         let maskPath = UIBezierPath(roundedRect: backView.bounds, byRoundingCorners: [UIRectCorner.TopLeft, UIRectCorner.TopRight] , cornerRadii: CGSize(width: 10, height: 10))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = backView.bounds
