@@ -72,6 +72,8 @@ class MyTeamTableViewController: UITableViewController {
         instanceUI()
         
     }
+    
+    
     private func instanceData(){
         
         
@@ -178,7 +180,7 @@ class MyTeamTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
-        //self.tabBarController?.tabBar.hidden=true
+        navigationController?.navigationBar.translucent = false
     }
     // MARK: - Table view data source
     

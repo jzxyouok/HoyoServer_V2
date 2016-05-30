@@ -155,24 +155,33 @@ extension BoundBankCardViewController:UITableViewDelegate,UITableViewDataSource{
         return dataSource.count
     }
     
-//    func  tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 120.0
-//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("BoundCarViewCell") as! BoundCarViewCell
+
         
+        return cell
         
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    
+        
+        /*
+         使用这个方法的目的: 让UITableView 滑动更流畅
+         这个代理方法是在现实cell之前被调用 -- 这里cell已经现实,此时执行数据绑定会更好
+         当然这对cell定高的UITableView来说没有作用,但对动态高度的cell来说,很容易地让滑动更流畅
+        */
+        let  cell = cell as! BoundCarViewCell
         cell.contentView.backgroundColor = UIColor(red: 40/255.0, green: 56/255.0, blue: 82/255.0, alpha: 1.0)
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         if dataSource.count > indexPath.section {
+            
             cell.configureForCell(dataSource[indexPath.section])
         }
-        
-        return cell
-        
+
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

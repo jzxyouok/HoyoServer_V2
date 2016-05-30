@@ -57,7 +57,31 @@ class BoundCarViewCell: UITableViewCell {
         
         bankNameLabel.text = model.bankName!
         bankTypelabel.text = model.bankType!
-        bankNumberLabel.text = model.cardId!
+        
+        var cardNum: String = "**** **** **** "
+        
+        if let card = model.cardId {
+            
+            var count = 0
+            for item in card.characters {
+                
+//                if count % 4 == 0 && count != 0{
+//                    cardNum += " "
+//                }
+                
+                count += 1
+
+                if count > ((card as NSString).length - 4) {
+                    cardNum.append(item)
+                }
+//                else{
+//                    cardNum += "*"
+//                }
+            }
+            
+            bankNumberLabel.text = cardNum
+        }
+        
     }
     
 }
