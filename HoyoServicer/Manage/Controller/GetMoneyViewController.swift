@@ -44,12 +44,14 @@ class GetMoneyViewController: UIViewController, UITextFieldDelegate{
             }
         }
     }
+    
+    var popoverView: PopoverView? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "提现"
-        setNavigationItem("back.png", selector:#selector(doBack), isRight: false)
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(disMissBtn))
         
         setupUI()
         //下载银行卡列表
@@ -247,12 +249,26 @@ extension GetMoneyViewController{
 
 extension GetMoneyViewController{
     
+    //左边按钮
+    func disMissBtn(){
+        
+        getMoneyTextField.resignFirstResponder()
+        
+        if let pop = popoverView {
+            pop.hide()
+        }
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     /**
      选择银行卡--按钮事件
      
      - parameter sender: 按钮
      */
     func selectBankCard(sender: UIButton) -> Void {
+        
+        getMoneyTextField.resignFirstResponder()
         
         if dataSource.isEmpty {
             
@@ -262,13 +278,13 @@ extension GetMoneyViewController{
             
         }else{
             
-            let popoverView = PopoverView()
-            popoverView.menuTitles = dataSource
+            popoverView = PopoverView()
+            popoverView!.menuTitles = dataSource
             weak var weakSelf = self
-            popoverView.showFromView(selectCardButton, selected: { (index: Int) in
-                weakSelf?.selectCardButton.setTitle(popoverView.menuTitles[index] as? String, forState: UIControlState.Normal)
+            popoverView!.showFromView(selectCardButton, selected: { (index: Int) in
+                weakSelf?.selectCardButton.setTitle(weakSelf?.popoverView!.menuTitles[index] as? String, forState: UIControlState.Normal)
                 weakSelf?.currentModel = weakSelf?.dataSource02![index]
-                weakSelf?.currentBank = popoverView.menuTitles[index] as? String
+                weakSelf?.currentBank = weakSelf?.popoverView!.menuTitles[index] as? String
             })
         }
 

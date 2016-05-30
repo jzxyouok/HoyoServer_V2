@@ -25,6 +25,10 @@ typedef void(^PopoverBlock)(NSInteger index);
  */
 - (void)showFromView:(UIView *)aView selected:(PopoverBlock)selected;
 
+// 点击透明层隐藏
+
+- (void)hide ;
+
 @end
 
 
