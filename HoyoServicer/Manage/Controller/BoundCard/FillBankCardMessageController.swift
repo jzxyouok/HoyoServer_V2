@@ -152,6 +152,7 @@ class FillBankCardMessageController: UIViewController {
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
         
+        //等整体导航栏改完之后,需要删除
         navigationController?.navigationBarHidden = true
         
     }
