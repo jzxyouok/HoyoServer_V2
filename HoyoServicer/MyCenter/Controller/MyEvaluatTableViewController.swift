@@ -65,7 +65,13 @@ class MyEvaluatTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden=false
         self.tabBarController?.tabBar.hidden=true
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(MyEvaluatTableViewController.disMissBtn))
     }
+    
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     // MARK: - Table view data source
 
      override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

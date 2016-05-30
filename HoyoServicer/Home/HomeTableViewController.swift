@@ -16,8 +16,8 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
     var action :String!
     var repeatTime = 0
     var  counttime:NSTimer!
- //  var orders=[Order]()
-//    var addressDicBlock:((CLLocationCoordinate2D,CLPlacemark)->Void)? 
+    //  var orders=[Order]()
+    //    var addressDicBlock:((CLLocationCoordinate2D,CLPlacemark)->Void)? 
     var tableView:UITableView!
     var headImgView:UIImageView!
     override func viewDidLoad() {
@@ -47,15 +47,15 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
                 strongSelf.refresh()
             }
         }
-     
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CurrentUserDidChange), name: CurrentUserDidChangeNotificationName, object: nil)
         
-    // initBlock()
-     
+        // initBlock()
+        
     }
- 
     
-
+    
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         //定位
@@ -72,27 +72,27 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
     var pagesize = 10
     var pageindex = 0
     
-
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations[0]
-       let o2d = newLocation.coordinate
-//CLLocationCoordinate2D
-//        let loca = 31.4217987560
-//        let logn = 116.7258979197
-//        let  location = CLLocation.init(latitude: loca, longitude: logn)
+        let o2d = newLocation.coordinate
+        //CLLocationCoordinate2D
+        //        let loca = 31.4217987560
+        //        let logn = 116.7258979197
+        //        let  location = CLLocation.init(latitude: loca, longitude: logn)
         
         //let o2d = newLocation.coordinate
         manager.stopUpdatingLocation()
         let  geoC = CLGeocoder()
-       
+        
         geoC.reverseGeocodeLocation(newLocation) { (placemarks, error) in
             if(error == nil)
             {
                 
                 let placemark=placemarks?.first
-            
-               // addressDic?.setValue(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
+                
+                // addressDic?.setValue(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
                 print("===========\n");
                 print("成功 %@",placemark?.classForCoder);
                 print("地理名称%@",placemark!.name);
@@ -101,27 +101,27 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
                 print("城市%@",placemark!.locality);
                 
                 print("区: %@",placemark!.subLocality);
- 
+                
                 print("==========\n");
                 
                 //初始化关于地理位置的block
-              //  self.initBlock()
-               self.addressDic.setValue(10, forKey: "pagesize")
-             //   self.addressDic.set(10, forKey: "pagesize")
+                //  self.initBlock()
+                self.addressDic.setValue(10, forKey: "pagesize")
+                //   self.addressDic.set(10, forKey: "pagesize")
                 self.addressDic.setValue(1, forKey: "pageindex")
-        
-               
+                
+                
                 self.addressDic.setValue((placemark!.administrativeArea! as String), forKey: "Province")
                 self.addressDic.setValue((placemark!.locality! as String), forKey: "city")
-          
+                
                 
                 self.addressDic.setValue((o2d.latitude as NSNumber).doubleValue, forKey: "lat")
-               
+                
                 self.addressDic.setValue((o2d.longitude as NSNumber).doubleValue, forKey: "lng")
-
-//             self.addressDic.setValue(placemark?.subLocality, forKey: "Country")
-              //self.addressDicBlock!(o2d,placemark!)
-               
+                
+                //             self.addressDic.setValue(placemark?.subLocality, forKey: "Country")
+                //self.addressDicBlock!(o2d,placemark!)
+                
             }else
             {
                 print("错误");
@@ -130,8 +130,8 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
         
     }
     
-
- 
+    
+    
     
     func CurrentUserDidChange() {
         self.tableView.reloadData()
@@ -139,7 +139,7 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
     var tmpWhitchImg = true
     
     
-     func refresh() {
+    func refresh() {
         let success: (User) -> Void = {
             [weak self] user in
             if let self_ = self {
@@ -153,11 +153,11 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
         let failure: (NSError) -> Void = {
             [weak self] error in
             if let self_ = self {
-               self_.tableView.pullToRefreshView.stopAnimating()
+                self_.tableView.pullToRefreshView.stopAnimating()
             }
         }
         User.RefreshIndex(success, failure: failure)
-
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -168,17 +168,17 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
         self.navigationController?.navigationBarHidden=true
     }
     // MARK: - Table view data source
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return HEIGHT_SCREEN-HEIGHT_TabBar-228*HEIGHT_SCREEN/667
     }
@@ -225,11 +225,11 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
         switch Tag {
         case 1:
             
-     if    self.addressQconCityIsNull() == false
-     {
-        break
-             }
-              MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            if    self.addressQconCityIsNull() == false
+            {
+                break
+            }
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             counttime=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:#selector(HomeTableViewController.addressQconCityIsNull), userInfo: nil, repeats: true)
             
             break
@@ -240,31 +240,32 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
             
             self.action = "yqaction"
             self.pushToNextCon()
-
-//
-//              self.nextTitle = "待处理"
-//       if       self.addressCityIsNill() == false
-//       {
-//        break
-//              }
-//               MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//              counttime=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:#selector(HomeTableViewController.addressCityIsNill), userInfo: nil, repeats: true)
             
-             
+            //
+            //              self.nextTitle = "待处理"
+            //       if       self.addressCityIsNill() == false
+            //       {
+            //        break
+            //              }
+            //               MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            //              counttime=NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:#selector(HomeTableViewController.addressCityIsNill), userInfo: nil, repeats: true)
+            
+            
             break
         case 3:
             let viewCon =  ViewController()
-            
+            viewCon.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewCon, animated: true)
             
             break
         case 4:
             
             let viewCon =  ViewController()
+            viewCon.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewCon, animated: true)
-//            self.nextTitle = "待评价"
-//            self.action = "waitscoreaction"
-//            self.pushToNextCon()
+            //            self.nextTitle = "待评价"
+            //            self.action = "waitscoreaction"
+            //            self.pushToNextCon()
             break
         case 5:
             
@@ -288,9 +289,9 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
             self.nextTitle = "已结算"
             self.action = "hsettlementaction"
             pushToNextCon()
-//            let  myteam = MyTeamTableViewController()
-//           // myteam.hidesBottomBarWhenPushed = true
-//             self.navigationController?.pushViewController(myteam, animated: true)
+            //            let  myteam = MyTeamTableViewController()
+            //           // myteam.hidesBottomBarWhenPushed = true
+            //             self.navigationController?.pushViewController(myteam, animated: true)
             
             break
             
@@ -298,7 +299,7 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
             break
             
         }
-
+        
     }
     
     func pushToNextCon( ){
@@ -343,7 +344,7 @@ class HomeTableViewController: UIViewController,CLLocationManagerDelegate,UITabl
         return true
         
     }
-
+    
     //抢单判断传入的地理信息是否成功
     func addressQconCityIsNull() ->Bool{
         repeatTime += 1

@@ -293,7 +293,7 @@ class User: DataObject {
         let fileName = NSString(format: "%@", str)
         constructingBlock={
             data in
-            var _ = data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
+            data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
            data!.appendPartWithFileData((backImg), name: (fileName as String)+"1", fileName: "backImg", mimeType: "image/png")
         }
         
@@ -519,7 +519,7 @@ class User: DataObject {
     }
     
     
-       //GetPost/Command/NewVersion获取版本更新
+    //GetPost/Command/NewVersion获取版本更新
     class func NewVersion(paramDic: NSDictionary, success: (() -> Void)?, failure: ((NSError) -> Void)?) {
         NetworkManager.defaultManager!.POST("NewVersion",
                                             parameters:paramDic,
@@ -650,14 +650,14 @@ class User: DataObject {
                                                 model.groupName =  (tmpData["user"]["GroupDetails"]["GroupName"]).stringValue
                                                 model.userself = tmpData["userself"]["userid"].stringValue ?? ""
                                                 model.userselfNickname = tmpData["userself"]["nickname"].stringValue ?? ""
-                                             
+                                                
                                                 let memArr = tmpData["members"].array
                                                 for item in memArr! {
                                                     if model.userself == item["user"]["userid"].stringValue {
                                                         model.userselfCreateTime = item["JoinTime"].stringValue ??  ""
                                                     }
                                                 }
-                                           
+                                                
                                                 
                                                 if let time = model.userselfCreateTime {
                                                     if time != "" {
@@ -689,8 +689,8 @@ class User: DataObject {
                                                 model.createTime = (tmpData["groupinfo"]["CreateTime"]).stringValue
                                                 if let time = model.createTime {
                                                     if time != "" {
-                                                    let date = DateTool.dateFromServiceTimeStamp(time)
-                                                    model.createTime = DateTool.stringFromDate(date!, dateFormat: "YYYY-MM-dd")
+                                                        let date = DateTool.dateFromServiceTimeStamp(time)
+                                                        model.createTime = DateTool.stringFromDate(date!, dateFormat: "YYYY-MM-dd")
                                                     }
                                                 }
                                                 
@@ -769,8 +769,9 @@ class User: DataObject {
                                                 var tmpData = data["data"]
                                                 var tempEvaluation = tmpData["score"]
                                                 evaluation.userid =   tempEvaluation["Userid"].stringValue
-                                                evaluation.score = tempEvaluation["Score"].stringValue
-                                                evaluation.number = tempEvaluation["Number"].stringValue
+                                                evaluation.score = tempEvaluation["Score"].stringValue == "" ? "0" : tempEvaluation["Score"].stringValue
+                                                evaluation.number = tempEvaluation["Number"].stringValue == "" ? "0" : tempEvaluation["Number"].stringValue
+                                                
                                                 let tmpScoreLists = tmpData["scorelist"].array
                                                 var scoreLists = [ScoreDetail]()
                                                 
@@ -900,8 +901,8 @@ class User: DataObject {
                                                     model.createTime = item["CreateTime"].stringValue
                                                     if  let time = model.createTime{
                                                         if time != "" {
-                                                        let date = DateTool.dateFromServiceTimeStamp(time)
-                                                        model.createTime = DateTool.stringFromDate(date!, dateFormat: "MM-dd") + DateTool.dayOfweek(date!)
+                                                            let date = DateTool.dateFromServiceTimeStamp(time)
+                                                            model.createTime = DateTool.stringFromDate(date!, dateFormat: "MM-dd") + DateTool.dayOfweek(date!)
                                                         }
                                                     }
                                                     
@@ -1053,7 +1054,7 @@ class User: DataObject {
     }
     
     //GetPost/AppInterface/GetCurrentRealNameInfo获取当前的实名认证信息
-
+    
     class func GetCurrentRealNameInfo(success:((String) -> Void)?,failure: ((NSError) -> Void)?) {
         NetworkManager.defaultManager?.POST("GetCurrentRealNameInfo", parameters: nil, success: { (data) in
             print(data["data"]["checkstate"].stringValue)
@@ -1063,5 +1064,25 @@ class User: DataObject {
                 failure!(error)
         })
     }
-    
+    //  /AppInterface/UploadRealnameAuthinfo   上传实名认证信息
+    class func UploadRealnameAuthinfo(name:String,cardid:String,frontImg:NSData,backImg:NSData, success: (() -> Void)?, failure: ((NSError) -> Void)?) {
+        
+        var constructingBlock:((AFMultipartFormData?) -> Void)?=nil
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmss"
+        let str = formatter.stringFromDate(NSDate())
+        let fileName = NSString(format: "%@", str)
+        constructingBlock={
+            data in
+            data!.appendPartWithFileData((frontImg), name: "cardfront", fileName: (fileName as String), mimeType: "image/png")
+            data!.appendPartWithFileData((backImg), name: "cardbehind", fileName: (fileName as String)+"1", mimeType: "image/png")
+            
+        }
+        NetworkManager.defaultManager!.request("UploadRealnameAuthinfo", GETParameters: nil, POSTParameters: ["name":name,"cardid":cardid], constructingBodyWithBlock: constructingBlock, success: {
+            data in
+            print(data)
+            success!()
+            }, failure: failure)
+        
+    }
 }

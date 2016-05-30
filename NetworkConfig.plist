@@ -76,6 +76,8 @@
 		<string>/AppInterface/RemoveGroup</string>
 		<key>GetCurrentRealNameInfo</key>
 		<string>/AppInterface/GetCurrentRealNameInfo</string>
+		<key>UploadRealnameAuthinfo</key>
+		<string>/AppInterface/UploadRealnameAuthinfo</string>
 	</dict>
 	<key>ErrorCode</key>
 	<dict>

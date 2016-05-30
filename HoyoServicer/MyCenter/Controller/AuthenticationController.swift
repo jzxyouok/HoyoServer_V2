@@ -11,7 +11,7 @@ import ALCameraViewController
 import MBProgressHUD
 
 
-class AuthenticationController: UIViewController {
+class AuthenticationController: UIViewController,UITextFieldDelegate {
 
     var dissCallBack:(()->Void)?//对注册进来用的
     @IBOutlet weak var leftButton: UIButton!
@@ -22,11 +22,19 @@ class AuthenticationController: UIViewController {
     @IBOutlet weak var verifyButton: UIButton!
     @IBAction func verifyClick(sender: AnyObject) {
         
+        
         if ((secondViewContainer?.hidden)!)==false {//第二个页面的点击事件处理
+         
+            if secondViewContainer?.nameTextField.text==""||secondViewContainer?.IDTextField.text=="" {
+                let alert=SCLAlertView()
+                alert.showTitle("", subTitle: "姓名和身份证号不能为空！", duration: 2, completeText: "", style: SCLAlertViewStyle.Notice, colorStyle: nil, colorTextButton: nil, circleIconImage: nil)
+                return
+            }
+            
             let frontData=UIImageJPEGRepresentation((secondViewContainer?.imageButton1.imageView?.image)!, 0.001)! as NSData
             let backData=UIImageJPEGRepresentation((secondViewContainer?.imageButton2.imageView?.image)!, 0.001)! as NSData
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-            User.UploadImages(frontData, backImg: backData, success: {
+            User.UploadRealnameAuthinfo((secondViewContainer?.nameTextField.text)!, cardid: (secondViewContainer?.IDTextField.text)!, frontImg: frontData, backImg: backData, success: {
                 [weak self] in
                 MBProgressHUD.hideHUDForView(self!.view, animated: true)
                 self!.verifierStateLabel.text="正在审核中。。。"
@@ -45,6 +53,7 @@ class AuthenticationController: UIViewController {
                     self!.verifyButton.backgroundColor=UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
                     self!.verifyButton.enabled=false
             })
+            
         }else//第一个页面的点击事件处理
         {
             secondViewContainer?.hidden=false
@@ -71,6 +80,10 @@ class AuthenticationController: UIViewController {
         rightButton.addTarget(self, action: #selector(barButtonClick), forControlEvents: .TouchUpInside)
         secondViewContainer?.imageButton1.addTarget(self, action: #selector(cameraClick), forControlEvents: .TouchUpInside)
         secondViewContainer?.imageButton2.addTarget(self, action: #selector(cameraClick), forControlEvents: .TouchUpInside)
+        secondViewContainer?.nameTextField.delegate=self
+        secondViewContainer?.IDTextField.delegate=self
+        
+        
         leftButton.hidden = !(dissCallBack == nil)
         rightButton.hidden = (dissCallBack == nil)
         initFrontData=UIImageJPEGRepresentation((secondViewContainer?.imageButton1.imageView?.image)!, 0.001)! as NSData
@@ -169,6 +182,12 @@ class AuthenticationController: UIViewController {
             verifyButton.backgroundColor=UIColor(red: 252/255, green: 134/255, blue: 62/255, alpha: 1)
         }
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -194,6 +213,11 @@ class AuthenticationController: UIViewController {
         fatalError("init(coder:) has not been implemented")
         
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
