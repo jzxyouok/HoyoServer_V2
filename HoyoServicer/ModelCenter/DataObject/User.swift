@@ -293,7 +293,7 @@ class User: DataObject {
         let fileName = NSString(format: "%@", str)
         constructingBlock={
             data in
-            var _ = data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
+            data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
            data!.appendPartWithFileData((backImg), name: (fileName as String)+"1", fileName: "backImg", mimeType: "image/png")
         }
         
