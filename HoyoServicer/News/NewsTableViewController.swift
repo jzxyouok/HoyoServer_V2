@@ -23,6 +23,7 @@ class NewsTableViewController: UITableViewController {
         super.viewDidLoad()
         instanceUI()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewsTableViewController.notice(_:)), name: messageNotification, object: nil)
+        
     }
     
     

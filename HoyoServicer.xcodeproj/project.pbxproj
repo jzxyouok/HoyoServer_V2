@@ -232,8 +232,6 @@
 		E05610481CE9CD5100979919 /* GetMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05610471CE9CD5100979919 /* GetMoneyViewController.swift */; };
 		E056104F1CE9CD8500979919 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05610491CE9CD8500979919 /* AddCarViewController.swift */; };
 		E05610501CE9CD8500979919 /* AddCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E056104A1CE9CD8500979919 /* AddCarViewController.xib */; };
-		E05610511CE9CD8500979919 /* BoundBankCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056104B1CE9CD8500979919 /* BoundBankCardViewController.swift */; };
-		E05610521CE9CD8500979919 /* BoundBankCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E056104C1CE9CD8500979919 /* BoundBankCardViewController.xib */; };
 		E05610531CE9CD8500979919 /* FillBankCardMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056104D1CE9CD8500979919 /* FillBankCardMessageController.swift */; };
 		E05610541CE9CD8500979919 /* FillBankCardMessageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E056104E1CE9CD8500979919 /* FillBankCardMessageController.xib */; };
 		E05610581CE9CDCB00979919 /* RNUITextField+Expand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05610551CE9CDCB00979919 /* RNUITextField+Expand.swift */; };
@@ -255,6 +253,7 @@
 		E06ABE7E1CF3FC1000B704EE /* RNTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */; };
 		E06ABE801CF3FC1D00B704EE /* RNWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */; };
 		E06ABE821CF3FC2B00B704EE /* RNMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ABE811CF3FC2B00B704EE /* RNMonthViewController.swift */; };
+		E071EAB01CFBE4FC000269FB /* BoundBankCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071EAAF1CFBE4FC000269FB /* BoundBankCardViewController.swift */; };
 		E07497E11CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */; };
 		E07497E31CEC6A1600C7DEFB /* RNBaseUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */; };
 		E093D5051CF583CD00854AFA /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E093D5041CF583CD00854AFA /* SDWebImage.framework */; };
@@ -543,8 +542,6 @@
 		E05610471CE9CD5100979919 /* GetMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMoneyViewController.swift; sourceTree = "<group>"; };
 		E05610491CE9CD8500979919 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		E056104A1CE9CD8500979919 /* AddCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCarViewController.xib; sourceTree = "<group>"; };
-		E056104B1CE9CD8500979919 /* BoundBankCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundBankCardViewController.swift; sourceTree = "<group>"; };
-		E056104C1CE9CD8500979919 /* BoundBankCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoundBankCardViewController.xib; sourceTree = "<group>"; };
 		E056104D1CE9CD8500979919 /* FillBankCardMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillBankCardMessageController.swift; sourceTree = "<group>"; };
 		E056104E1CE9CD8500979919 /* FillBankCardMessageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FillBankCardMessageController.xib; sourceTree = "<group>"; };
 		E05610551CE9CDCB00979919 /* RNUITextField+Expand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RNUITextField+Expand.swift"; sourceTree = "<group>"; };
@@ -572,6 +569,7 @@
 		E06ABE7D1CF3FC1000B704EE /* RNTodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNTodayViewController.swift; sourceTree = "<group>"; };
 		E06ABE7F1CF3FC1D00B704EE /* RNWeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNWeekViewController.swift; sourceTree = "<group>"; };
 		E06ABE811CF3FC2B00B704EE /* RNMonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNMonthViewController.swift; sourceTree = "<group>"; };
+		E071EAAF1CFBE4FC000269FB /* BoundBankCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundBankCardViewController.swift; sourceTree = "<group>"; };
 		E07497E01CEC505C00C7DEFB /* RNRecruitNewMenmberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNRecruitNewMenmberViewController.swift; sourceTree = "<group>"; };
 		E07497E21CEC6A1600C7DEFB /* RNBaseUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNBaseUI.swift; sourceTree = "<group>"; };
 		E093D5041CF583CD00854AFA /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
@@ -935,8 +933,7 @@
 			children = (
 				E05610491CE9CD8500979919 /* AddCarViewController.swift */,
 				E056104A1CE9CD8500979919 /* AddCarViewController.xib */,
-				E056104B1CE9CD8500979919 /* BoundBankCardViewController.swift */,
-				E056104C1CE9CD8500979919 /* BoundBankCardViewController.xib */,
+				E071EAAF1CFBE4FC000269FB /* BoundBankCardViewController.swift */,
 				E056104D1CE9CD8500979919 /* FillBankCardMessageController.swift */,
 				E056104E1CE9CD8500979919 /* FillBankCardMessageController.xib */,
 			);
@@ -1431,7 +1428,6 @@
 				E04195511CCF2BA3005D08DC /* ForGetPassowViewController.xib in Resources */,
 				E04196041CCF2F41005D08DC /* MyCenterTableViewCell.xib in Resources */,
 				3BD5B9671CF2C10F0097BC60 /* trouble.json in Resources */,
-				E05610521CE9CD8500979919 /* BoundBankCardViewController.xib in Resources */,
 				E04196061CCF2F41005D08DC /* MyEvaluatCell.xib in Resources */,
 				E04195C41CCF2EA5005D08DC /* DetailOfNewsViewController.xib in Resources */,
 				89A9F8A01CF6F6A600ED37C0 /* GYTeamSecondCell.xib in Resources */,
@@ -1668,7 +1664,6 @@
 				E04195FD1CCF2F41005D08DC /* TeamListTableViewController.swift in Sources */,
 				E056105D1CE9CE5E00979919 /* MyAccount+CoreDataProperties.swift in Sources */,
 				8915CBC21CD3541A00D564D1 /* TeamMembers.swift in Sources */,
-				E05610511CE9CD8500979919 /* BoundBankCardViewController.swift in Sources */,
 				E04196501CCF37D5005D08DC /* SettingsManager.swift in Sources */,
 				8D2B8BAB1CF3EA2E005047F2 /* Test+CoreDataProperties.swift in Sources */,
 				3BD5B9E11CF2C2270097BC60 /* MSSBrowseRemindView.m in Sources */,
@@ -1680,6 +1675,7 @@
 				E093D5481CF6897700854AFA /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				E04196511CCF37D5005D08DC /* CALayer+Expand.swift in Sources */,
 				E04195AE1CCF2D77005D08DC /* ManageTableViewController.swift in Sources */,
+				E071EAB01CFBE4FC000269FB /* BoundBankCardViewController.swift in Sources */,
 				3BD5B9DB1CF2C2270097BC60 /* MSSBrowseBaseViewController.m in Sources */,
 				E05610591CE9CDCB00979919 /* RNUIView+Expand.swift in Sources */,
 				E04196031CCF2F41005D08DC /* MyCenterTableViewCell.swift in Sources */,
