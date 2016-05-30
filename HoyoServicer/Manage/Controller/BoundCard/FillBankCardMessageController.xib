@@ -92,7 +92,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drW-2T-9b5">
-                            <rect key="frame" x="79" y="0.0" width="9" height="50"/>
+                            <rect key="frame" x="79" y="0.0" width="286" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="3Gj-wo-7RM"/>
                             </constraints>
@@ -114,6 +114,7 @@
                         <constraint firstAttribute="bottom" secondItem="r2W-MW-GfF" secondAttribute="bottom" id="UOR-NZ-A7f"/>
                         <constraint firstItem="r2W-MW-GfF" firstAttribute="top" secondItem="PAN-gs-CUy" secondAttribute="top" id="WHo-rm-qK4"/>
                         <constraint firstItem="drW-2T-9b5" firstAttribute="leading" secondItem="r2W-MW-GfF" secondAttribute="trailing" constant="10" id="X7f-Xh-3Y9"/>
+                        <constraint firstAttribute="trailing" secondItem="drW-2T-9b5" secondAttribute="trailing" constant="10" id="tBr-sV-eYV"/>
                         <constraint firstItem="drW-2T-9b5" firstAttribute="top" secondItem="PAN-gs-CUy" secondAttribute="top" id="wpy-Bf-hVm"/>
                         <constraint firstItem="r2W-MW-GfF" firstAttribute="centerY" secondItem="PAN-gs-CUy" secondAttribute="centerY" id="xCB-eV-cek"/>
                     </constraints>
