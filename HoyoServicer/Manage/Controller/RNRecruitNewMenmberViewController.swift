@@ -72,6 +72,8 @@ class RNRecruitNewMenmberViewController: UIViewController , UITextViewDelegate{
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blackImgOfNavBg"), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage =  UIImage(named: "blackImgOfNavBg")
         navigationController?.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        //修改
     }
     
     override func viewWillLayoutSubviews() {
