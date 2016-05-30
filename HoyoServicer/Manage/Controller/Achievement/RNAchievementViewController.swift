@@ -16,6 +16,7 @@ class RNAchievementViewController: YZDisplayViewController {
         super.viewDidLoad()
 
         navigationItem.title = "绩效排行榜"
+        //navigationController?.automaticallyAdjustsScrollViewInsets = false
         view.backgroundColor = UIColor.whiteColor()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(disMissBtn))
@@ -28,6 +29,13 @@ class RNAchievementViewController: YZDisplayViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
+        navigationController?.navigationBar.translucent = false
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+         self.navigationController?.navigationBarHidden = true
     }
     
    

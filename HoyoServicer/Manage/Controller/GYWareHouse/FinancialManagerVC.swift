@@ -47,6 +47,7 @@ class FinancialManagerVC: UIViewController ,UITableViewDataSource,UITableViewDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBarHidden = false
+        navigationController?.navigationBar.translucent = false
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(FinancialManagerVC.backAction))
         title = "财务管理"
         dataArr.removeAll()

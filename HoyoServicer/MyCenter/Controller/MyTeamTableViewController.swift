@@ -38,7 +38,7 @@ class MyTeamTableViewController: UITableViewController {
                 }
             } else {
                 localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["特权信息"]]
-                netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.groupName!,modelTeam.memberState!,"￥200,000"],[modelTeam.scopename!,modelTeam.scopevalue!,modelTeam.groupScopeName!,modelTeam.groupScoupValue!]]
+                netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.scopename!,modelTeam.scopevalue!,modelTeam.groupScopeName!,modelTeam.groupScoupValue!]]
                 switch modelTeam.memberState! {
                 case "审核失败","被封号了","审核中":
                     rightBtnState = false
@@ -72,6 +72,8 @@ class MyTeamTableViewController: UITableViewController {
         instanceUI()
         
     }
+    
+    
     private func instanceData(){
         
         
@@ -178,7 +180,7 @@ class MyTeamTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
-        //self.tabBarController?.tabBar.hidden=true
+        navigationController?.navigationBar.translucent = false
     }
     // MARK: - Table view data source
     
