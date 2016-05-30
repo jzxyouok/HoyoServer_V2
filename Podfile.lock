@@ -2,7 +2,7 @@ PODS:
   - ALCameraViewController (1.1.9)
   - Appirater (2.0.5)
   - BaiduMapKit (2.10.2)
-  - Bugly (2.2)
+  - Bugly (2.2.3)
   - IQKeyboardManager (4.0.1)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
@@ -41,7 +41,7 @@ SPEC CHECKSUMS:
   ALCameraViewController: f171ffb7e84d211277a0f97823a2bda7418dc573
   Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
   BaiduMapKit: b1706a062597c70ec62a0cca93212cba1d3017e1
-  Bugly: b24bdd3017bb05d4749d66e1b95bd1ba7207e7bd
+  Bugly: db578ea92b2a6b132cc19f79adf3bcd3b0fe6769
   IQKeyboardManager: 0c11a0cb402a621f7aa1aff506f60ab6d2388969
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4

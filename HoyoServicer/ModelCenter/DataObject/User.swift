@@ -1063,5 +1063,25 @@ class User: DataObject {
                 failure!(error)
         })
     }
-    
+    //  /AppInterface/UploadRealnameAuthinfo   上传实名认证信息
+    class func UploadRealnameAuthinfo(name:String,cardid:String,frontImg:NSData,backImg:NSData, success: (() -> Void)?, failure: ((NSError) -> Void)?) {
+        
+        var constructingBlock:((AFMultipartFormData?) -> Void)?=nil
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMddHHmmss"
+        let str = formatter.stringFromDate(NSDate())
+        let fileName = NSString(format: "%@", str)
+        constructingBlock={
+            data in
+            data!.appendPartWithFileData((frontImg), name: "cardfront", fileName: (fileName as String), mimeType: "image/png")
+            data!.appendPartWithFileData((backImg), name: "cardbehind", fileName: (fileName as String)+"1", mimeType: "image/png")
+            
+        }
+        NetworkManager.defaultManager!.request("UploadRealnameAuthinfo", GETParameters: nil, POSTParameters: ["name":name,"cardid":cardid], constructingBodyWithBlock: constructingBlock, success: {
+            data in
+            print(data)
+            success!()
+            }, failure: failure)
+        
+    }
 }
