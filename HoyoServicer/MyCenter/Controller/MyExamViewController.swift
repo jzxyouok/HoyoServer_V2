@@ -9,7 +9,7 @@
 import UIKit
 
 class MyExamViewController: UIViewController {
-
+    
     @IBOutlet weak var alertTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class MyExamViewController: UIViewController {
         alertTextView.font=UIFont.systemFontOfSize(14)
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,7 +29,14 @@ class MyExamViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
         self.tabBarController?.tabBar.hidden=true
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(MyExamViewController.disMissBtn))
+        
     }
+    
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }

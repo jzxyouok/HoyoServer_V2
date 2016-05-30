@@ -9,19 +9,30 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBarHidden = false
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "待开发..."
+        view.backgroundColor = UIColor.whiteColor()
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(ViewController.disMissBtn))
+        navigationController?.navigationBarHidden = false
     }
     
-
-
-
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
+    
+    
+    
 }

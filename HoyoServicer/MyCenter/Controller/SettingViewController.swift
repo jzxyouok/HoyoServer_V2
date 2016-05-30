@@ -29,6 +29,11 @@ class SettingViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden=false
         self.tabBarController?.tabBar.hidden=true
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(SettingViewController.disMissBtn))
+    }
+    
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
