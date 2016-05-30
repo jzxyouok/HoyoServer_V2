@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
 class AddCarViewController: UIViewController,UITextFieldDelegate {
 
@@ -46,6 +47,12 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "添加银行卡"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(disMissBtn))
+
+        
         cardOwner.placeholder = "持卡人姓名"
         cardOwner.delegate = self
         cardOwner.clearButtonMode = UITextFieldViewMode.WhileEditing
@@ -57,6 +64,28 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
         cardNumber.keyboardType = UIKeyboardType.NumberPad
         //cardOwner.text = "郑文祥"
         //cardNumber.text = "6217001210048102717"
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+        
+        navigationController?.navigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+        
+        navigationController?.navigationBarHidden = true
     }
 
     
@@ -89,10 +118,7 @@ class AddCarViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-    @IBAction func back() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
+      
     func textFieldShouldClear(textField: UITextField) -> Bool {
         return true
     }
@@ -194,4 +220,15 @@ extension AddCarViewController{
         let modulus = sum % 10
         return modulus == 0
     }
+}
+
+// MARK: - event response
+
+extension AddCarViewController{
+    
+    //左边按钮
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
 }

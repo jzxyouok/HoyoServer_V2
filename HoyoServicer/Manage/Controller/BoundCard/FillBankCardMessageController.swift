@@ -11,11 +11,7 @@ import IQKeyboardManager
 
 class FillBankCardMessageController: UIViewController {
     
-    @IBAction func backAction(sender: UIButton) {
-        
-        self.navigationController?.popViewControllerAnimated(true)
-        
-    }
+   
     @IBOutlet weak var bankTypeTextField: UITextField!
     
     @IBOutlet weak var bankPhoneTextField: UITextField!
@@ -125,6 +121,11 @@ class FillBankCardMessageController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        navigationItem.title = "填写银行卡信息"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(disMissBtn))
+
+        
         setupTextFiled()
         
        
@@ -138,8 +139,10 @@ class FillBankCardMessageController: UIViewController {
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         // IQKeyboardReturnKeyHandler.init().lastTextFieldReturnKeyType = UIReturnKeyType.Done
+        
+        navigationController?.navigationBarHidden = false
     }
-
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -149,8 +152,8 @@ class FillBankCardMessageController: UIViewController {
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
         
-    
-    
+        navigationController?.navigationBarHidden = true
+        
     }
 
    
@@ -257,6 +260,18 @@ extension FillBankCardMessageController{
             })
 
     }
+}
+
+
+// MARK: - event response
+
+extension FillBankCardMessageController{
+    
+    //左边按钮
+    func disMissBtn(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
 
 
