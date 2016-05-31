@@ -14,7 +14,7 @@ class GYDetailNewCell: UITableViewCell {
     var iconImageView: UIImageView = UIImageView()
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -23,7 +23,7 @@ class GYDetailNewCell: UITableViewCell {
         iconImageView.frame = CGRectMake(10, 20, 50, 50)
         iconImageView.image = UIImage(named: "sys_msg")
         contentView.addSubview(iconImageView)
-        let imageView = UIImageView(image: UIImage(named:"chat_normal_pic"))
+        let imageView = UIImageView(image: UIImage(named:"message_receiver_background_normal"))
         imageView.frame = contentView.bounds
         contentView.addSubview(imageView)
         imageView.snp_makeConstraints { (make) in
@@ -51,12 +51,10 @@ class GYDetailNewCell: UITableViewCell {
     
     func reloadUI(model: ScoreMessageModel) {
         messageLabel.text = model.messageCon
+        iconImageView.layer.cornerRadius = 25
+        iconImageView.layer.masksToBounds = true
         if model.sendImageUrl != "" {
             let url = model.sendImageUrl!
-            print(model.sendImageUrl)
-            iconImageView.layer.cornerRadius = 25
-            iconImageView.layer.masksToBounds = true
-            //TODO:头像不显示
             iconImageView.sd_setImageWithURL(NSURL(string: url))
         }
     }

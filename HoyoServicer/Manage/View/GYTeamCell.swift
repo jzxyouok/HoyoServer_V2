@@ -28,7 +28,7 @@ class GYTeamCell: UITableViewCell {
             make.top.equalTo(contentView).offset(15)
             make.left.equalTo(contentView).offset(10)
 //            make.height.equalTo(21)
-            make.width.equalTo(68)
+            make.width.equalTo(102)
             make.bottom.equalTo(contentView).offset(-7.5)
         })
       
@@ -45,7 +45,11 @@ class GYTeamCell: UITableViewCell {
     
     func reloadUI(str:String,str2: String) {
         fixedName?.text = str
+        if str2 == "" {
+            netWorkLb?.text = "暂无"
+        } else {
         netWorkLb?.text = str2
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

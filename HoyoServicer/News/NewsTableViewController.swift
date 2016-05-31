@@ -94,7 +94,7 @@ class NewsTableViewController: UITableViewController {
         
         let detail = GYDetailNewsVC()
         let model = dataArr[indexPath.row]
-        detail.dataArr =  ScoreMessageModel.GetSourceArr(model.sendUserid!, entityName: "")
+        //        detail.dataArr =  ScoreMessageModel.GetSourceArr(model.sendUserid!, entityName: "")
         detail.sendUserID = model.sendUserid
         detail.titleStr = model.sendNickName
         navigationController?.pushViewController(detail, animated: true)

@@ -20,33 +20,51 @@ class GYDetailNewsVC: UIViewController {
         {
         didSet{
             tableView.reloadData()
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         instanceUI()
+        getDatas()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GYDetailNewsVC.notice(_:)), name: messageNotification, object: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBarHidden=false
         tabBarController?.tabBar.hidden=true
-        //        view.backgroundColor = UIColor.redColor()
         title = titleStr
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(GYDetailNewsVC.dissBtnAction))
+        weak var weakSelf = self
+        dispatch_async(dispatch_get_main_queue()) { 
+            weakSelf?.scrolliewToBootom()
+        }
     }
     
     func notice(sender: AnyObject) {
-       dataArr =  ScoreMessageModel.GetSourceArr(sendUserID!, entityName: "")
+        dataArr =  ScoreMessageModel.GetSourceArr(sendUserID!, entityName: "")
+        scrolliewToBootom()
+    }
+    
+    /**
+     获取本地数据
+     */
+    func getDatas() {
+        dataArr =  ScoreMessageModel.GetSourceArr(sendUserID!, entityName: "")
     }
     
     private func instanceUI() {
         
         NSUserDefaults.standardUserDefaults().setValue("0", forKey: "messageNum")
         NSNotificationCenter.defaultCenter().postNotificationName(messageNotification, object: nil, userInfo: ["messageNum": "1"])
-        tableView.frame = view.bounds
+        tableView.frame = CGRectMake(0, 0, WIDTH_SCREEN, HEIGHT_SCREEN - 20)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.delegate = self
         tableView.dataSource = self
@@ -59,9 +77,26 @@ class GYDetailNewsVC: UIViewController {
         tableView.registerNib(UINib(nibName: "GYScoreMessageCell",bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "GYScoreMessageCell")
     }
     
+    /**
+     自动跳转到最后一行
+     */
+    func scrolliewToBootom() {
+        if dataArr.count >= 1 {
+            print(dataArr.count)
+            tableView.scrollToRowAtIndexPath(NSIndexPath(forItem: dataArr.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
+            
+        }
+    }
+    
     func dissBtnAction() {
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(messageNotification)
+    }
+    
+    
     
 }
 
@@ -106,5 +141,7 @@ extension GYDetailNewsVC: UITableViewDataSource,UITableViewDelegate {
         return UITableViewCell()
         
     }
+    
+    
     
 }

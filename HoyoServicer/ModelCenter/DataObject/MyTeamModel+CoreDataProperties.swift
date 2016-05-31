@@ -13,7 +13,7 @@ import Foundation
 import CoreData
 
 extension MyTeamModel {
-
+    
     @NSManaged var city: String?
     @NSManaged var country: String?
     @NSManaged var createTime: String?
@@ -32,5 +32,7 @@ extension MyTeamModel {
     @NSManaged var userselfNickname: String?
     @NSManaged var userselfCreateTime: String?
     @NSManaged var userselfMemberState: String?
-
+    @NSManaged var suplevel1: String?
+    @NSManaged var suplevel2:String?
+    @NSManaged var suplevel3:String?
 }

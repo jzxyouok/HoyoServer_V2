@@ -294,7 +294,7 @@ class User: DataObject {
         constructingBlock={
             data in
             data!.appendPartWithFileData((frontImg), name: (fileName as String), fileName: "frontImg", mimeType: "image/png")
-           data!.appendPartWithFileData((backImg), name: (fileName as String)+"1", fileName: "backImg", mimeType: "image/png")
+            data!.appendPartWithFileData((backImg), name: (fileName as String)+"1", fileName: "backImg", mimeType: "image/png")
         }
         
         NetworkManager.defaultManager!.request("UploadImages", GETParameters: nil, POSTParameters: ["order":"cardvf"], constructingBodyWithBlock: constructingBlock, success: {
@@ -687,15 +687,16 @@ class User: DataObject {
                                                 model.province = (tmpData["user"]["GroupDetails"]["ServiceAreas"][0]["Province"]).stringValue
                                                 model.nickname = (tmpData["user"]["nickname"]).stringValue
                                                 model.createTime = (tmpData["groupinfo"]["CreateTime"]).stringValue
+                                                model.suplevel1 = (tmpData["groupinfo"]["suplevel1"]).stringValue
+                                                model.suplevel2 = (tmpData["groupinfo"]["suplevel2"]).stringValue
+                                                model.suplevel3 = (tmpData["groupinfo"]["suplevel3"]).stringValue
                                                 if let time = model.createTime {
                                                     if time != "" {
                                                         let date = DateTool.dateFromServiceTimeStamp(time)
                                                         model.createTime = DateTool.stringFromDate(date!, dateFormat: "YYYY-MM-dd")
                                                     }
                                                 }
-                                                
-                                                model.memberState = (tmpData["user"]["GroupDetails"]["MemberState"]).stringValue
-                                                
+                                                model.memberState = (tmpData["user"]["GroupDetails"]["MemberState"]).stringValue      
                                                 model.groupScopeName = tmpData["attibutes"][1]["scopename"].stringValue
                                                 model.groupScoupValue = tmpData["attibutes"][1]["scopevalue"].stringValue
                                                 model.scopename = tmpData["attibutes"][0]["scopename"].stringValue

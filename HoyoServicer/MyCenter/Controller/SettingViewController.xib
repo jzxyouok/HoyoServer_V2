@@ -30,7 +30,7 @@
                                         <action selector="loginOut:" destination="-1" eventType="touchUpInside" id="suh-ry-6fp"/>
                                     </connections>
                                 </button>
-                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="ToRightIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-cA-9pf">
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ToRightIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-cA-9pf">
                                     <rect key="frame" x="350" y="13.5" width="10" height="18"/>
                                 </imageView>
                             </subviews>
