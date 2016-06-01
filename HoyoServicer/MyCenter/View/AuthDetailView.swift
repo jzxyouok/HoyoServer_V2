@@ -12,6 +12,8 @@ class AuthDetailView: UIView {
 
     @IBOutlet weak var imageButton1: UIButton!
     @IBOutlet weak var imageButton2: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var IDTextField: UITextField!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
