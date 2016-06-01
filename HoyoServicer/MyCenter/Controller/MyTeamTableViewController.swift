@@ -35,11 +35,11 @@ class MyTeamTableViewController: UITableViewController {
                 switch lastArr.count {
                 case 0:
                     localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["用户名","审请时间","审核状态"]]
-                     netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!]]
+                    netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!]]
                     break
                 case 1:
                     localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["用户名","审请时间","审核状态"],["上级联系人1"]]
-                     netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!],[lastArr[0]]]
+                    netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!],[lastArr[0]]]
                     break
                 case 2:
                     localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["用户名","审请时间","审核状态"],["上级联系人1","上级联系人2"]]
@@ -47,13 +47,13 @@ class MyTeamTableViewController: UITableViewController {
                     break
                 case 3:
                     localArr = [["网点名称","团队编号","服务区域"],["创建人","创建时间","审核状态","保证金"],["用户名","审请时间","审核状态"],["上级联系人1","上级联系人2","上级联系人3"]]
-                     netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!],[lastArr[0],lastArr[1],lastArr[2]]]
+                    netArr = [[modelTeam.groupName!,modelTeam.groupNumber!,modelTeam.province!],[modelTeam.nickname!,modelTeam.createTime!,modelTeam.memberState!,"￥200,000"],[modelTeam.userselfNickname!,modelTeam.userselfCreateTime!,modelTeam.userselfMemberState!],[lastArr[0],lastArr[1],lastArr[2]]]
                     break
                 default:
                     break
                 }
                 //特权信息(待定)[modelTeam.scopename!,modelTeam.scopevalue!,modelTeam.groupScopeName!,modelTeam.groupScoupValue!]
-               
+                
                 switch modelTeam.userselfMemberState! {
                     
                 case "审核失败","被封号了","审核中":
@@ -100,23 +100,29 @@ class MyTeamTableViewController: UITableViewController {
         /**
          获取数据
          */
-        instanceData()
+        //        instanceData()
         instanceUI()
+        weak var weakSelf = self
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        dispatch_async(dispatch_get_global_queue(0, 0)) { 
+            weakSelf?.instanceData()
+            dispatch_async(dispatch_get_main_queue(), {
+                weakSelf?.tableView.reloadData()
+            })
+        }
         
     }
     
     
     private func instanceData(){
-        
-        
         weak var weakSelf = self
-        
         User.GetNowAuthorityDetailInfo({ (memberArr: [TeamMembers], teamArr: [MyTeamModel]) in
             weakSelf?.myTeamData = teamArr
             weakSelf?.teamMembers = memberArr
             // ---
             weakSelf?.addUI()
         }) { (error:NSError) in
+            
             weakSelf?.navigationItem.rightBarButtonItem?.enabled = false
         }
     }
@@ -126,9 +132,6 @@ class MyTeamTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         self.title="我的团队"
         UITableViewStyle.Grouped
-        let imageHeadView = UIImageView(frame: CGRectMake(0, 64, WIDTH_SCREEN, 185))
-        imageHeadView.image = UIImage(named: "banner3")
-        tableView.tableHeaderView = imageHeadView
         tableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets=false
         navigationItem.leftBarButtonItem = UIBarButtonItem.createBarButtonItem("back", target: self, action: #selector(WareHouseViewController.disMissBtn))
@@ -178,7 +181,6 @@ class MyTeamTableViewController: UITableViewController {
                 break
             }
         }
-        
     }
     
     func disMissBtn() {
@@ -233,6 +235,12 @@ class MyTeamTableViewController: UITableViewController {
     //        return max(HEIGHT_SCREEN-64, 780)
     //    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            MBProgressHUD.hideHUDForView(view, animated: true)
+            let imageHeadView = UIImageView(frame: CGRectMake(0, 64, WIDTH_SCREEN, 185))
+            imageHeadView.image = UIImage(named: "banner3")
+            tableView.tableHeaderView = imageHeadView
+        }
         let arr = localArr![indexPath.section]
         let arr2 = netArr![indexPath.section]
         
